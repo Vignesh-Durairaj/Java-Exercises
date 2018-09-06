@@ -70,18 +70,51 @@ public class FibonacciSeries {
 		}
 	}
 	
+	public BigInteger getValueUsingArrays (final int position) {
+		if (position < 0) {
+			throw new IllegalArgumentException("Input position should be a positive integer");
+		} else {
+			BigInteger[] fibonacciArr = new BigInteger[position + 1];
+			fibonacciArr[0] = BigInteger.ZERO;
+			
+			if (position >= 1) {
+				fibonacciArr[1] = BigInteger.valueOf(1);
+			}
+
+			processFibonacciArray(position, fibonacciArr);
+			return fibonacciArr[position];
+		}
+	}
+	
+	private BigInteger processFibonacciArray (final int position, final BigInteger[] fibonacciArr) {
+		if (fibonacciArr[position] != null) {
+			return fibonacciArr[position];
+		} else if (position >= 2) {
+			BigInteger newValue = processFibonacciArray(position - 1, fibonacciArr).add(processFibonacciArray(position - 2, fibonacciArr));
+			fibonacciArr[position] = newValue;
+			return newValue;
+		} else {
+			return fibonacciArr[position];
+		}
+	}
+	
 	public static void main(String[] args) {
 		long startTime, endTime;
 		FibonacciSeries fibonacciSeries = new FibonacciSeries();
 		
 		startTime = System.currentTimeMillis();
-		System.out.println(fibonacciSeries.getValueFromMethod(8181));
+		System.out.println(fibonacciSeries.getValueFromMethod(5000));
 		endTime = System.currentTimeMillis();
 		System.out.println("Time taken to evaluate using method : " + (endTime - startTime) + "ms");
 		
 		startTime = System.currentTimeMillis();
-		System.out.println(fibonacciSeries.getValueFromFastProcess(8181));
+		System.out.println(fibonacciSeries.getValueUsingArrays(5000));
 		endTime = System.currentTimeMillis();
-		System.out.println("Time taken to evaluate using Fast process : " + (endTime - startTime) + "ms");
+		System.out.println("Time taken to evaluate using arrays fast process : " + (endTime - startTime) + "ms");
+		
+		startTime = System.currentTimeMillis();
+		System.out.println(fibonacciSeries.getValueFromFastProcess(5000));
+		endTime = System.currentTimeMillis();
+		System.out.println("Time taken to evaluate using map and Fast process : " + (endTime - startTime) + "ms");
 	}
 }

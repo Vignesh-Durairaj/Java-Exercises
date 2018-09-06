@@ -44,6 +44,13 @@ public class FibonacciSeriesTest {
 			Assert.assertNotNull(outputVal);
 			Assert.fail("Input Arguments should not be a negative a value");
 		}
+		
+		@Test(expected=IllegalArgumentException.class)
+		public void testNegativeInputForArrayProcess() {
+			BigInteger outputVal = numericalMethods.getValueUsingArrays(-1);
+			Assert.assertNotNull(outputVal);
+			Assert.fail("Input Arguments should not be a negative a value");
+		}
 	}
 	
 	@RunWith(Parameterized.class)
@@ -90,6 +97,13 @@ public class FibonacciSeriesTest {
 		public void testFastProcessValue () {
 			FibonacciSeries numericalMethods = new FibonacciSeries();
 			BigInteger processedVal = numericalMethods.getValueFromFastProcess(inputVal);
+			Assert.assertEquals(outputVal, processedVal);
+		}
+		
+		@Test
+		public void testArrayProcessValue () {
+			FibonacciSeries numericalMethods = new FibonacciSeries();
+			BigInteger processedVal = numericalMethods.getValueUsingArrays(inputVal);
 			Assert.assertEquals(outputVal, processedVal);
 		}
 	}
