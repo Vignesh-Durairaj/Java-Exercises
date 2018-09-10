@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class ArrayMethods {
 
 	public int getNthSmallElement (final int[] a, final int rank) {
-		if (a == null || a.length < rank) {
+		if (a == null || a.length < rank || rank < 1) {
 			throw new IllegalArgumentException("The input array should have minimum " + rank + " number of elements");
 		} 
 		
@@ -16,8 +16,8 @@ public class ArrayMethods {
 	}
 	
 	public int getNthSmallElement (final int rank, final int[] a) {
-		if (a == null || a.length < rank) {
-			throw new IllegalArgumentException("The input array should have minimum " + rank + " number of elements");
+		if (a == null || a.length < rank || rank < 1) {
+			throw new IllegalArgumentException("The input array should have minimum of " + rank + " elements");
 		}
 		
 		for (int i = 0; i < a.length; i ++) {
@@ -34,7 +34,7 @@ public class ArrayMethods {
 	}
 	
 	public int getRankedElementFromArray (final int[] a, final int rank) {
-		if (a == null || a.length < rank) {
+		if (a == null || a.length < rank || rank < 1) {
 			throw new IllegalArgumentException("The input array should have minimum " + rank + " number of elements");
 		}
 		
