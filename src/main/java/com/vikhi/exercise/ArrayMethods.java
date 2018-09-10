@@ -1,8 +1,6 @@
 package com.vikhi.exercise;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class ArrayMethods {
 
@@ -38,18 +36,17 @@ public class ArrayMethods {
 			throw new IllegalArgumentException("The input array should have minimum " + rank + " number of elements");
 		}
 		
-		List<Integer> sortedList = 
+		int[] sortedArray = 
 			Arrays
 				.stream(a)
 				.sorted()
 				.distinct()
-				.boxed()
-				.collect(Collectors.toList());
+				.toArray();
 		
-		if (sortedList.size() < rank) {
+		if (sortedArray.length < rank) {
 			throw new IllegalArgumentException("No value is " + rank + "th smallest from the input array");
 		}
 		
-		return sortedList.get(rank - 1);
+		return sortedArray[rank - 1];
 	}
 }
