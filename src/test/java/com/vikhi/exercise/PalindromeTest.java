@@ -49,7 +49,6 @@ public class PalindromeTest {
 		@Test
 		public void testCharsShortForPalindrome() {
 			int shortageChars = palindrome.getCharsForPalindrome(str);
-			System.out.println("For : " + str + ", shortage CHar : " + shortageChars);
 			Assert.assertEquals(this.shortageChars, shortageChars);
 		}
 	}
