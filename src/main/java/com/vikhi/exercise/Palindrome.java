@@ -42,4 +42,20 @@ public class Palindrome {
 		
 		return shortageChars;
 	}
+	
+	public int getCharsForInsert(final String str) {
+		if (str == null || str.isEmpty()) {
+			throw new IllegalArgumentException("Please specify a valid input string !");
+		}
+		
+		if (isPalindrome(str)){
+			return 0;
+		}
+		
+		int insertableChars = 0;
+		// String tempStr = str.toUpperCase();
+		
+		
+		return insertableChars;
+	}
 }
