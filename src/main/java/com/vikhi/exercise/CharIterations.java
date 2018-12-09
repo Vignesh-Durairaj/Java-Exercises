@@ -1,7 +1,7 @@
 package com.vikhi.exercise;
 
 public class CharIterations {
-	private static void permutation(char[] outArr, char[] inputArr, int pos) {
+	public void permutation(char[] outArr, char[] inputArr, int pos) {
 	    if (pos == outArr.length) {
 	        System.out.println(new String(outArr));
 	    } else {
@@ -13,7 +13,8 @@ public class CharIterations {
 	}	
 	 
 	public static void main (String[] args) throws Exception {
+		CharIterations ci = new CharIterations();
 		char[] inputArr = new char[] {'a', 'b', 'c'};
-		permutation(new char[inputArr.length] , inputArr , 0);
+		ci.permutation(new char[inputArr.length] , inputArr , 0);
 	}
 }
