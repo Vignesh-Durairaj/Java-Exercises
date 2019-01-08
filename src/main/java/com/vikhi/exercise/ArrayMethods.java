@@ -1,6 +1,12 @@
 package com.vikhi.exercise;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 public class ArrayMethods {
 
@@ -48,5 +54,90 @@ public class ArrayMethods {
 		}
 		
 		return sortedArray[rank - 1];
+	}
+	
+	public int GetFamilyNosForPlane(int totalRows, String reservedSeats) 
+			throws  IllegalStateException{
+        
+        Map<Character, Integer> columnMap = new HashMap<>();
+		columnMap.put('A', 0);
+		columnMap.put('B', 1);
+		columnMap.put('C', 2);
+		columnMap.put('D', 3);
+		columnMap.put('E', 4);
+		columnMap.put('F', 5);
+		columnMap.put('G', 6);
+		columnMap.put('H', 7);
+		columnMap.put('J', 8);
+		columnMap.put('K', 9);
+		
+		int[][] seatArr = new int[totalRows][10];
+        	if (!reservedSeats.isEmpty()) {
+        		String[] strArr = reservedSeats.split(" ");
+        	    for (String str : strArr) {
+	        		int len = str.length();
+	        		int row = 0;
+	        		Integer col = columnMap.get(str.charAt(len - 1));
+	        		
+	        		try {
+	        			row = Integer.valueOf(str.substring(0, len - 1)) - 1;
+	        		} catch (NumberFormatException e) {
+	        			throw new IllegalArgumentException("Invalid Row number specified");
+	        		}
+	        		
+	        		if (col == null || row >= totalRows) {
+	        			throw new IllegalArgumentException("Invalid Column ID specified");
+	        		} else {
+	        			seatArr[row][col] = 1;
+	        		}
+        	}
+		}
+		
+		int familyCount = 0;
+		for (int i = 0; i < totalRows; i ++) {
+			if (seatArr[i][0] == 0 && seatArr[i][1] == 0 && seatArr[i][2] == 0) {
+				familyCount ++;
+			}
+			
+			if ((seatArr[i][3] == 0 && seatArr[i][4] == 0 && seatArr[i][5] == 0) || 
+					(seatArr[i][4] == 0 && seatArr[i][5] == 0) && seatArr[i][6] == 0){
+				familyCount ++;
+			}
+			
+			if (seatArr[i][7] == 0 && seatArr[i][8] == 0 && seatArr[i][9] == 0) {
+				familyCount ++;
+			}
+		}
+		
+		return familyCount;
+    }
+	
+	public int[] frequencySortArray (final int[] inArr) {
+		Map<Integer, Integer> countMap = new HashMap<>();
+		List<Integer> myList = Arrays.stream(inArr).boxed().collect(Collectors.toList());
+		for (int num : myList) {
+			if (countMap.containsKey(num)) {
+				countMap.put(num, countMap.get(num) + 1);
+			} else {
+				countMap.put(num, 1);
+			}
+		}
+		
+		List<Entry<Integer, Integer>> keyList = new ArrayList<>(countMap.entrySet());
+		keyList.sort((e1, e2) -> {
+			if (e1.getValue() > e2.getValue()) {
+				return -1;
+			} else if (e1.getValue() < e2.getValue()) {
+				return 1;
+			} else {
+				if (myList.indexOf(e1.getKey()) < myList.indexOf(e2.getKey())) {
+					return -1;
+				} else {
+					return 1;
+				}
+			}
+		});
+		
+		return inArr;
 	}
 }
