@@ -56,7 +56,7 @@ public class ArrayMethods {
 		return sortedArray[rank - 1];
 	}
 	
-	public int GetFamilyNosForPlane(int totalRows, String reservedSeats) 
+	public int getFamilyNosForPlane(int totalRows, String reservedSeats) 
 			throws  IllegalStateException{
         
         Map<Character, Integer> columnMap = new HashMap<>();
@@ -72,7 +72,7 @@ public class ArrayMethods {
 		columnMap.put('K', 9);
 		
 		int[][] seatArr = new int[totalRows][10];
-        	if (!reservedSeats.isEmpty()) {
+        	if (reservedSeats != null && !reservedSeats.isEmpty()) {
         		String[] strArr = reservedSeats.split(" ");
         	    for (String str : strArr) {
 	        		int len = str.length();
