@@ -56,7 +56,7 @@ public class ArrayMethods {
 		return sortedArray[rank - 1];
 	}
 	
-	public int GetFamilyNosForPlane(int totalRows, String reservedSeats) 
+	public int getFamilyNosForPlane(int totalRows, String reservedSeats) 
 			throws  IllegalStateException{
         
         Map<Character, Integer> columnMap = new HashMap<>();
@@ -72,7 +72,7 @@ public class ArrayMethods {
 		columnMap.put('K', 9);
 		
 		int[][] seatArr = new int[totalRows][10];
-        	if (!reservedSeats.isEmpty()) {
+        	if (reservedSeats != null && !reservedSeats.isEmpty()) {
         		String[] strArr = reservedSeats.split(" ");
         	    for (String str : strArr) {
 	        		int len = str.length();
@@ -113,6 +113,11 @@ public class ArrayMethods {
     }
 	
 	public int[] frequencySortArray (final int[] inArr) {
+		
+		if(inArr == null) {
+			throw new IllegalArgumentException("Input Array Should not be null");
+		}
+		
 		Map<Integer, Integer> countMap = new HashMap<>();
 		List<Integer> myList = Arrays.stream(inArr).boxed().collect(Collectors.toList());
 		for (int num : myList) {
@@ -123,8 +128,8 @@ public class ArrayMethods {
 			}
 		}
 		
-		List<Entry<Integer, Integer>> keyList = new ArrayList<>(countMap.entrySet());
-		keyList.sort((e1, e2) -> {
+		List<Entry<Integer, Integer>> entryList = new ArrayList<>(countMap.entrySet());
+		entryList.sort((e1, e2) -> {
 			if (e1.getValue() > e2.getValue()) {
 				return -1;
 			} else if (e1.getValue() < e2.getValue()) {
@@ -138,6 +143,15 @@ public class ArrayMethods {
 			}
 		});
 		
-		return inArr;
+		int[] outArr = new int[inArr.length];
+		int i = 0;
+		for (Entry<Integer, Integer> entry : entryList) {
+			for (int num = 1; num <= entry.getValue(); num ++){
+				outArr[i] = entry.getKey();
+				i ++;
+			}
+		}
+		
+		return outArr;
 	}
 }

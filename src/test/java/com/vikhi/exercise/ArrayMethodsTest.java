@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -76,6 +78,48 @@ public class ArrayMethodsTest {
 			int value = arrayMethods.getRankedElementFromArray(inputArr, rank);
 			Assert.assertTrue(value > 0);
 			Assert.fail("This case should get failed for invalid arguements !");
+		}
+		
+	}
+	
+	@RunWith(Parameterized.class)
+	public static class PlaneBookingInvalidArguementsTest {
+		
+		private int totalRows;
+		private String reservedSeats;
+		private int familiesAccomodated;
+		
+		private int getFamiliesAccomodated(final int totalRows, final String reservedSeats) {
+			ArrayMethods arrayMethods = new ArrayMethods();
+			try {
+				return arrayMethods.getFamilyNosForPlane(totalRows, reservedSeats);
+			} catch (IllegalArgumentException iae) {
+				return -1;
+			}
+		}
+		
+		public PlaneBookingInvalidArguementsTest(int totalRows, String reservedSeats, int familiesAccomodated) {
+			this.totalRows = totalRows;
+			this.reservedSeats = reservedSeats;
+			this.familiesAccomodated = familiesAccomodated;
+		}
+		
+		@Parameters
+		public static Collection<Object[]> params() {
+			return Arrays.asList(new Object[][] {
+				{1, null, 3}, 
+				{5, null, 15},
+				{10, "", 30},
+				{5, "Test", -1}, 
+				{3, "3B 4C 7P", -1}, 
+				{3, "3B 1C 2P", -1}, 
+				{10, "1A 2D 3G 4H 5K", 27}
+			});
+		}
+		
+		@Test
+		public void testFamilyNosForPlane() {
+			assertEquals(this.familiesAccomodated, getFamiliesAccomodated(this.totalRows, this.reservedSeats));
 		}
 		
 	}
