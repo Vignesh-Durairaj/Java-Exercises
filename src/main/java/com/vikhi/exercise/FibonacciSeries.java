@@ -98,6 +98,18 @@ public class FibonacciSeries {
 		}
 	}
 	
+	public float getFibonacciAverage(final int count) {
+		int a = 0, b = 1, total = 1;
+		
+		for (int i = 2; i < count; i ++) {
+			total += (a + b);
+			int tmp = a;
+			a = b;
+			b = (a + tmp);
+		}
+		return (float)total/count;
+	}
+	
 	public static void main(String[] args) {
 		long startTime, endTime;
 		FibonacciSeries fibonacciSeries = new FibonacciSeries();
