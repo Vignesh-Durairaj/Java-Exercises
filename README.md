@@ -18,3 +18,8 @@ A set of exercises from various sources using **Java programming language** with
 8. Palindrome utils
 9. Basic & Advanced math operations
 10. Number Composisitons
+11. Chess Pawn and rice collected challenge
+12. Static Message processor challenge
+13. Non tri-consecutive alphabets
+14. Alien planet climate variance
+15. A walking robot
