@@ -154,4 +154,44 @@ public class ArrayMethods {
 		
 		return outArr;
 	}
+	
+	public int function(Integer[] A, int K, int l){
+        int sum = 0;
+
+        Integer[] maxArrayIndices = getMaxArrayIndices(A, K);
+        sum+=maxArrayIndices[0];
+        Integer[] leadingElements = Arrays.copyOfRange(A, 0, maxArrayIndices[1]);
+        Integer[] trailingElements = Arrays.copyOfRange(A, (maxArrayIndices[1]+K), A.length);
+
+        List<Integer> mergedLeadingAndTrailingElements = new ArrayList<Integer>(Arrays.asList(leadingElements));
+        mergedLeadingAndTrailingElements.addAll(Arrays.asList(trailingElements));
+        Integer[] mergedLeadingAndTrailingElementsArray =  mergedLeadingAndTrailingElements.toArray(new Integer[0]);
+
+        maxArrayIndices = getMaxArrayIndices(mergedLeadingAndTrailingElementsArray, l);
+        sum+=maxArrayIndices[0];
+        return sum;
+    }
+
+    private Integer[] getMaxArrayIndices(Integer[] A, int N){
+        Integer[] maxArrayIndices = new Integer[2];
+        int sumFromStart = 0, sumFromPrev = 0, tmpIdx = 0;
+        for(int i = 0; i < A.length; i++){
+            if(i <= A.length - N) {
+                for (int j = i; j < i + N; j++) {
+                    sumFromStart += A[j];
+                }
+            }
+
+            if(sumFromStart >  sumFromPrev) {
+                sumFromPrev = sumFromStart;
+                tmpIdx = i;
+            }
+            
+            sumFromStart = 0;
+        }
+        
+        maxArrayIndices[0] = sumFromPrev;
+        maxArrayIndices[1] = tmpIdx;
+        return maxArrayIndices;
+    }
 }
