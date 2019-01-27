@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import java.util.ArrayList;
+
 public class Palindrome {
 
 	public boolean isPalindrome (final String str) {
@@ -57,5 +59,35 @@ public class Palindrome {
 		
 		
 		return insertableChars;
+	}
+	
+	public ArrayList<Integer> getPalindromicSubStrings(int stringLength, String inString){
+        for (int i = 1; i <= stringLength; i ++) {
+            String subject = inString.substring(0, i);
+            System.out.println(getPalindromeLength(subject));
+        }
+        
+        return null;
+    }
+	
+	private int getPalindromeLength(final String str) {
+	    int palLength = 0;
+	    for (float pivot = 0; pivot < str.length(); pivot += 0.5) {
+	        float palindromeRadius = pivot - (int)pivot;
+	        
+	        while ((pivot + palindromeRadius) < str.length() && 
+	            (pivot - palindromeRadius) >= 0 && 
+	            str.charAt((int)(pivot - palindromeRadius)) 
+	                == str.charAt((int)(pivot + palindromeRadius))) {
+	                int currLength = (str.substring(
+	                        (int)(pivot - palindromeRadius), 
+                            (int)(pivot + palindromeRadius + 1))).length();
+                    if (palLength < currLength) {
+                        palLength = currLength;
+                    }
+                    palindromeRadius++;
+	            }
+	    }
+	    return palLength;
 	}
 }
