@@ -3,6 +3,8 @@ package com.vikhi.exercise;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.IntSupplier;
+import java.util.stream.IntStream;
 
 public class FibonacciSeries {
 
@@ -108,6 +110,27 @@ public class FibonacciSeries {
 			b = (a + tmp);
 		}
 		return (float)total/count;
+	}
+	
+	public double getFibonacciAverageUsingStream(final int count) {
+		
+		IntSupplier fibbSupplier = new IntSupplier() {
+			
+			int previous = 0, current = 1;
+			
+			@Override
+			public int getAsInt() {
+				int temp = current;
+				current += previous;
+				previous = temp;
+				return temp;
+			}
+		};
+		
+		return IntStream
+				.generate(fibbSupplier)
+				.limit(count)
+				.average().orElse(0D);
 	}
 	
 	public static void main(String[] args) {
