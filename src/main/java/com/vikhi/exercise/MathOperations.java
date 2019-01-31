@@ -30,4 +30,13 @@ public class MathOperations {
 		
 		return end;
 	}
+	
+	public long getXor (final long num) {
+		long[] xorArr = {num, 1L, num + 1, 0L};
+		return xorArr[(int)(num % 4)];
+	}
+	
+	public long getXorForRange(final long start, final long end) {
+		return getXor(end) ^ getXor(start - 1);
+	}
 }
