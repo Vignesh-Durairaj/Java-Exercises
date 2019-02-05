@@ -30,7 +30,8 @@ public class AlienLanguageTranslator implements LanguageTranslator {
 		StringBuilder builder = new StringBuilder();
 		
 		for (char c : inArr) {
-			int asciiVal = (int)c, translateVal = 0;
+			int asciiVal = (int)c; 
+			int translateVal = 0;
 			if ((asciiVal >= 65 && asciiVal <= 90) || 
 					asciiVal >= 97 && asciiVal <= 122) {
 				if (asciiVal <= 90) {

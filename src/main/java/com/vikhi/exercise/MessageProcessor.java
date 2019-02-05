@@ -9,19 +9,19 @@ public class MessageProcessor {
 		for (String inStr : str.split(" ")) {
 			int len = myStack.size();
 			
-			if (inStr.equals("DUP")) {
+			if ("DUP".equals(inStr)) {
 				if (len > 0) {
 					myStack.push(myStack.peek());
 				} else {
 					throw new IllegalArgumentException("Input Stack is empty");
 				}
-			} else if (inStr.equals("POP")) {
+			} else if ("POP".equals(inStr)) {
 				if (len > 0) {
 					myStack.pop();
 				} else { 
 					throw new IllegalArgumentException("Input Stack is empty");
 				}
-			} else if (inStr.equals("+")) {
+			} else if ("+".equals(inStr)) {
 				if (len >= 2) {
 					int firstEle = myStack.pop();
 					int nextEle = myStack.pop();
@@ -29,7 +29,7 @@ public class MessageProcessor {
 				} else {
 					throw new IllegalArgumentException("Not enough elements to process");
 				}
-			} else if (inStr.equals("-")) {
+			} else if ("-".equals(inStr)) {
 				if (len >= 2) {
 					int firstEle = myStack.pop();
 					int nextEle = myStack.pop();

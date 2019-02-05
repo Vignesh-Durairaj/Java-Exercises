@@ -174,7 +174,10 @@ public class ArrayMethods {
 
     private Integer[] getMaxArrayIndices(Integer[] A, int N){
         Integer[] maxArrayIndices = new Integer[2];
-        int sumFromStart = 0, sumFromPrev = 0, tmpIdx = 0;
+        int sumFromStart = 0; 
+        int sumFromPrev = 0; 
+        int tmpIdx = 0;
+        
         for(int i = 0; i < A.length; i++){
             if(i <= A.length - N) {
                 for (int j = i; j < i + N; j++) {

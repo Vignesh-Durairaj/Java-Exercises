@@ -8,7 +8,8 @@ public class ChessPawnRice {
 			throw new IllegalArgumentException("Chess board should be a valid 2D array");
 		}
 		
-		int boardWidth = chessBoard[0].length, boardHeight = chessBoard.length;
+		int boardWidth = chessBoard[0].length; 
+		int boardHeight = chessBoard.length;
 		for (int i = 1; i < chessBoard.length; i ++) {
 			if (chessBoard[i].length != boardWidth) {
 				throw new IllegalArgumentException("The board is of varying width");
@@ -19,7 +20,8 @@ public class ChessPawnRice {
 		int grainsCollected = 0;
 		
 		while (pawnLocation[0] < boardHeight && pawnLocation[1] < boardWidth) {
-			int rowAggregate = 0, colAggregate = 0;
+			int rowAggregate = 0; 
+			int colAggregate = 0;
 			grainsCollected += chessBoard[pawnLocation[0]][pawnLocation[1]];
 			
 			for (int width = pawnLocation[1]; width < boardWidth; width ++) {

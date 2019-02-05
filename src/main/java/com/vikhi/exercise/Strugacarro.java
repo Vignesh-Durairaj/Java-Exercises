@@ -6,7 +6,9 @@ public class Strugacarro {
 
 	public String getHighAmplitudeSeason(int[] T) {
         
-        int days = T.length/4, startIdx = 0, maxAmplitude = 0;
+        int days = T.length/4;
+        int startIdx = 0;
+        int maxAmplitude = 0;
         String season = "";
         int[] winterArray = Arrays.copyOfRange(T, startIdx, startIdx + days);
         int[] springArray = Arrays.copyOfRange(T, startIdx + days, startIdx + (days * 2));
