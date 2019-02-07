@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Stringtest {
+public class StringTest {
 
     public String getReversedSentence (final String sentence) {
     	
