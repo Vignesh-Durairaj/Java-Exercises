@@ -1,5 +1,6 @@
 package com.vikhi.exercise;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -39,5 +40,13 @@ public class Stringtest {
     	
 		List<String> myList = Stream.generate(strSupplier).limit(strArr.length).collect(Collectors.toList());
     	return String.join(" ", myList);
+    }
+    
+    public String getReversedCharsInString (final String inStr) {
+    	String[] strArr = inStr.split(" ");
+    	return Arrays
+	    		.stream(strArr)
+	    		.map(str -> new StringBuilder(str).reverse())
+	    		.collect(Collectors.joining(" "));
     }
 }
