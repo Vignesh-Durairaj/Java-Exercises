@@ -2,6 +2,7 @@ package com.vikhi.exercise;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -197,4 +198,48 @@ public class ArrayMethods {
         maxArrayIndices[1] = tmpIdx;
         return maxArrayIndices;
     }
+    
+    public int smallestSum(int[] intArr) {
+		
+		if (intArr == null || intArr.length < 4) {
+			throw new IllegalArgumentException("Input Array is either NULL or empty");
+		}
+		
+		List<Integer> newList = Arrays
+				.stream(intArr)
+				.boxed()
+				.collect(Collectors.toList());
+		
+		newList.remove(0); // length reduced to size - 1
+		newList.remove(intArr.length - 2); // Or move this original line above removing 0th element
+		
+		Collections.sort(newList); // Sorted the input array 
+		return newList.get(0) + newList.get(1);
+	}
+	
+	public int smallestNotAdjacentSum(int[] intArr) {
+		
+		if (intArr == null || intArr.length < 5) {
+			throw new IllegalArgumentException("Input Array is either NULL or insufficient numbers");
+		}
+		
+		List<Integer> newList = Arrays
+				.stream(intArr)
+				.boxed()
+				.collect(Collectors.toList());
+		
+		newList.remove(intArr.length - 1);
+		newList.remove(0); 
+		
+		int smallestSum = Integer.MAX_VALUE;
+		for (int i = 0; i < newList.size() - 1; i++) {
+			for (int j = i + 2; j < newList.size(); j ++ ) {
+				int sumVal = newList.get(i) + newList.get(j);
+				if (sumVal < smallestSum) {
+					smallestSum = sumVal;
+				}
+			}
+		}
+		return smallestSum;
+	}
 }
