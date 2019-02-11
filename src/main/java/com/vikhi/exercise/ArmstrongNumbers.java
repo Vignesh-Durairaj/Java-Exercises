@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import java.util.stream.IntStream;
+
 public class ArmstrongNumbers {
 
 	public boolean isArmstrongNumber(final int inNum) {
@@ -14,5 +16,12 @@ public class ArmstrongNumbers {
 			sumVal += Math.pow(rem, divisor);
 		}
 		return inNum == sumVal;
+	}
+	
+	public void getArmstrongNumbers() {
+		IntStream
+			.rangeClosed(1, Integer.MAX_VALUE)
+			.filter(this::isArmstrongNumber)
+			.forEach(System.out::println);
 	}
 }
