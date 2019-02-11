@@ -26,3 +26,4 @@ A set of exercises from various sources using **Java programming language** with
 13. Non tri-consecutive alphabets
 14. Alien planet climate variance
 15. A walking robot
+16. Armstrong Number utilities
