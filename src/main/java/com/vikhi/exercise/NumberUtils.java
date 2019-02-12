@@ -13,4 +13,10 @@ public class NumberUtils {
 		numModel.setA(numModel.getB());
 		numModel.setB(temp);
 	}
+	
+	public static void smartSwapNumber(final NumberModel numModel) {
+		numModel.setA(numModel.getA() + numModel.getB());
+		numModel.setB(numModel.getA() - numModel.getB());
+		numModel.setA(numModel.getA() - numModel.getB());
+	}
 }
