@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import java.util.stream.IntStream;
+
 public class Factorials {
 
 	public int getFactorial(final int num) {
@@ -17,5 +19,11 @@ public class Factorials {
 			return num * getFactorialRecursive(num - 1);
 		}
 		
+	}
+	
+	public int getFactorialWithStreams(final int num) {
+		return IntStream
+				.rangeClosed(2, num)
+				.reduce(1, (a,b) -> a * b);
 	}
 }
