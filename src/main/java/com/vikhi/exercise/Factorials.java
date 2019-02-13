@@ -9,4 +9,13 @@ public class Factorials {
 	    }
 	    return fact;
 	}
+	
+	public int getFactorialRecursive(final int num) {
+		if (num == 0 || num == 1) {
+			return 1;
+		} else {
+			return num * getFactorialRecursive(num - 1);
+		}
+		
+	}
 }
