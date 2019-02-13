@@ -20,7 +20,7 @@ A set of exercises from various sources using **Java programming language** with
 7. Sample Hand-Clock utility to find the angle between the hands / dials
 8. Palindrome utils
 9. Basic & Advanced math operations
-10. Number Composisitons
+10. Number compositions
 11. Chess Pawn and rice collected challenge
 12. Static Message processor challenge
 13. Non tri-consecutive alphabets
