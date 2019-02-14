@@ -49,4 +49,42 @@ public class StringTest {
 	    		.map(str -> new StringBuilder(str).reverse())
 	    		.collect(Collectors.joining(" "));
     }
+    
+    public void printPyramidNumbersDynamicRows(final int rows) {
+    	int val = 1;
+    	for (int i = rows; i > 0; i--) {
+    		for (int j = 1; j <= i; j ++) {
+    			System.out.print(" ");
+    		}
+    		
+    		for (int j = 1; j <= val; j ++) {
+    			System.out.print(j);
+    			if(j != val) {
+    				System.out.print(" ");
+    			}
+    		}
+    		
+    		System.out.println("");
+    		val ++;
+    	}
+    }
+    
+    public void printPyramidNumbersStaticRows(final int rows) {
+    	int val = 1;
+    	for (int i = rows; i > 0; i--) {
+    		for (int j = 1; j <= i; j ++) {
+    			System.out.print(" ");
+    		}
+    		
+    		for (int j = 1; j <= val; j ++) {
+    			System.out.print(val);
+    			if(j != val) {
+    				System.out.print(" ");
+    			}
+    		}
+    		
+    		System.out.println("");
+    		val ++;
+    	}
+    }
 }
