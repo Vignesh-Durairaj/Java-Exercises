@@ -106,4 +106,23 @@ public class StringTest {
     		val ++;
     	}
     }
+    
+    public void printPyramidStarsUpright(final int rows) {
+    	int val = rows;
+    	for (int i = rows; i > 0; i--) {
+    		for (int j = i; j <= rows; j ++) {
+    			System.out.print(" ");
+    		}
+    		
+    		for (int j = 1; j <= val; j ++) {
+    			System.out.print("*");
+    			if(j != val) {
+    				System.out.print(" ");
+    			}
+    		}
+    		
+    		System.out.println("");
+    		val --;
+    	}
+    }
 }
