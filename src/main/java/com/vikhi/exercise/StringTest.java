@@ -125,4 +125,25 @@ public class StringTest {
     		val --;
     	}
     }
+    
+    public void printSymmetricPyramidNumbers(final int rows) {
+    	int val = 1;
+    	for (int i = rows; i > 0; i--) {
+    		int mid = val / 2;
+    		for (int j = 1; j <= i; j ++) {
+    			System.out.print(" ");
+    		}
+    		
+    		for (int j = 1; j <= val; j ++) {
+    			System.out.print(j <= mid ? j : (val - j + 1));
+    			if(j != val) {
+    				System.out.print(" ");
+    			}
+    		}
+    		
+    		System.out.println("");
+    		val ++;
+    	}
+    }
+    
 }
