@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import java.util.Arrays;
+
 public class AnagramUtils {
 
 	private AnagramUtils() {
@@ -26,5 +28,24 @@ public class AnagramUtils {
 		}
 		
 		return isAnagram;
+	}
+	
+	public static boolean isAnagramUsingArrays(final String stringOne, final String stringTwo) {
+		if (stringOne == null || stringTwo == null) {
+			return false;
+		}
+		
+		char[] charArrOne = stringOne.replaceAll(" ", "").toLowerCase().toCharArray();
+		char[] charArrTwo = stringTwo.replaceAll(" ", "").toLowerCase().toCharArray();
+		
+		if (charArrOne.length != charArrTwo.length) {
+			return false;
+		}
+		
+		Arrays.sort(charArrOne);
+		Arrays.sort(charArrTwo);
+		
+		return Arrays.equals(charArrOne, charArrTwo);
+			
 	}
 }
