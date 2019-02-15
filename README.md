@@ -28,4 +28,5 @@ A set of exercises from various sources using **Java programming language** with
 15. A walking robot
 16. Armstrong Number utilities
 17. Number utilities
-18. Factorial calculations for smaller numbers
+18. Factorial calculations for smaller number
+19. Anagram utilities
