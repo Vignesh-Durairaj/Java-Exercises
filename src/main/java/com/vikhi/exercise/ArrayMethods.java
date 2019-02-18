@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class ArrayMethods {
 
@@ -199,7 +200,7 @@ public class ArrayMethods {
         return maxArrayIndices;
     }
     
-    public int smallestSum(int[] intArr) {
+    public int getSmallestSum(int[] intArr) {
 		
 		if (intArr == null || intArr.length < 4) {
 			throw new IllegalArgumentException("Input Array is either NULL or empty");
@@ -216,6 +217,20 @@ public class ArrayMethods {
 		Collections.sort(newList); // Sorted the input array 
 		return newList.get(0) + newList.get(1);
 	}
+    
+    
+    public int getSmallestSumUsingStream(int[] intArr) {
+    	if (intArr == null || intArr.length < 4) {
+			throw new IllegalArgumentException("Input Array is either NULL or empty");
+		}
+    	
+    	return IntStream
+    			.range(1, intArr.length - 1)
+        		.map(idx -> intArr[idx])
+        		.sorted()
+        		.limit(2)
+        		.sum();
+    }
 	
 	public int smallestNotAdjacentSum(int[] intArr) {
 		
