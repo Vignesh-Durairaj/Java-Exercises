@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -256,5 +257,24 @@ public class ArrayMethods {
 			}
 		}
 		return smallestSum;
+	}
+	
+	public void getStatistics(final int[] intArr) {
+		if (intArr == null || intArr.length < 2) {
+			throw new IllegalArgumentException("Input array is either null or containing insufficient data");
+		}
+		
+		IntSummaryStatistics stats = 
+				IntStream
+					.range(0, intArr.length)
+					.map(idx -> intArr[idx])
+					.filter(ele -> ele > 0)
+					.summaryStatistics();
+	
+		System.out.println("Max Value : " + stats.getMax());
+		System.out.println("Min Value : " + stats.getMin());
+		System.out.println("Total Value : " + stats.getSum());
+		System.out.println("Total Entries : " + stats.getCount());
+		System.out.println("Average Value : " + stats.getAverage());
 	}
 }
