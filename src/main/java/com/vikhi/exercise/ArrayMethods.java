@@ -13,6 +13,8 @@ import java.util.stream.IntStream;
 
 public class ArrayMethods {
 
+	final String NUMBER_STRING = "0123456789";
+	
 	public int getNthSmallElement (final int[] a, final int rank) {
 		if (a == null || a.length < rank || rank < 1) {
 			throw new IllegalArgumentException("The input array should have minimum " + rank + " number of elements");
@@ -276,5 +278,19 @@ public class ArrayMethods {
 		System.out.println("Total Value : " + stats.getSum());
 		System.out.println("Total Entries : " + stats.getCount());
 		System.out.println("Average Value : " + stats.getAverage());
+	}
+	
+	public boolean isNumeric(final String s) {
+		if (s == null || s.trim().equals("")) {
+			throw new IllegalArgumentException("Input string is not valid");
+		}
+		
+		for(char c : s.toCharArray()){
+			if (NUMBER_STRING.indexOf(c) < 0) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }
