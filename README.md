@@ -30,3 +30,4 @@ A set of exercises from various sources using **Java programming language** with
 17. Number utilities
 18. Factorial calculations for smaller number
 19. Anagram utilities
+20. Pyramidal numbers and stars
