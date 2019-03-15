@@ -4,7 +4,7 @@ public class CrossBoxGenerator {
 
 	public void printCrossBox(final int n) {
 		if(n <= 0) {
-			throw new IllegalArgumentException("Innput parameter should be greater than 0");
+			throw new IllegalArgumentException("Input parameter should be greater than 0");
 		}
 		
 		for (int i = 1; i <= n; i ++) {
