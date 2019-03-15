@@ -12,11 +12,7 @@ public class CrossBoxGenerator {
 				if (i == 1 || i == n) {
 					System.out.print("#");
 				} else {
-					if (j == 1 || j == n || j == i || j == (n - i + 1)) {
-						System.out.print("#");
-					} else {
-						System.out.print(" ");
-					}
+					System.out.print((j == 1 || j == n || j == i || j == (n - i + 1)) ? "#" : " ");
 				}
 			}
 			System.out.println("");
