@@ -32,3 +32,4 @@ A set of exercises from various sources using **Java programming language** with
 19. Anagram utilities
 20. Pyramidal numbers and stars
 21. Simple implementation of String Utilities
+22. Simple Encryption - Decryption logic
