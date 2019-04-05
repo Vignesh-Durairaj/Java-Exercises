@@ -18,6 +18,5 @@ public class CalendarUtils {
 		calendar.set(Calendar.SECOND, 0);
 		
 		return calendar.getTime();
-	}
-	
+	}	
 }
