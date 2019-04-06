@@ -34,3 +34,4 @@ A set of exercises from various sources using **Java programming language** with
 21. Simple implementation of String Utilities
 22. Simple Encryption - Decryption logic
 23. Calendar Utils
+24. Lucky Number Generator
