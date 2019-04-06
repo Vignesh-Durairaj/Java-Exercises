@@ -1,9 +1,11 @@
 package com.vikhi.exercise;
 
+import java.util.stream.IntStream;
+
 public class LuckyNumberGenerator {
 
 	public int getLuckyNumberAsSum (final int inputNumber) {
-		int modSum = 0, number = inputNumber;
+		int modSum = inputNumber, number = inputNumber;
 		while(number  > 9) {
 		    int value = number;
 		    modSum = 0;
@@ -17,8 +19,27 @@ public class LuckyNumberGenerator {
 		return modSum;
 	}
 	
+	public int getLuckyNumberUsingStreams (final int inputNumber) {
+		
+		int sumValue = inputNumber, number = inputNumber;
+		
+		while (number > 9) {
+			char[] digitsArray = String.valueOf(number).toCharArray();
+			sumValue = 
+					IntStream
+						.range(0, digitsArray.length)
+						.map(idx -> Integer.valueOf(String.valueOf(digitsArray[idx])))
+						.sum();
+			
+			number = sumValue;
+		}
+		
+		return sumValue;
+	}
+	
 	public static void main(String[] args) {
 		LuckyNumberGenerator lng = new LuckyNumberGenerator();
 		System.out.println(lng.getLuckyNumberAsSum(131083));
+		System.out.println(lng.getLuckyNumberUsingStreams(131083));
 	}
 }
