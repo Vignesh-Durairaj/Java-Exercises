@@ -36,10 +36,4 @@ public class LuckyNumberGenerator {
 		
 		return sumValue;
 	}
-	
-	public static void main(String[] args) {
-		LuckyNumberGenerator lng = new LuckyNumberGenerator();
-		System.out.println(lng.getLuckyNumberAsSum(131083));
-		System.out.println(lng.getLuckyNumberUsingStreams(131083));
-	}
 }
