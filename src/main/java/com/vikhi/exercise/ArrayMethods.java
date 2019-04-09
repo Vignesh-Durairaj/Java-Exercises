@@ -293,4 +293,12 @@ public class ArrayMethods {
 		
 		return true;
 	}
+	
+	public int[] reverseArrayWithStreams (final int[] inputArr) {
+		int arrSize = inputArr.length;
+		return IntStream
+				.range(0, arrSize)
+				.map(idx -> inputArr[arrSize - 1 - idx])
+				.toArray();
+	}
 }
