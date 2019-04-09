@@ -294,6 +294,16 @@ public class ArrayMethods {
 		return true;
 	}
 	
+	public int[] reverseArray (final int[] inputArr) {
+		int arrSize = inputArr.length;
+		int[] newArr =  new int[10];
+		for (int i = 0; i < arrSize; i ++) {
+		    newArr[i] = inputArr[arrSize - 1 - i];
+		}
+		
+		return newArr;
+	}
+	
 	public int[] reverseArrayWithStreams (final int[] inputArr) {
 		int arrSize = inputArr.length;
 		return IntStream
