@@ -311,4 +311,18 @@ public class ArrayMethods {
 				.map(idx -> inputArr[arrSize - 1 - idx])
 				.toArray();
 	}
+	
+	/**
+	 * Reverses the array passed as a parameter, without using another array as intermediate
+	 * 
+	 * @param inputArr - The array to be reversed. The same parameter passed will be reversed
+	 */
+	public void reverseArraySmartly (int[] inputArr) {
+		int j = inputArr.length - 1;
+		for (int i = 0; i <= inputArr.length / 2; i ++, j --) {
+			int temp = inputArr[i];
+			inputArr[i] = inputArr[j];
+			inputArr[j] = temp;
+		}
+	}
 }
