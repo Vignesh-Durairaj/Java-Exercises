@@ -44,7 +44,7 @@ public class NumberUtils {
 			throw new IllegalArgumentException("Unable to the sampling");
 		}
 		
-		List<String> numList = new ArrayList<>();
+		List<String> numList = new ArrayList<>(count);
 		int sampled = number - 1;
 		
 		for (int i = 1; i <= count; i ++) {
