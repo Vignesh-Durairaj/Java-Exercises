@@ -53,4 +53,24 @@ public class NumberUtils {
 		
 		System.out.println(String.join(" ", numList));
 	}
+	
+	public static void getPosAndNegAverages(final int[] inputArr) {
+		if (inputArr == null || inputArr.length == 0) {
+			throw new IllegalArgumentException("Input array has to be non-empty");
+		}
+		
+		int posSum = 0, negSum = 0, posCount = 0, negCount= 0;
+		for (int num : inputArr) {
+			if (num > 0) {
+				posCount ++;
+				posSum += num;
+			} else if (num < 0) {
+				negCount ++;
+				negSum += num;
+			}
+		}
+		
+		System.out.println("Average of positive numbers : " + (posCount == 0 ? 0 : ((double)posSum / posCount)));
+		System.out.println("Average of negative numbers : " + (negCount == 0 ? 0 : ((double)negSum / negCount)));
+	}
 }
