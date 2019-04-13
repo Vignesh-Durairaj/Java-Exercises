@@ -7,7 +7,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/90a4e8d774414db5a3805b2d62fd2f4e)](https://app.codacy.com/app/Vignesh-Durairaj/Java-Exercises?utm_source=github.com&utm_medium=referral&utm_content=Vignesh-Durairaj/Java-Exercises&utm_campaign=Badge_Grade_Dashboard)
 
-A set of exercises from various sources using **Java programming language** with some uses of functional programming using *Java 8 streams* and *Lambdas*. Exercises are mostly highlighted in coding challenge sites like `HackerRank` and `Programmr`.
+Also few set of exercises from various sources using **Java programming language** with some uses of functional programming using *Java 8 streams* and *Lambdas*. Exercise ideas are mostly obtained from coding challenge sites like `HackerRank` and `Programmr`.
 
 ### Few of the exercises includes but not limited to :
 
