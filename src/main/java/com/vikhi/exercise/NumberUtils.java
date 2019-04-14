@@ -73,4 +73,19 @@ public class NumberUtils {
 		System.out.println("Average of positive numbers : " + (posCount == 0 ? 0 : ((double)posSum / posCount)));
 		System.out.println("Average of negative numbers : " + (negCount == 0 ? 0 : ((double)negSum / negCount)));
 	}
+	
+	public static int getDigitOccurence (final int number, final int digit) {
+		String numString = String.valueOf(number);
+		String query = String.valueOf(digit);
+		int occurrences = 0;
+		
+		char[] digitArr = numString.toCharArray();
+		for (char digitChar : digitArr) {
+			if (query.equalsIgnoreCase(String.valueOf(digitChar))) {
+				occurrences ++;
+			}
+		}
+		
+		return occurrences;
+	}
 }
