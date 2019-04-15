@@ -1,6 +1,8 @@
 <img src="https://seeklogo.com/images/J/java-logo-7F8B35BAB3-seeklogo.com.png"
      alt="Java Logo"
-     style="float: right; margin-left: 10px; width:20%; height:40%;" 
+     style="float: right; margin-left: 10px;" 
+     width="12%"
+     height="12%"
      align="right"/>
 
 # Advanced Java Exercises
@@ -30,7 +32,7 @@ Also few set of exercises from various sources using **Java programming language
 17. Number utilities
 18. Factorial calculations for smaller number
 19. Anagram utilities
-20. Pyramidal numbers and stars
+20. Pyramidal numbers and stars, rectangular stars
 21. Simple implementation of String Utilities
 22. Simple Encryption - Decryption logic
 23. Calendar Utils
