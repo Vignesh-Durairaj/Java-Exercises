@@ -164,4 +164,8 @@ public class StringTest {
     		System.out.println();
     	}
     }
+    
+    public void printSquare (final int size) {
+    	printRectangle(size, size);
+    }
 }
