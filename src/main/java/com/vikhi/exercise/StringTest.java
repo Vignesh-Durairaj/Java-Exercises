@@ -146,4 +146,26 @@ public class StringTest {
     	}
     }
     
+    public void printRectangle (final int width, final int height) {
+    	if (width == 0 || height == 0) {
+    		throw new IllegalArgumentException("The rectangle's dimensions are not to be zero");
+    	}
+    	
+    	for (int h = 1; h <= height; h ++) {
+    		if (h == 1 || h == height) {
+    			for (int w = 1; w <= width; w ++) {
+        			System.out.print("*");
+        		}
+    		} else {
+    			for (int w = 1; w <= width; w ++) {
+        			System.out.print(w != 1 && w != width ? " " : "*");
+        		}
+    		}
+    		System.out.println();
+    	}
+    }
+    
+    public void printSquare (final int size) {
+    	printRectangle(size, size);
+    }
 }
