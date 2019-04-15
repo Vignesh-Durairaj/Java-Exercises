@@ -1,6 +1,8 @@
 <img src="https://seeklogo.com/images/J/java-logo-7F8B35BAB3-seeklogo.com.png"
      alt="Java Logo"
-     style="float: right; margin-left: 10px; width:20%; height:40%;" 
+     style="float: right; margin-left: 10px;" 
+     width="15%"
+     height="15%"
      align="right"/>
 
 # Advanced Java Exercises
