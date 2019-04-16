@@ -2,6 +2,7 @@ package com.vikhi.exercise;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.LongStream;
 
 import com.vikhi.pojo.NumberModel;
 
@@ -87,5 +88,23 @@ public class NumberUtils {
 		}
 		
 		return occurrences;
+	}
+	
+	public static boolean isAmicable (final long number) {
+		return (number == getFactorsSum(getFactorsSum(number)));
+	}
+	
+	private static long getFactorsSum (final long number) {
+		return LongStream
+				.range(1, number)
+				.filter(num -> number % num == 0)
+				.sum();
+	}
+	
+	public static long getAmicableSums(final long limit) {
+		return LongStream
+					.rangeClosed(1, limit)
+					.filter(NumberUtils::isAmicable)
+					.sum();
 	}
 }
