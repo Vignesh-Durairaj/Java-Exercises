@@ -90,7 +90,7 @@ public class NumberUtils {
 		return occurrences;
 	}
 	
-	public static boolean isAmicable (final int number) {
+	public static boolean isAmicable (final long number) {
 		return (number == getFactorsSum(getFactorsSum(number)));
 	}
 	
@@ -99,5 +99,12 @@ public class NumberUtils {
 				.range(1, number)
 				.filter(num -> number % num == 0)
 				.sum();
+	}
+	
+	public static long getAmicableSums(final long limit) {
+		return LongStream
+					.rangeClosed(1, limit)
+					.filter(NumberUtils::isAmicable)
+					.sum();
 	}
 }
