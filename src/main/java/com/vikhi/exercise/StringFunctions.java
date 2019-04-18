@@ -172,10 +172,9 @@ public class StringFunctions {
     public void printDiamondStars (final int limit) {
     	
     	Supplier<String> starSupplier = new Supplier<String>() {
-
-    		int rowMedian = (limit / 2) + (limit % 2 == 0 ? 0 : 1);
-    		int counter = 1;
-    		int startPos = rowMedian, endPos = rowMedian;
+    		boolean isEvenLimit = limit % 2 == 0;
+    		int rowMedian = (limit / 2) + (isEvenLimit ? 0 : 1);
+    		int counter = 1, startPos = rowMedian, endPos = rowMedian;
 
     		@Override
 			public String get() {
@@ -189,8 +188,10 @@ public class StringFunctions {
 				}
 				
 				counter ++;
-				startPos += (rowMedian - counter >= 0 ? -1 : 1);
-				endPos += (rowMedian - counter >= 0 ? 1 : -1);
+				if (!isEvenLimit || counter != (rowMedian + 1)) {
+					startPos += (rowMedian - counter >= 0 ? -1 : 1);
+					endPos += (rowMedian - counter >= 0 ? 1 : -1);
+				} 
 				return starBuilder.toString();
 			}
 		};
