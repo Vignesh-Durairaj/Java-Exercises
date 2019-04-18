@@ -1,10 +1,11 @@
 package com.vikhi.main;
 
-import com.vikhi.exercise.NumberUtils;
+import com.vikhi.exercise.StringFunctions;
 
 public class GeneralMain {
 
 	public static void main(String[] args) {
-		System.out.println(NumberUtils.getAmicableSums(285));
+		StringFunctions sf = new StringFunctions();
+		sf.printDiamondStars(6);
 	}
 }

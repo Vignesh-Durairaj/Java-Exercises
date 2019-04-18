@@ -168,4 +168,36 @@ public class StringFunctions {
     public void printSquare (final int size) {
     	printRectangle(size, size);
     }
+    
+    public void printDiamondStars (final int limit) {
+    	
+    	Supplier<String> starSupplier = new Supplier<String>() {
+
+    		int rowMedian = (limit / 2) + (limit % 2 == 0 ? 0 : 1);
+    		int counter = 1;
+    		int startPos = rowMedian, endPos = rowMedian;
+
+    		@Override
+			public String get() {
+				StringBuilder starBuilder = new StringBuilder();
+				for (int i = 1; i <= endPos; i ++) {
+					if (i >= startPos) {
+						starBuilder.append("*");
+					} else {
+						starBuilder.append(" ");
+					}
+				}
+				
+				counter ++;
+				startPos += (rowMedian - counter >= 0 ? -1 : 1);
+				endPos += (rowMedian - counter >= 0 ? 1 : -1);
+				return starBuilder.toString();
+			}
+		};
+    	
+    	Stream
+    		.generate(starSupplier)
+    		.limit(limit)
+    		.forEach(System.out::println);
+    }
 }
