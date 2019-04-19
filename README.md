@@ -32,7 +32,7 @@ Also few set of exercises from various sources using **Java programming language
 17. Number utilities
 18. Factorial calculations for smaller number
 19. Anagram utilities
-20. Pyramidal numbers and stars, rectangular stars
+20. Pyramidal numbers and stars, rectangular and diamond stars
 21. Simple implementation of String Utilities
 22. Simple Encryption - Decryption logic
 23. Calendar Utils
