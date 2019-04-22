@@ -57,10 +57,5 @@ public class PalindromeTest {
 			Assert.assertEquals(this.shortageChars, shortageChars);
 		}
 		
-		@Test
-		public void testCharsInsertedForPalindrome() {
-			int insertableChars = palindrome.getCharsForInsert(str);
-			Assert.assertEquals(this.insertableChars, insertableChars);
-		}
 	}
 }
