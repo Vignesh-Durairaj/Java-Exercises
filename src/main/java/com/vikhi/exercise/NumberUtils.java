@@ -107,4 +107,11 @@ public class NumberUtils {
 					.filter(NumberUtils::isAmicable)
 					.sum();
 	}
+	
+	public static long getDivisibleSums(final int maxLimit) {
+		return LongStream
+					.range(1, maxLimit)
+					.filter(num -> (num % 3 == 0 || num % 5 == 0))
+					.sum();
+	}
 }
