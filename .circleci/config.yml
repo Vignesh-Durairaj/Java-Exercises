@@ -20,5 +20,6 @@ jobs:
             path: target/surefire-reports
          - codecov/upload:
             file: target/my-reports/jacoco.xml
+            token: 96c6d7c1-7f08-4916-8bf4-7790425fb04c
          - store_artifacts: 
             path: target/JavaExercises-0.0.1-SNAPSHOT.jar
