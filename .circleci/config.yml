@@ -19,6 +19,6 @@ jobs:
          - store_test_results: 
             path: target/surefire-reports
          - codecov/upload:
-            path: target/my-reports/
+            file: target/my-reports/
          - store_artifacts: 
             path: target/JavaExercises-0.0.1-SNAPSHOT.jar
