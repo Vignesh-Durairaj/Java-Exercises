@@ -114,4 +114,23 @@ public class NumberUtils {
 					.filter(num -> (num % 3 == 0 || num % 5 == 0))
 					.sum();
 	}
+	
+	public static boolean isValidISBN (final long number) {
+		
+		boolean isValidISBN;
+		
+		String numStr = String.valueOf(number);
+		if (numStr.length() != 10) {
+			isValidISBN = Boolean.FALSE;
+		} else {
+			int sum = 0, counter = 1;
+			for(int i = 9; i >= 0; i --, counter ++) {
+				sum += (Integer.valueOf(numStr.charAt(i)) * counter);
+			}
+			
+			isValidISBN = (sum % 11 == 0);
+		}
+		
+		return isValidISBN;
+	}
 }
