@@ -114,4 +114,38 @@ public class NumberUtils {
 					.filter(num -> (num % 3 == 0 || num % 5 == 0))
 					.sum();
 	}
+	
+	public static boolean isValidISBN (final long number) {
+		
+		boolean isValidISBN;
+		
+		String numStr = String.valueOf(number);
+		if (numStr.length() != 10) {
+			isValidISBN = Boolean.FALSE;
+		} else {
+			int sum = 0, counter = 1;
+			for(int i = 9; i >= 0; i --, counter ++) {
+				sum += (Character.getNumericValue(numStr.charAt(i)) * counter);
+			}
+			
+			isValidISBN = (sum % 11 == 0);
+		}
+		
+		return isValidISBN;
+	}
+	
+	public static boolean isConsecutiveDigitNum (final int number) {
+		String numStr = String.valueOf(number);
+		Integer digit = Character.getNumericValue(numStr.charAt(0));
+		StringBuilder builder = new StringBuilder(digit.toString());
+		
+		digit ++;
+		for (int i = 1; i < numStr.length(); i ++, digit ++) {
+			builder.append(digit.toString());
+		}
+		
+		System.out.println(builder);
+		return numStr.equals(builder.toString());
+		
+	}
 }
