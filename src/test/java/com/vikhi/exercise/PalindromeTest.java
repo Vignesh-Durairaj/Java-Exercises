@@ -57,5 +57,10 @@ public class PalindromeTest {
 			Assert.assertEquals(this.shortageChars, shortageChars);
 		}
 		
+		@Test
+		public void testInsertableCharacters() {
+			Assert.assertTrue(this.insertableChars == Integer.valueOf(this.insertableChars));
+		}
+		
 	}
 }
