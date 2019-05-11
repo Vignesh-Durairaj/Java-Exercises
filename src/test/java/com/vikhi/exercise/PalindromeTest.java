@@ -59,8 +59,14 @@ public class PalindromeTest {
 		
 		@Test
 		public void testInsertableCharacters() {
-			Assert.assertTrue(this.insertableChars == Integer.valueOf(this.insertableChars));
+			int shortageChars = palindrome.getCharsForInsert(str);
+			Assert.assertEquals(0, shortageChars);
+			Assert.assertNotNull(Integer.valueOf(insertableChars));
 		}
 		
+		@Test
+		public void testPalindromicSubString() {
+			Assert.assertNull(palindrome.getPalindromicSubStrings(5, "Malayalam"));
+		}
 	}
 }

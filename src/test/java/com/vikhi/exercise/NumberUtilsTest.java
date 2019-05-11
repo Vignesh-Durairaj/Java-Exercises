@@ -1,7 +1,6 @@
 package com.vikhi.exercise;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.vikhi.pojo.NumberModel;
@@ -102,7 +101,6 @@ public class NumberUtilsTest {
 	}
 	
 	@Test
-	@Ignore
 	public void testArmstrongNumbersPrint() {
 		ArmstrongNumbers an = new ArmstrongNumbers();
 		try {

@@ -126,4 +126,73 @@ public class StringFunctionsTest {
 		Assert.assertFalse(encryptedString.equals(inputString));
 		Assert.assertTrue(decryptedString.equals(inputString));
 	}
+	
+	@Test
+	public void testMessageProcessor() {
+		MessageProcessor mp = new MessageProcessor();
+		
+		Assert.assertEquals(3, mp.getTopMostNumber("3 2 POP"));
+		Assert.assertEquals(2,mp.getTopMostNumber("2 DUP"));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testInvalidMessage1() {
+		MessageProcessor mp = new MessageProcessor();
+		mp.getTopMostNumber("2 POP POP");
+		Assert.fail("Expected an exception, but was not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testInvalidMessage2() {
+		MessageProcessor mp = new MessageProcessor();
+		mp.getTopMostNumber("DUP");
+		Assert.fail("Expected an exception, but was not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testInvalidMessage3() {
+		MessageProcessor mp = new MessageProcessor();
+		mp.getTopMostNumber("2 POP 3 POP +");
+		Assert.fail("Expected an exception, but was not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testInvalidMessage4() {
+		MessageProcessor mp = new MessageProcessor();
+		mp.getTopMostNumber("2 POP 3 POP -");
+		Assert.fail("Expected an exception, but was not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testInvalidMessage5() {
+		MessageProcessor mp = new MessageProcessor();
+		mp.getTopMostNumber("2 DUP + POP R");
+		Assert.fail("Expected an exception, but was not !");
+	}
+	
+	@Test
+	public void testRepeatingAlphabets() {
+		RepeatingAlphabets ra = new RepeatingAlphabets();
+		Assert.assertEquals("baba", ra.getRepeatingAlphas(2, 2));
+	}
+	
+	@Test
+	public void testRobot() {
+		WalkingRobot.main(null);
+	}
+	
+	@Test
+	public void testStrugacarro() {
+		Strugacarro strug = new Strugacarro();
+		Assert.assertEquals("", strug.getHighAmplitudeSeason(new int[] {12, 34, 24, 1}));
+		Assert.assertEquals("AUTUMN", strug.getHighAmplitudeSeason(
+				new int[] {12, 34, 24, 1, -2, -21, 32, 87}));
+		Assert.assertEquals("WINTER", strug.getHighAmplitudeSeason(
+				new int[] {12, -12, -8, 1, 12, 21, 18, 12}));
+		Assert.assertEquals("SUMMER", strug.getHighAmplitudeSeason(
+				new int[] {12, 12, 8, 1, 12, -21, 18, 12}));
+		Assert.assertEquals("SPRING", strug.getHighAmplitudeSeason(
+				new int[] {12, -12, -8, 39, 12, -21, 18, 12}));
+	}
+	
 }
