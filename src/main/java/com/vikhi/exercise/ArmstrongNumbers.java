@@ -51,14 +51,14 @@ public class ArmstrongNumbers {
 	
 	public void getArmstrongNumbers() {
 		IntStream
-			.rangeClosed(1, Integer.MAX_VALUE)
+			.rangeClosed(1, 1000)
 			.filter(this::isArmstrongNumber)
 			.forEach(System.out::println);
 	}
 
 	public void getArmstrongNumbersFaster() {
 		IntStream
-			.rangeClosed(1, Integer.MAX_VALUE)
+			.rangeClosed(1, 1000)
 			.filter(this::isArmstrongNumberFaster)
 			.forEach(System.out::println);
 	}
