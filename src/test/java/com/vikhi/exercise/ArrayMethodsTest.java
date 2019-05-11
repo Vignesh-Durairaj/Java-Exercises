@@ -21,23 +21,25 @@ public class ArrayMethodsTest {
 		private int[] inputArr;
 		private int rank;
 		private int val;
+		private int nonDistinctVal;
 		
 		private ArrayMethods arrayMethods = new ArrayMethods();
 
-		public ArrayRankedElementTest(int[] inputArr, int rank, int val) {
+		public ArrayRankedElementTest(int[] inputArr, int rank, int val, int nonDistinctVal) {
 			super();
 			this.inputArr = inputArr;
 			this.rank = rank;
 			this.val = val;
+			this.nonDistinctVal = nonDistinctVal;
 		}
 		
 		@Parameters
 		public static Collection<Object[]> params() {
 			return Arrays.asList(new Object[][] {
-				{new int[] {1, 4, 2, 5, 3, 9}, 3, 3}, 
-				{new int[] {12, 13, 1, 10, 34, 1}, 2, 10}, 
-				{new int[] {1,2,5,6,3,2}, 4, 5}, 
-				{new int[] {1, 3, 3, 3, 2, 10, 16, 1, 21}, 3, 3}
+				{new int[] {1, 4, 2, 5, 3, 9}, 3, 3, 3}, 
+				{new int[] {12, 13, 1, 10, 34, 1}, 2, 10, 1}, 
+				{new int[] {1,2,5,6,3,2}, 4, 5, 3}, 
+				{new int[] {1, 3, 3, 3, 2, 10, 16, 1, 21}, 3, 3, 2}
 			});
 		}
 		
@@ -45,6 +47,8 @@ public class ArrayMethodsTest {
 		public void testNormalSearch() {
 			int value = arrayMethods.getRankedElementFromArray(inputArr, rank);
 			Assert.assertTrue(val == value);
+			Assert.assertTrue(nonDistinctVal == arrayMethods.getNthSmallElement(rank, inputArr));
+			Assert.assertTrue(nonDistinctVal == arrayMethods.getNthSmallElement(inputArr, rank));
 		}
 		
 	}
@@ -121,6 +125,156 @@ public class ArrayMethodsTest {
 		public void testFamilyNosForPlane() {
 			assertEquals(this.familiesAccomodated, getFamiliesAccomodated(this.totalRows, this.reservedSeats));
 		}
+	}
+	
+	public static class GenericTestCases {
 		
+		private ArrayMethods am = new ArrayMethods();
+		
+		@Test
+		public void testFrequencySortArray() {
+			int[] inputArr = {1, 2, 3, 2, 4, 4, 3, 4, 7, 4};
+			int[] outputArr = {4, 4, 4, 4, 2, 2, 3, 3, 1, 7};
+			
+			Assert.assertTrue(Arrays.equals(outputArr, am.frequencySortArray(inputArr)));
+			Assert.assertTrue(Arrays.equals(new int[] {}, am.frequencySortArray(new int[] {})));
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidFrequencySort() {
+			am.frequencySortArray(null);
+			Assert.fail("Expected an exception, but not !");
+		}
+		
+		@Test
+		public void testStatistics() {
+			am.getStatistics(new int[] {1, 2, 3, 4, 5, 6, 7});
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testStatisticsInvalidInput() {
+			am.getStatistics(null);
+			am.getStatistics(new int[] {});
+			am.getStatistics(new int[] {1});
+			am.getStatistics(new int[] {0});
+			
+			Assert.fail("Expected an exception, but not !");
+		}
+		
+		@Test
+		public void testIsNumeric() {
+			Assert.assertTrue(am.isNumeric("1235"));
+			Assert.assertTrue(am.isNumeric("52369742"));
+			Assert.assertTrue(!am.isNumeric("123O5"));
+			Assert.assertTrue(!am.isNumeric("abcd"));
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidInputSmallestSum() {
+			am.getSmallestSum(null);
+			am.getSmallestSum(new int[] {1, 2, 3});
+			
+			am.getSmallestSumUsingStream(null);
+			am.getSmallestSumUsingStream(new int[] {1, 2, 3});
+			
+			am.smallestNotAdjacentSum(null);
+			am.smallestNotAdjacentSum(new int[] {1, 2, 3, 4});
+			
+			Assert.fail("Exception is expected, but not !");
+		}
+		
+		@Test
+		public void testArrayFunctions() {
+			ArrayFunctions af = new ArrayFunctions();
+			Assert.assertEquals(1, af.getNearestSmallestPositiveInt(null));
+			Assert.assertEquals(3, af.getNearestSmallestPositiveInt(new int[] {1, 4, 5, 2, 8}));
+		}
+	}
+	
+	@RunWith(Parameterized.class)
+	public static class ArrayReversalTest {
+		
+		private ArrayMethods am = new ArrayMethods();
+		private int[] inputArr, outputArr;
+
+		public ArrayReversalTest(int[] inputArr, int[] outputArr) {
+			super();
+			this.inputArr = inputArr;
+			this.outputArr = outputArr;
+		}
+		
+		@Parameters
+		public static Collection<Object[]> params() {
+			return Arrays.asList(new Object[][] {
+				{new int[] {1, 2, 3, 4}, new int[] {4, 3, 2, 1}},
+				{new int[] {1}, new int[] {1}}, 
+				{new int[] {}, new int[] {}}, 
+				{new int[] {3, 5, 2, 6, 9}, new int[] {9, 6, 2, 5, 3}}, 
+				{new int[] {21, 34, 64, 23, 90, 2, 46, 1, 36, 0}, new int[] {0, 36, 1, 46, 2, 90, 23, 64, 34, 21}} 
+			});
+		}
+		
+		@Test
+		public void testClassicReversing() {
+			Assert.assertTrue(Arrays.equals(outputArr, am.reverseArray(inputArr)));
+		}
+		
+		@Test
+		public void testStreamedReversing() {
+			Assert.assertTrue(Arrays.equals(outputArr, am.reverseArrayWithStreams(inputArr)));
+		}
+		
+		@Test
+		public void testSmartReversing() {
+			int[] newInputArr = Arrays.copyOf(inputArr, inputArr.length);
+			am.reverseArraySmartly(newInputArr);
+			Assert.assertTrue(Arrays.equals(outputArr, newInputArr));
+		}
+	}
+	
+	@RunWith(Parameterized.class)
+	public static class SmallestSumTest {
+		
+		private ArrayMethods am = new ArrayMethods();
+		private int[] inputArr;
+		private int smallestSum;
+		private int smallestNonAdjSum;
+		
+		public SmallestSumTest(int[] inputArr, int smallestSum, int smallestNonAdjSum) {
+			super();
+			this.inputArr = inputArr;
+			this.smallestSum = smallestSum;
+			this.smallestNonAdjSum = smallestNonAdjSum;
+		}
+		
+		@Parameters
+		public static Collection<Object[]> params() {
+			return Arrays.asList(new Object[][] {
+				{new int[] {1, 2, 3, 4, 5}, 5, 6},
+				{new int[] {0, 0, 0, 0, 0, 0, 0, 0}, 0, 0},
+				{new int[] {1, 8, 3, 7, 5, 4, 10}, 7, 7}
+			}); 
+		}
+		
+		@Test
+		public void testSmallestSum() {
+			Assert.assertEquals(smallestSum, am.getSmallestSum(inputArr));
+		}
+		
+		@Test
+		public void testSmallestSumWithStreams() {
+			Assert.assertEquals(smallestSum, am.getSmallestSumUsingStream(inputArr));
+		}
+		
+		@Test
+		public void testNonAdjacentSmallSum() {
+			Assert.assertEquals(smallestNonAdjSum, am.smallestNotAdjacentSum(inputArr));
+		}
+		
+		@Test
+		public void testFunction() {
+			Integer[] intArr = Arrays.stream(inputArr).boxed().toArray(Integer[]::new);
+			Assert.assertNotNull(am.function(intArr, 1, 3));
+		}
 	}
 }

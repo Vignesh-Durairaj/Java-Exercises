@@ -144,8 +144,6 @@ public class NumberUtils {
 			builder.append(digit.toString());
 		}
 		
-		System.out.println(builder);
 		return numStr.equals(builder.toString());
-		
 	}
 }

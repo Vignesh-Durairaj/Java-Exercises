@@ -92,4 +92,28 @@ public class HandClockTest {
 		double minAngle = handClock.getSmallestAngle();
 		Assert.assertTrue(minAngle == 0);
 	}
+	
+	@Test
+	public void testRandomTimings() {
+		handClock = new HandClock();
+		handClock.setHourHand(6);
+		handClock.setMinuteHand(30);
+		handClock.optimizeHands();
+		handClock.findHourAndMinuteAngles();
+		double angle = handClock.getAngleBetweenHourAndMinute();
+		Assert.assertTrue(angle == 345);
+		
+		double minAngle = handClock.getSmallestAngle();
+		Assert.assertTrue(minAngle == 15);
+		
+		handClock.setHourHand(6);
+		handClock.setMinuteHand(00);
+		handClock.optimizeHands();
+		handClock.findHourAndMinuteAngles();
+		angle = handClock.getAngleBetweenHourAndMinute();
+		Assert.assertTrue(angle == 180);
+		
+		minAngle = handClock.getSmallestAngle();
+		Assert.assertTrue(minAngle == 180);
+	}
 }
