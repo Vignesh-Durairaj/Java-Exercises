@@ -32,7 +32,7 @@ public class BinaryTreeTraversal {
 				}
 			}
 			
-			System.out.println("");
+			System.out.println(nodeList.get(0).getValue());
 			
 			endOfDepth = (nodeList.size() * 2) - 1;
 			nodeList = tmpList;

@@ -1,6 +1,7 @@
 package com.vikhi.exercise;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.vikhi.pojo.NumberModel;
@@ -43,16 +44,10 @@ public class NumberUtilsTest {
 		}
 	}
 	
-	@Test
+	@Test (expected = IllegalArgumentException.class)
 	public void testNegativeCases() {
-		try {
-			NumberUtils.getLastNumberSamples(3, 15);
-			NumberUtils.getPosAndNegAverages(null);
-			NumberUtils.getPosAndNegAverages(new int[] {});
-			Assert.fail("This case is suppose to throw an exception, but not");
-		} catch (IllegalArgumentException e) {
-			
-		}
+		NumberUtils.getLastNumberSamples(3, 15);
+		Assert.fail("This case is suppose to throw an exception, but not");
 	}
 	
 	@Test
@@ -86,6 +81,8 @@ public class NumberUtilsTest {
 	public void testIsValidISBN() {
 		Assert.assertTrue(NumberUtils.isValidISBN(8535902775L));
 		Assert.assertTrue(!NumberUtils.isValidISBN(1843369283L));
+		Assert.assertTrue(!NumberUtils.isValidISBN(18433693L));
+		Assert.assertTrue(!NumberUtils.isValidISBN(184336928334L));
 	}
 	
 	@Test
@@ -93,5 +90,71 @@ public class NumberUtilsTest {
 		Assert.assertTrue(NumberUtils.isConsecutiveDigitNum(12345));
 		Assert.assertTrue(!NumberUtils.isConsecutiveDigitNum(12354));
 		Assert.assertTrue(NumberUtils.isConsecutiveDigitNum(6789));
+	}
+	
+	@Test
+	public void testArmstrongNumbers() {
+		ArmstrongNumbers an = new ArmstrongNumbers();
+		
+		Assert.assertTrue(an.isArmstrongNumber(4210818));
+		Assert.assertTrue(an.isArmstrongNumberFaster(146511208));
+		Assert.assertTrue(!an.isArmstrongNumberFaster(93085));
+	}
+	
+	@Test
+	@Ignore
+	public void testArmstrongNumbersPrint() {
+		ArmstrongNumbers an = new ArmstrongNumbers();
+		try {
+			an.getArmstrongNumbers();
+			an.getArmstrongNumbersFaster();
+		} catch(Exception e) {
+			Assert.fail("Exception ecnountered !");
+		}
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testInvalidTestCase() {
+		NumberUtils.getPosAndNegAverages(null);
+		Assert.fail("Exception is expected, but was not");
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testEmptyInputTestCase() {
+		NumberUtils.getPosAndNegAverages(new int[] {});
+		Assert.fail("Exception is expected, but was not");
+	}
+	
+	@Test
+	public void testFactorials() {
+		Factorials factorial = new Factorials();
+		
+		Assert.assertEquals(1, factorial.getFactorial(0));
+		Assert.assertEquals(1, factorial.getFactorialRecursive(0));
+		Assert.assertEquals(1, factorial.getFactorialWithStreams(0));
+		
+		Assert.assertEquals(1, factorial.getFactorial(1));
+		Assert.assertEquals(1, factorial.getFactorialRecursive(1));
+		Assert.assertEquals(1, factorial.getFactorialWithStreams(1));
+		
+		Assert.assertEquals(120, factorial.getFactorial(5));
+		Assert.assertEquals(120, factorial.getFactorialRecursive(5));
+		Assert.assertEquals(120, factorial.getFactorialWithStreams(5));
+	}
+	
+	@Test
+	public void testLuckyNumberGenerator() {
+		LuckyNumberGenerator lng = new LuckyNumberGenerator();
+		
+		Assert.assertEquals(6, lng.getLuckyNumberAsSum(213));
+		Assert.assertEquals(3, lng.getLuckyNumberAsSum(3));
+	}
+	
+	@Test
+	public void testLuckyNumberGeneratorWithStreams() {
+		LuckyNumberGenerator lng = new LuckyNumberGenerator();
+		
+		Assert.assertEquals(6, lng.getLuckyNumberUsingStreams(213));
+		Assert.assertEquals(3, lng.getLuckyNumberUsingStreams(3));
 	}
 }

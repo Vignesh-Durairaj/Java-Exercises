@@ -61,11 +61,4 @@ public class WordAnagram {
 		}
 		return false;
 	}
-	
-	public static void main(String[] args) {
-		WordAnagram anagram = new WordAnagram();
-		String str = "AABCY";
-		System.out.println(anagram.getCombinations(str));
-		System.out.println(anagram.getFilteredCombinations(str));
-	}
 }

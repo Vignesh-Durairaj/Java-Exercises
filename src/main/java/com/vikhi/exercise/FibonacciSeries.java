@@ -132,24 +132,4 @@ public class FibonacciSeries {
 				.limit(count)
 				.average().orElse(0D);
 	}
-	
-	public static void main(String[] args) {
-		long startTime, endTime;
-		FibonacciSeries fibonacciSeries = new FibonacciSeries();
-		
-		startTime = System.currentTimeMillis();
-		System.out.println(fibonacciSeries.getValueFromMethod(5000));
-		endTime = System.currentTimeMillis();
-		System.out.println("Time taken to evaluate using method : " + (endTime - startTime) + "ms");
-		
-		startTime = System.currentTimeMillis();
-		System.out.println(fibonacciSeries.getValueUsingArrays(5000));
-		endTime = System.currentTimeMillis();
-		System.out.println("Time taken to evaluate using arrays fast process : " + (endTime - startTime) + "ms");
-		
-		startTime = System.currentTimeMillis();
-		System.out.println(fibonacciSeries.getValueFromFastProcess(5000));
-		endTime = System.currentTimeMillis();
-		System.out.println("Time taken to evaluate using map and Fast process : " + (endTime - startTime) + "ms");
-	}
 }

@@ -39,15 +39,14 @@ public class FibonacciSeriesTest {
 		}
 		
 		@Test(expected=IllegalArgumentException.class)
-		public void testNegativeInputForFastProcess() {
-			BigInteger outputVal = numericalMethods.getValueFromMethod(-1);
+		public void testNegativeInputForArrayProcess() {
+			BigInteger outputVal = numericalMethods.getValueUsingArrays(-1);
 			Assert.assertNotNull(outputVal);
 			Assert.fail("Input Arguments should not be a negative a value");
 		}
-		
 		@Test(expected=IllegalArgumentException.class)
-		public void testNegativeInputForArrayProcess() {
-			BigInteger outputVal = numericalMethods.getValueUsingArrays(-1);
+		public void testNegativeInputForFastProcess() {
+			BigInteger outputVal = numericalMethods.getValueFromFastProcess(-1);
 			Assert.assertNotNull(outputVal);
 			Assert.fail("Input Arguments should not be a negative a value");
 		}
@@ -56,55 +55,72 @@ public class FibonacciSeriesTest {
 	@RunWith(Parameterized.class)
 	public static class GroupedNumericalTests {
 		
+		private FibonacciSeries numericalMethods = new FibonacciSeries();
+		
 		private int inputVal;
 		private BigInteger outputVal;
+		private float average;
+		private double averageDouble;
 		
-		public GroupedNumericalTests(final int inputVal, final BigInteger outputVal) {
+		public GroupedNumericalTests(final int inputVal, final BigInteger outputVal, 
+				final float average, final double averageDouble) {
 			this.inputVal = inputVal;
 			this.outputVal = outputVal;
+			this.average = average;
+			this.averageDouble = averageDouble;
 		}
 		
 		@Parameters
 		public static Collection<Object[]> inputParams() {
 			return Arrays.asList(new Object[][]{
-				{0, BigInteger.ZERO}, 
-				{1, BigInteger.valueOf(1)},
-				{2, BigInteger.valueOf(1)},
-				{3, BigInteger.valueOf(2)},
-				{4, BigInteger.valueOf(3)}, 
-				{5, BigInteger.valueOf(5)},
-				{6, BigInteger.valueOf(8)},
-				{7, BigInteger.valueOf(13)}, 
-				{8, BigInteger.valueOf(21)}
+				{0, BigInteger.ZERO, 0, 0}, 
+				{1, BigInteger.valueOf(1), 1, 1},
+				{2, BigInteger.valueOf(1), 1, 1},
+				{3, BigInteger.valueOf(2), 1, 1.33},
+				{4, BigInteger.valueOf(3), 1, 1.75}, 
+				{5, BigInteger.valueOf(5), 2, 2.4},
+				{6, BigInteger.valueOf(8), 3, 3.33},
+				{7, BigInteger.valueOf(13), 2, 4.71}, 
+				{8, BigInteger.valueOf(21), 4, 6.75}
 			});
 		}
 		
 		@Test
 		public void testRecursiveValue () {
-			FibonacciSeries numericalMethods = new FibonacciSeries();
 			BigInteger processedVal = numericalMethods.getValueFromRecursive(inputVal);
 			Assert.assertEquals(outputVal, processedVal);
 		}
 		
 		@Test
 		public void testFunctionalValue () {
-			FibonacciSeries numericalMethods = new FibonacciSeries();
 			BigInteger processedVal = numericalMethods.getValueFromMethod(inputVal);
 			Assert.assertEquals(outputVal, processedVal);
 		}
 		
 		@Test
 		public void testFastProcessValue () {
-			FibonacciSeries numericalMethods = new FibonacciSeries();
 			BigInteger processedVal = numericalMethods.getValueFromFastProcess(inputVal);
 			Assert.assertEquals(outputVal, processedVal);
 		}
 		
 		@Test
 		public void testArrayProcessValue () {
-			FibonacciSeries numericalMethods = new FibonacciSeries();
 			BigInteger processedVal = numericalMethods.getValueUsingArrays(inputVal);
 			Assert.assertEquals(outputVal, processedVal);
+		}
+		
+		@Test
+		public void testFibonacciAverage() {
+			float fibbAverage = numericalMethods.getFibonacciAverage(inputVal);
+			if (inputVal > 0) {
+				Assert.assertEquals(average, fibbAverage, 1);
+			}
+		}
+		
+		@Test
+		public void testFibonacciAverageWithStreams() {
+			double fibbAverageDouble = numericalMethods.getFibonacciAverageUsingStream(inputVal);
+			Assert.assertEquals(averageDouble, fibbAverageDouble, 1);
 		}
 	}
 }
