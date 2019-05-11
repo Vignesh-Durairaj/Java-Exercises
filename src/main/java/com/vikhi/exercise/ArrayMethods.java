@@ -168,7 +168,7 @@ public class ArrayMethods {
         Integer[] leadingElements = Arrays.copyOfRange(A, 0, maxArrayIndices[1]);
         Integer[] trailingElements = Arrays.copyOfRange(A, (maxArrayIndices[1]+K), A.length);
 
-        List<Integer> mergedLeadingAndTrailingElements = new ArrayList<Integer>(Arrays.asList(leadingElements));
+        List<Integer> mergedLeadingAndTrailingElements = new ArrayList<>(Arrays.asList(leadingElements));
         mergedLeadingAndTrailingElements.addAll(Arrays.asList(trailingElements));
         Integer[] mergedLeadingAndTrailingElementsArray =  mergedLeadingAndTrailingElements.toArray(new Integer[0]);
 
@@ -296,7 +296,7 @@ public class ArrayMethods {
 	
 	public int[] reverseArray (final int[] inputArr) {
 		int arrSize = inputArr.length;
-		int[] newArr =  new int[10];
+		int[] newArr =  new int[inputArr.length];
 		for (int i = 0; i < arrSize; i ++) {
 		    newArr[i] = inputArr[arrSize - 1 - i];
 		}
@@ -318,8 +318,10 @@ public class ArrayMethods {
 	 * @param inputArr - The array to be reversed. The same parameter passed will be reversed
 	 */
 	public void reverseArraySmartly (int[] inputArr) {
-		int j = inputArr.length - 1;
-		for (int i = 0; i <= inputArr.length / 2; i ++, j --) {
+		int arrLength = inputArr.length, j = arrLength - 1;
+		int median = (inputArr.length / 2) - (arrLength % 2 == 0 ? 1 : 0);
+		
+		for (int i = 0; inputArr.length > 0 && i <= median; i ++, j --) {
 			int temp = inputArr[i];
 			inputArr[i] = inputArr[j];
 			inputArr[j] = temp;

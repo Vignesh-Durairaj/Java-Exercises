@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import com.vikhi.pojo.NumberModel;
 
-public class NumberUtilstest {
+public class NumberUtilsTest {
 
 	@Test
 	public void testNumberSwap() {
