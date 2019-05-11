@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -74,5 +76,54 @@ public class StringFunctionsTest {
 		strFunctions.printSquare(0);
 		
 		Assert.fail("Expected an exception, but not !");
+	}
+	
+	@Test
+	public void testCalendarUtil() {
+		CalendarUtils cu = new CalendarUtils();
+		Date prevMonthDate = cu.getPreviousMonthLastDate();
+		
+		Assert.assertNotNull(prevMonthDate);
+		Assert.assertSame(Date.class, prevMonthDate.getClass());
+	}
+	
+	@Test
+	public void testCharIterations() {
+		try {
+			CharIterations.main(null);
+		} catch (Exception e) {
+			Assert.fail("Encountered an exception !");
+		}
+	}
+	
+	@Test
+	public void testCrossBoxGeneration() {
+		CrossBoxGenerator cbg = new CrossBoxGenerator();
+		try {
+			cbg.printCrossBox(10);
+			cbg.printCrossBox(7);
+		} catch(Exception e) {
+			Assert.fail("Encountered an exception !");
+		}
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testInvalidCrossBoxGeneration() {
+		CrossBoxGenerator cbg = new CrossBoxGenerator();
+		cbg.printCrossBox(-1);
+	}
+	
+	@Test
+	public void testCryptography() {
+		String inputString = "Vignesh Durairaj";
+		CryptoGraphy crypto = new CryptoGraphy();
+		
+		String encryptedString = crypto.encrypt(inputString);
+		String decryptedString = crypto.decrypt(encryptedString);
+		
+		Assert.assertNotNull(encryptedString);
+		Assert.assertNotNull(decryptedString);
+		Assert.assertFalse(encryptedString.equals(inputString));
+		Assert.assertTrue(decryptedString.equals(inputString));
 	}
 }

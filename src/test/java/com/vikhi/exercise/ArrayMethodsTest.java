@@ -148,7 +148,7 @@ public class ArrayMethodsTest {
 		
 		@Test
 		public void testStatistics() {
-			am.getStatistics(new int[] {1, 2, 3, 4, 5, 6, 7});
+			am.getStatistics(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8});
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
@@ -188,6 +188,120 @@ public class ArrayMethodsTest {
 			ArrayFunctions af = new ArrayFunctions();
 			Assert.assertEquals(1, af.getNearestSmallestPositiveInt(null));
 			Assert.assertEquals(3, af.getNearestSmallestPositiveInt(new int[] {1, 4, 5, 2, 8}));
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase1() {
+			am.getNthSmallElement(0, new int[] {1, 2, 3});
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase2() {
+			am.getNthSmallElement(1, null);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase3() {
+			am.getNthSmallElement(5, new int[] {1, 2, 3});
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase4() {
+			am.getNthSmallElement(new int[] {1, 2, 3}, 0);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase5() {
+			am.getNthSmallElement(null, 2);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase6() {
+			am.getNthSmallElement(new int[] {1, 2, 3}, 5);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase7() {
+			am.getRankedElementFromArray(new int[] {1, 2, 3}, 0);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase8() {
+			am.getRankedElementFromArray(null, 1);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase9() {
+			am.getRankedElementFromArray(new int[] {1, 2, 3}, 6);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase10() {
+			am.getSmallestSum(new int[] {1, 2, 3});
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase11() {
+			am.getSmallestSum(null);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase12() {
+			am.getSmallestSumUsingStream(new int[] {1, 2, 3});
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase13() {
+			am.getSmallestSumUsingStream(null);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase14() {
+			am.smallestNotAdjacentSum(null);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase15() {
+			am.smallestNotAdjacentSum(new int[] {1, 2, 3});
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase16() {
+			am.getStatistics(new int[] {1});
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase17() {
+			am.getStatistics(null);
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase18() {
+			am.isNumeric("");
+			Assert.fail("Expected an exception, but was not!");
+		}
+		
+		@Test(expected = IllegalArgumentException.class)
+		public void testInvalidCase19() {
+			am.isNumeric(null);
+			Assert.fail("Expected an exception, but was not!");
 		}
 	}
 	

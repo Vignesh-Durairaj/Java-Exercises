@@ -24,7 +24,7 @@ public class CryptoGraphy {
 	
 	public String decrypt (final String encryptedString) {
 		String decryptedString = null;
-		if (encryptedString != null && encryptedString.trim() != "") {
+		if (encryptedString != null && !encryptedString.trim().equals("")) {
 			String[] strArray = encryptedString.split("\\" + MASK_SEPARATOR);
 			List<String> charList = 
 					IntStream
