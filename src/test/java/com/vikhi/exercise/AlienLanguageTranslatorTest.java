@@ -29,7 +29,8 @@ public class AlienLanguageTranslatorTest {
 			{"Durairaj"},
 			{"Software Engineering"}, 
 			{""}, 
-			{" "}
+			{" "}, 
+			{"!@#$%^(*&^12325abcdxyzABCDXYZ"}
 		});
 	}
 	

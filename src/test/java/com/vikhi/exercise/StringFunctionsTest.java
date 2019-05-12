@@ -125,6 +125,11 @@ public class StringFunctionsTest {
 		Assert.assertNotNull(decryptedString);
 		Assert.assertFalse(encryptedString.equals(inputString));
 		Assert.assertTrue(decryptedString.equals(inputString));
+		
+		encryptedString = crypto.encrypt("");
+		Assert.assertNull(encryptedString);
+		Assert.assertNull(crypto.decrypt(encryptedString));
+		Assert.assertNull(crypto.decrypt(""));
 	}
 	
 	@Test
