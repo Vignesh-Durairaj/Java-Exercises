@@ -44,3 +44,8 @@ Also few set of exercises from various sources using **Java programming language
 - Used **[CircleCI](https://circleci.com/)** for continuous integration, automated unit testing and deployment
 - Used **Maven** as build tool
 - Click on the **Badge** above to get to know more about the build details and unit test results
+- Included badges are
+  - **CI/CD** build status
+  - **Code quality** rank
+  - **Test Coverage** percentage
+  - **License** type
