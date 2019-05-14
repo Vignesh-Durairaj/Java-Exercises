@@ -179,6 +179,8 @@ public class StringFunctionsTest {
 	public void testRepeatingAlphabets() {
 		RepeatingAlphabets ra = new RepeatingAlphabets();
 		Assert.assertEquals("baba", ra.getRepeatingAlphas(2, 2));
+		Assert.assertEquals("", ra.getRepeatingAlphas(0, 0));
+		Assert.assertEquals("ab", ra.getRepeatingAlphas(1, 1));
 	}
 	
 	@Test
@@ -198,6 +200,12 @@ public class StringFunctionsTest {
 				new int[] {12, 12, 8, 1, 12, -21, 18, 12}));
 		Assert.assertEquals("SPRING", strug.getHighAmplitudeSeason(
 				new int[] {12, -12, -8, 39, 12, -21, 18, 12}));
+	}
+	
+	@Test
+	public void testTriangularNumberPrint() {
+		strFunctions.printTriangularNumbers(0);
+		strFunctions.printTriangularNumbers(5);
 	}
 	
 }

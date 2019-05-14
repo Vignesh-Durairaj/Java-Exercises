@@ -78,4 +78,21 @@ public class MathOperationsTest {
 			Assert.assertEquals(this.ans, ans, 0.001D);
 		}
 	}
+	
+	public static class XorFunctionTest {
+		
+		MathOperations mathOperations = new MathOperations();
+		
+		@Test
+		public void testXor() {
+			Assert.assertEquals(11, mathOperations.getXor(10L));
+			Assert.assertEquals(0, mathOperations.getXor(55L));
+		}
+		
+		@Test
+		public void testXorForRange() {
+			Assert.assertEquals(12, mathOperations.getXorForRange(5, 8));
+			Assert.assertEquals(1, mathOperations.getXorForRange(20, 25));
+		}
+	}
 }
