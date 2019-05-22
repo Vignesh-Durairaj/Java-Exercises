@@ -155,4 +155,11 @@ public class NumberUtilsTest {
 		Assert.assertEquals(6, lng.getLuckyNumberUsingStreams(213));
 		Assert.assertEquals(3, lng.getLuckyNumberUsingStreams(3));
 	}
+	
+	@Test
+	public void testOddSum() {
+		Assert.assertEquals(25, NumberUtils.getOddSum(10));
+		Assert.assertEquals(64, NumberUtils.getOddSum(15));
+		Assert.assertEquals(0, NumberUtils.getOddSum(0));
+	}
 }
