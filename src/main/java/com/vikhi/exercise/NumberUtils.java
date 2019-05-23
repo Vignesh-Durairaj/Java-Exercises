@@ -146,4 +146,11 @@ public class NumberUtils {
 		
 		return numStr.equals(builder.toString());
 	}
+	
+	public static long getOddSum(final long limit) {
+		return LongStream
+				.rangeClosed(1, limit)
+				.filter(num -> num % 2 == 1)
+				.sum();
+	}
 }
