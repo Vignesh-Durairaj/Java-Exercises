@@ -153,4 +153,24 @@ public class NumberUtils {
 				.filter(num -> num % 2 == 1)
 				.sum();
 	}
+	
+	public static int getQuadrant(final int angle) {
+		int actualAngle = angle, quadrant = 0;
+		
+		while (actualAngle > 360) {
+			actualAngle -= 360;
+		}
+		
+		if (actualAngle <= 90) {
+			quadrant = 1;
+		} else if (actualAngle > 90 && actualAngle <= 180) {
+			quadrant = 2;
+		} else if (actualAngle > 180 && actualAngle <= 270) {
+			quadrant = 3;
+		} else if (actualAngle > 270) {
+			quadrant = 4;
+		}
+		
+		return quadrant;
+	}
 }

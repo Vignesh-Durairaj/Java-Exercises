@@ -162,4 +162,13 @@ public class NumberUtilsTest {
 		Assert.assertEquals(64, NumberUtils.getOddSum(15));
 		Assert.assertEquals(0, NumberUtils.getOddSum(0));
 	}
+	
+	@Test
+	public void testQuadrantIdentifier() {
+		Assert.assertEquals(1, NumberUtils.getQuadrant(362));
+		Assert.assertEquals(2, NumberUtils.getQuadrant(92));
+		Assert.assertEquals(3, NumberUtils.getQuadrant(197));
+		Assert.assertEquals(4, NumberUtils.getQuadrant(301));
+		Assert.assertEquals(1, NumberUtils.getQuadrant(30));
+	}
 }
