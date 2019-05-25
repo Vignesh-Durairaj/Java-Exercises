@@ -174,7 +174,7 @@ public class NumberUtils {
 		return quadrant;
 	}
 	
-	public boolean isPrime(final int number) {
+	public static boolean isPrime(final int number) {
 		boolean isPrime = true;
 		
 		if(number == 1 || (number != 2 && number % 2 == 0)) {
