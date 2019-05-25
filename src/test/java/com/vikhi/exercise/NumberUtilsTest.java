@@ -170,6 +170,10 @@ public class NumberUtilsTest {
 		Assert.assertEquals(3, NumberUtils.getQuadrant(197));
 		Assert.assertEquals(4, NumberUtils.getQuadrant(301));
 		Assert.assertEquals(1, NumberUtils.getQuadrant(30));
+		Assert.assertEquals(1, NumberUtils.getQuadrant(90));
+		Assert.assertEquals(2, NumberUtils.getQuadrant(180));
+		Assert.assertEquals(3, NumberUtils.getQuadrant(270));
+		Assert.assertEquals(4, NumberUtils.getQuadrant(271));
 	}
 	
 	@Test
