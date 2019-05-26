@@ -171,4 +171,16 @@ public class NumberUtilsTest {
 		Assert.assertEquals(4, NumberUtils.getQuadrant(301));
 		Assert.assertEquals(1, NumberUtils.getQuadrant(30));
 	}
+	
+	@Test
+	public void testIsPrime() {
+		Assert.assertFalse(NumberUtils.isPrime(1));
+		Assert.assertTrue(NumberUtils.isPrime(2));
+		Assert.assertTrue(NumberUtils.isPrime(3));
+		Assert.assertFalse(NumberUtils.isPrime(4));
+		Assert.assertTrue(NumberUtils.isPrime(5));
+		Assert.assertTrue(NumberUtils.isPrime(19));
+		Assert.assertFalse(NumberUtils.isPrime(21));
+		Assert.assertFalse(NumberUtils.isPrime(1000));
+	}
 }
