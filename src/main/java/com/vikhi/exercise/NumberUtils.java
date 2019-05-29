@@ -190,4 +190,18 @@ public class NumberUtils {
 		
 		return isPrime;
 	}
+	
+	public static int getOneCounts(final int startNumber, final int endNumber) {
+		return 0;
+	}
+	
+	private static int getOneCounts(final int number) {
+		int oneCount = 0;
+		String numStr = String.valueOf(number);
+		for (int i = 0; i < numStr.length(); i ++) {
+			oneCount += (numStr.charAt(i) == '1') ? 1 : 0;
+		}
+		
+		return oneCount;
+	}
 }
