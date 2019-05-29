@@ -191,5 +191,7 @@ public class NumberUtilsTest {
 	@Test
 	public void testOneCounts() {
 		Assert.assertEquals(4, NumberUtils.getOneCounts(1, 11));
+		Assert.assertEquals(34, NumberUtils.getOneCounts(11, 111));
+		Assert.assertEquals(36, NumberUtils.getOneCounts(1, 111));
 	}
 }
