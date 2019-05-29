@@ -187,4 +187,9 @@ public class NumberUtilsTest {
 		Assert.assertFalse(NumberUtils.isPrime(21));
 		Assert.assertFalse(NumberUtils.isPrime(1000));
 	}
+	
+	@Test
+	public void testOneCounts() {
+		Assert.assertEquals(4, NumberUtils.getOneCounts(1, 11));
+	}
 }

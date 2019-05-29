@@ -195,7 +195,7 @@ public class NumberUtils {
 	public static int getOneCounts(final int startNumber, final int endNumber) {
 		return IntStream
 				.rangeClosed(startNumber, endNumber)
-				.reduce(0, (a, b) -> getOneCounts(a));
+				.reduce(0, (a, b) -> a + getOneCounts(b));
 	}
 	
 	private static int getOneCounts(final int number) {
