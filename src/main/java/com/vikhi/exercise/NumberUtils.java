@@ -2,6 +2,7 @@ package com.vikhi.exercise;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 import com.vikhi.pojo.NumberModel;
@@ -192,7 +193,9 @@ public class NumberUtils {
 	}
 	
 	public static int getOneCounts(final int startNumber, final int endNumber) {
-		return 0;
+		return IntStream
+				.rangeClosed(startNumber, endNumber)
+				.reduce(0, (a, b) -> getOneCounts(a));
 	}
 	
 	private static int getOneCounts(final int number) {
