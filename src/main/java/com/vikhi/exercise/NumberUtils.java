@@ -2,6 +2,7 @@ package com.vikhi.exercise;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 import com.vikhi.pojo.NumberModel;
@@ -189,5 +190,21 @@ public class NumberUtils {
 		}
 		
 		return isPrime;
+	}
+	
+	public static int getOneCounts(final int startNumber, final int endNumber) {
+		return IntStream
+				.rangeClosed(startNumber, endNumber)
+				.reduce(0, (a, b) -> a + getOneCounts(b));
+	}
+	
+	private static int getOneCounts(final int number) {
+		int oneCount = 0;
+		String numStr = String.valueOf(number);
+		for (int i = 0; i < numStr.length(); i ++) {
+			oneCount += (numStr.charAt(i) == '1') ? 1 : 0;
+		}
+		
+		return oneCount;
 	}
 }
