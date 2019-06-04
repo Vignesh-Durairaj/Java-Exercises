@@ -214,9 +214,15 @@ public class StringFunctions {
     }
     
     public String getCapitalization(final String str) {
+    	
+    	if (str.trim().equals("")) {
+    		return "";
+    	}
+    	
     	return Arrays
     			.stream(str.split(" "))
-    			.map(ele -> ele.toUpperCase().charAt(0) + ele.toLowerCase().substring(1, ele.length() - 1))
+    			.map(ele -> ele.toUpperCase().charAt(0) + ele.toLowerCase().substring(1, ele.length()))
+    			.peek(System.out::println)
     			.reduce("", (a, b) -> a + b + " ")
     			.trim();
     }
