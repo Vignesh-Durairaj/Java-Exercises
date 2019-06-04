@@ -212,4 +212,12 @@ public class StringFunctions {
     		System.out.println("");
     	}
     }
+    
+    public String getCapitalization(final String str) {
+    	return Arrays
+    			.stream(str.split(" "))
+    			.map(ele -> ele.toUpperCase().charAt(0) + ele.toLowerCase().substring(1, ele.length() - 1))
+    			.reduce("", (a, b) -> a + b + " ")
+    			.trim();
+    }
 }
