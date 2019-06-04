@@ -208,4 +208,10 @@ public class StringFunctionsTest {
 		strFunctions.printTriangularNumbers(5);
 	}
 	
+	@Test
+	public void testCapitalization() {
+		Assert.assertEquals("Test", strFunctions.getCapitalization("test"));
+		Assert.assertEquals("", strFunctions.getCapitalization(""));
+		Assert.assertEquals("Hello World !", strFunctions.getCapitalization("hello wORld !"));
+	}
 }
