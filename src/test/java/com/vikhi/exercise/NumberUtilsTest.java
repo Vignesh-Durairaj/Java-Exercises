@@ -194,4 +194,16 @@ public class NumberUtilsTest {
 		Assert.assertEquals(34, NumberUtils.getOneCounts(11, 111));
 		Assert.assertEquals(36, NumberUtils.getOneCounts(1, 111));
 	}
+	
+	@Test
+	public void testPerfectNumbers() {
+		Assert.assertTrue(NumberUtils.isPerfectNumber(6));
+		Assert.assertTrue(NumberUtils.isPerfectNumber(28));
+		Assert.assertTrue(NumberUtils.isPerfectNumber(496));
+		
+		Assert.assertFalse(NumberUtils.isPerfectNumber(10));
+		Assert.assertFalse(NumberUtils.isPerfectNumber(1));
+		Assert.assertFalse(NumberUtils.isPerfectNumber(25));
+		
+	}
 }

@@ -207,4 +207,13 @@ public class NumberUtils {
 		
 		return oneCount;
 	}
+	
+	public static boolean isPerfectNumber(final int number) {
+		int divisorSum = IntStream
+							.rangeClosed(1, number / 2)
+							.filter(i -> number % i == 0)
+							.sum();
+		
+		return (number == divisorSum);
+	}
 }
