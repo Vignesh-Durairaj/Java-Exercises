@@ -219,6 +219,6 @@ public class NumberUtils {
 	
 	public static double getAreaOfTriangle(final int a, final int b, final int c) {
 		double s = (a + b + c) / 2;
-		return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+		return Math.sqrt(Math.abs(s * (s - a) * (s - b) * (s - c)));
 	}
 }

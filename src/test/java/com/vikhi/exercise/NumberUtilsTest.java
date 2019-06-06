@@ -209,5 +209,7 @@ public class NumberUtilsTest {
 	@Test
 	public void testAreaOfTriangle() {
 		Assert.assertEquals(0, NumberUtils.getAreaOfTriangle(0, 0, 0), 0.0001D);
+		Assert.assertEquals(0, NumberUtils.getAreaOfTriangle(1, 2, 3), 1D);
+		Assert.assertEquals(4.898, NumberUtils.getAreaOfTriangle(1, 2, 5), 1D);
 	}
 }
