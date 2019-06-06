@@ -205,4 +205,9 @@ public class NumberUtilsTest {
 		Assert.assertFalse(NumberUtils.isPerfectNumber(1));
 		Assert.assertFalse(NumberUtils.isPerfectNumber(25));
 	}
+	
+	@Test
+	public void testAreaOfTriangle() {
+		Assert.assertEquals(0, NumberUtils.getAreaOfTriangle(0, 0, 0), 0.0001D);
+	}
 }
