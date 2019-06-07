@@ -216,6 +216,7 @@ public class NumberUtilsTest {
 	@Test
 	public void testSecondsMethods() {
 		Assert.assertEquals(39010, NumberUtils.getSeconds(10, 50, 10));
-		Assert.assertEquals(39010, NumberUtils.getSeconds(12, 25, 5));
+		Assert.assertEquals(44705, NumberUtils.getSeconds(12, 25, 5));
+		Assert.assertEquals(605, NumberUtils.getSeconds(0, 10, 5));
 	}
 }
