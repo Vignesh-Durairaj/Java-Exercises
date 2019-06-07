@@ -1,5 +1,6 @@
 package com.vikhi.exercise;
 
+import java.util.Collections;
 import java.util.List;
 
 public class CollectionsMethods {
@@ -10,6 +11,7 @@ public class CollectionsMethods {
 			throw new IllegalArgumentException("The input array is of invalid size or may be NULL !");
 		}
 		
-		return 0;
+		Collections.sort(inputList);
+		return inputList.get(inputList.size() - 1);
 	}
 }

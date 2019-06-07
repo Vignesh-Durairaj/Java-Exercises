@@ -20,7 +20,7 @@ public class CollectionsTest {
 	@Test
 	public void testLargestNumberinList() {
 		Assert.assertEquals(3, cm.getLargestNumber(Arrays.asList(3, 1, 2, 3)));
-		Assert.assertEquals(100, cm.getLargestNumber(Arrays.asList(7, 5, 500, -8, 0, 3, 56, -1000)));
+		Assert.assertEquals(500, cm.getLargestNumber(Arrays.asList(7, 5, 500, -8, 0, 3, 56, -1000)));
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
