@@ -219,4 +219,14 @@ public class NumberUtilsTest {
 		Assert.assertEquals(44705, NumberUtils.getSeconds(12, 25, 5));
 		Assert.assertEquals(605, NumberUtils.getSeconds(0, 10, 5));
 	}
+	
+	@Test
+	public void testIsAbundant() {
+		Assert.assertTrue(NumberUtils.isAbundantNumber(12));
+		Assert.assertTrue(NumberUtils.isAbundantNumber(18));
+		Assert.assertTrue(NumberUtils.isAbundantNumber(20));
+		
+		Assert.assertFalse(NumberUtils.isAbundantNumber(1));
+		Assert.assertFalse(NumberUtils.isAbundantNumber(10));
+	}
 }

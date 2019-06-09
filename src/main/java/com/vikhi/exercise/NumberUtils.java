@@ -226,7 +226,7 @@ public class NumberUtils {
 		return (hours * 3600) + (minutes * 60) + seconds;
 	}
 	
-	protected static boolean isAbundantNumber() {
+	protected static boolean isAbundantNumber(final int number) {
 		return false;
 	}
 }
