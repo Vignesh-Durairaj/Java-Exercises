@@ -227,6 +227,11 @@ public class NumberUtils {
 	}
 	
 	protected static boolean isAbundantNumber(final int number) {
-		return false;
+		int divisorSum = IntStream
+				.rangeClosed(1, number / 2 + 1)
+				.filter(num -> number % num == 0)
+				.sum();
+		
+		return (divisorSum > number);
 	}
 }
