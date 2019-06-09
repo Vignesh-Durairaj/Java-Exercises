@@ -225,4 +225,8 @@ public class NumberUtils {
 	public static long getSeconds(final int hours, final int minutes, final int seconds) {
 		return (hours * 3600) + (minutes * 60) + seconds;
 	}
+	
+	protected static boolean isAbundantNumber() {
+		return false;
+	}
 }
