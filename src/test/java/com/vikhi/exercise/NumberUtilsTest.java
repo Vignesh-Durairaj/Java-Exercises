@@ -232,6 +232,7 @@ public class NumberUtilsTest {
 	
 	@Test
 	public void testPrintintAbundantNumbers() {
-		
+		NumberUtils.getAbundantNumbers(20);
+		NumberUtils.getAbundantNumbers(40);
 	}
 }
