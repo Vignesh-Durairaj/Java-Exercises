@@ -234,4 +234,11 @@ public class NumberUtils {
 		
 		return (divisorSum > number);
 	}
+	
+	public static void getAbundantNumbers(final int maxRange) {
+		IntStream
+			.rangeClosed(2, maxRange)
+			.filter(NumberUtils::isAbundantNumber)
+			.forEach(System.out::println);
+	}
 }
