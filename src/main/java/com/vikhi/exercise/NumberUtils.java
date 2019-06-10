@@ -225,4 +225,13 @@ public class NumberUtils {
 	public static long getSeconds(final int hours, final int minutes, final int seconds) {
 		return (hours * 3600) + (minutes * 60) + seconds;
 	}
+	
+	protected static boolean isAbundantNumber(final int number) {
+		int divisorSum = IntStream
+				.rangeClosed(1, number / 2 + 1)
+				.filter(num -> number % num == 0)
+				.sum();
+		
+		return (divisorSum > number);
+	}
 }
