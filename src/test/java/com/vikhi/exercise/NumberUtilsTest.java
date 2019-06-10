@@ -229,4 +229,10 @@ public class NumberUtilsTest {
 		Assert.assertFalse(NumberUtils.isAbundantNumber(1));
 		Assert.assertFalse(NumberUtils.isAbundantNumber(10));
 	}
+	
+	@Test
+	public void testPrintintAbundantNumbers() {
+		NumberUtils.getAbundantNumbers(20);
+		NumberUtils.getAbundantNumbers(40);
+	}
 }
