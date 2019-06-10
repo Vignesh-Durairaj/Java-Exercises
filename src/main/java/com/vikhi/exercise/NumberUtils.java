@@ -221,4 +221,8 @@ public class NumberUtils {
 		double s = (a + b + c) / 2;
 		return Math.sqrt(Math.abs(s * (s - a) * (s - b) * (s - c)));
 	}
+	
+	public static long getSeconds(final int hours, final int minutes, final int seconds) {
+		return (hours * 3600) + (minutes * 60) + seconds;
+	}
 }
