@@ -3,11 +3,9 @@ package com.vikhi.pojo;
 public class Address {
 
 	private String City;
-	
 	private String zipCode;
 
 	public Address(String city, String zipCode) {
-		super();
 		City = city;
 		this.zipCode = zipCode;
 	}
