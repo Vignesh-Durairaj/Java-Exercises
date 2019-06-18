@@ -4,11 +4,11 @@ public class MobileNumber {
 	
 	private String countryCode = "1";
 	
-	private String mobileNumber;
+	private String number;
 
-	public MobileNumber(String countryCode, String mobileNumber) {
+	public MobileNumber(String countryCode, String number) {
 		this.countryCode = countryCode;
-		this.mobileNumber = mobileNumber;
+		this.number = number;
 	}
 
 	public String getCountryCode() {
@@ -19,17 +19,17 @@ public class MobileNumber {
 		this.countryCode = countryCode;
 	}
 
-	public String getMobileNumber() {
-		return mobileNumber;
+	public String getNumber() {
+		return number;
 	}
 
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
+	public void setNumber(String mobileNumber) {
+		this.number = mobileNumber;
 	}
 
 	@Override
 	public String toString() {
-		return "+" + countryCode + "-" + mobileNumber;
+		return "+" + countryCode + "-" + number;
 	}
 
 }

@@ -23,7 +23,7 @@ public class MobileNumberDao {
 	public MobileNumber getMobileNumber(String countryCode, String mobileNumber) {
 		Optional<MobileNumber> mnOpt = getAllMobileNumbers()
 			.stream()
-			.filter(mn -> countryCode.equals(mn.getCountryCode()) && mobileNumber.equals(mn.getMobileNumber()))
+			.filter(mn -> countryCode.equals(mn.getCountryCode()) && mobileNumber.equals(mn.getNumber()))
 			.findFirst();
 		
 		return mnOpt.isPresent() ? mnOpt.get() : null;
@@ -33,7 +33,7 @@ public class MobileNumberDao {
 		return getAllMobileNumbers()
 				.stream()
 				.filter(mn -> countryCode.equals(mn.getCountryCode()))
-				.sorted(Comparator.comparing(MobileNumber::getMobileNumber))
+				.sorted(Comparator.comparing(MobileNumber::getNumber))
 				.collect(Collectors.toList());
 	}
 }
