@@ -15,5 +15,16 @@ public class TempStudent {
 		this.address = address;
 		this.mobileNumbers = mobileNumbers;
 	}
-    
+	
+	public TempStudent(final Student student) {
+		this.name = student.getName();
+		this.age = student.getAge();
+		this.address = student.getAddress();
+		this.mobileNumbers = student.getMobileNumber();
+	}
+
+	public String getName() {
+		return name;
+	}
+	
 }
