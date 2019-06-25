@@ -32,7 +32,15 @@ public class StudentService {
 	}
 	
 	public Student getEldestStudentWithName(final String name) {
-		Optional<Student> optionalStudent = getStudentsWithName(name)
+		return getEldestStudentFromList(getStudentsWithName(name));
+	}
+	
+	public Student getEldestStudentWithZipCode(final String zipCode) {
+		return getEldestStudentFromList(getStudentWithZipCode(zipCode));
+	}
+	
+	private Student getEldestStudentFromList(final List<Student> students) {
+		Optional<Student> optionalStudent = students
 				.stream()
 				.sorted(Comparator.comparing(Student::getAge).reversed())
 				.findFirst();
