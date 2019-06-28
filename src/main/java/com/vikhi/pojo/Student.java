@@ -4,16 +4,26 @@ import java.util.List;
 
 public class Student {
 
+	private long id;
 	private String name;
 	private int age;
 	private Address address;
 	private List<MobileNumber> mobileNumber;
 
-	public Student(String name, int age, Address address, List<MobileNumber> mobileNumber) {
+	public Student(long id, String name, int age, Address address, List<MobileNumber> mobileNumber) {
+		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.address = address;
 		this.mobileNumber = mobileNumber;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -50,8 +60,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", age=" + age + ", address=" + address + ", mobileNumber=" + mobileNumber
-				+ "]";
+		return "Student [id=" + id + ", name=" + name + ", age=" + age + ", address=" + address + ", mobileNumber="
+				+ mobileNumber + "]";
 	}
 	
 }

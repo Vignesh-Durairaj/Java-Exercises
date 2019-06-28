@@ -4,12 +4,14 @@ import java.util.List;
 
 public class TempStudent {
 
-	public String name;
-    public int age;
-    public Address address;
-    public List<MobileNumber> mobileNumbers;
+	private long id;
+	private String name;
+	private int age;
+	private Address address;
+	private List<MobileNumber> mobileNumbers;
     
-	public TempStudent(String name, int age, Address address, List<MobileNumber> mobileNumbers) {
+	public TempStudent(long id, String name, int age, Address address, List<MobileNumber> mobileNumbers) {
+		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.address = address;
@@ -17,6 +19,7 @@ public class TempStudent {
 	}
 	
 	public TempStudent(final Student student) {
+		this.id = student.getId();
 		this.name = student.getName();
 		this.age = student.getAge();
 		this.address = student.getAddress();
