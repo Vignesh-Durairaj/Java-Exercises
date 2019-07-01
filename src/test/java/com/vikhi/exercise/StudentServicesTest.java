@@ -28,4 +28,13 @@ public class StudentServicesTest {
 		assertTrue(studentsList.size() == 1);
 		assertEquals(Long.valueOf(studentsList.get(0).getId()), Long.valueOf(1));
 	}
+	
+	@Test
+	public void getStudentsWithZipCode() {
+		List<Student> studentsList = studentService.getStudentWithZipCode("600100");
+		assertNotNull(studentsList);
+		assertTrue(studentsList.size() == 1);
+		assertEquals(Long.valueOf(studentsList.get(0).getId()), Long.valueOf(2));
+		assertEquals(studentsList.get(0).getName(), "Patel");
+	}
 }

@@ -22,7 +22,7 @@ public class AddressDao {
 				.stream()
 				.filter(address -> zipCode.equals(address.getZipCode()))
 				.findFirst();
-		return optionalAddress.isPresent() ? optionalAddress.get() : null;
+		return optionalAddress.isPresent() ? optionalAddress.get() : new Address();
 	}
 
 }

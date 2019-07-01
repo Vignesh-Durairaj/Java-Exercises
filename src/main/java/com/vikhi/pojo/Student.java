@@ -11,11 +11,11 @@ public class Student {
 	private List<MobileNumber> mobileNumber;
 
 	public Student(long id, String name, int age, Address address, List<MobileNumber> mobileNumber) {
-		this.id = id;
-		this.name = name;
-		this.age = age;
-		this.address = address;
-		this.mobileNumber = mobileNumber;
+		setId(id);
+		setName(name);
+		setAge(age);
+		setAddress(address);
+		setMobileNumber(mobileNumber);
 	}
 
 	public long getId() {
