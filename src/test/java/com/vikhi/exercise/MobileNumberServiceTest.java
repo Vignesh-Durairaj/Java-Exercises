@@ -2,6 +2,7 @@ package com.vikhi.exercise;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
@@ -50,5 +51,10 @@ public class MobileNumberServiceTest {
 			assertTrue("91".equals(mobileNumber.getCountryCode()) || "92".equals(mobileNumber.getCountryCode()));
 			
 		});
+	}
+	
+	@Test
+	public void isStudentHasNoMobileNumber() {
+		assertNull(mobileNumberService.getMobileNumber("", ""));
 	}
 }
