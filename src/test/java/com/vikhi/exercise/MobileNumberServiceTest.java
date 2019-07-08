@@ -49,6 +49,7 @@ public class MobileNumberServiceTest {
 		mobileNumbers.stream().forEach(mobileNumber -> {
 			assertNotNull(mobileNumber.getNumber());
 			assertTrue("91".equals(mobileNumber.getCountryCode()) || "92".equals(mobileNumber.getCountryCode()));
+			assertNotNull(mobileNumber.equals(new MobileNumber("91", "123456")));
 			
 		});
 	}
