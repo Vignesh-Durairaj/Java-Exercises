@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.vikhi.pojo.Student;
+import com.vikhi.pojo.TempStudent;
 import com.vikhi.service.StudentService;
 
 public class StudentServicesTest {
@@ -59,5 +60,12 @@ public class StudentServicesTest {
 		assertNotNull(eldestStudent);
 		assertEquals(Long.valueOf(2), Long.valueOf(eldestStudent.getId()));
 		assertEquals("Patel", eldestStudent.getName());
+	}
+	
+	@Test
+	public void getAllTempStudents() {
+		List<TempStudent> tempStudents = studentService.getAllTempStudents();
+		assertNotNull(tempStudents);
+		assertTrue(tempStudents.size() > 0);
 	}
 }

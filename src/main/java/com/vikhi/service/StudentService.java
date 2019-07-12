@@ -6,16 +6,19 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.vikhi.dao.StudentDao;
+import com.vikhi.dao.TempStudentDao;
 import com.vikhi.pojo.Student;
 import com.vikhi.pojo.TempStudent;
 
 public class StudentService {
 	
 	private StudentDao studentDao;
+	private TempStudentDao tempStudentDao;
 	
 	public StudentService() {
 		// TODO Inject this via DI container
 		studentDao = new StudentDao();
+		tempStudentDao = new TempStudentDao(studentDao);
 	}
 
 	public List<Student> getStudentsWithName(final String name) {
@@ -47,6 +50,10 @@ public class StudentService {
 				.collect(Collectors.toList());
 	}
 	
+	public List<TempStudent> getAllTempStudents () {
+		return tempStudentDao.getAllTempStudents();
+	}
+	
 	private Student getEldestStudentFromList(final List<Student> students) {
 		Optional<Student> optionalStudent = students
 				.stream()
@@ -55,4 +62,5 @@ public class StudentService {
 		
 		return optionalStudent.isPresent() ? optionalStudent.get() : null;
 	}
+	
 }
