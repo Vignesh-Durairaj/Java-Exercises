@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -234,5 +236,12 @@ public class NumberUtilsTest {
 	public void testPrintintAbundantNumbers() {
 		NumberUtils.getAbundantNumbers(20);
 		NumberUtils.getAbundantNumbers(40);
+	}
+	
+	@Test
+	public void testPrimeCount() {
+		assertEquals(78498, NumberUtils.countPrimes(1000001));
+		assertEquals(25, NumberUtils.countPrimes(100));
+		assertEquals(0, NumberUtils.countPrimes(1));
 	}
 }
