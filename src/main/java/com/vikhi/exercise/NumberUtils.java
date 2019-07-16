@@ -256,7 +256,4 @@ public class NumberUtils {
 		return count;
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(NumberUtils.countPrimes(1000001));
-	}
 }
