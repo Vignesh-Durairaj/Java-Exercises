@@ -1,9 +1,12 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
@@ -42,12 +45,12 @@ public class AnagramTest {
 		
 		@Test
 		public void testClassicAnagram() {
-			Assert.assertEquals(isAnagram, AnagramUtils.isAnagram(strOne, strTwo));
+			assertEquals(isAnagram, AnagramUtils.isAnagram(strOne, strTwo));
 		}
 		
 		@Test
 		public void testAnagramUsingArrays() {
-			Assert.assertEquals(isAnagram, AnagramUtils.isAnagramUsingArrays(strOne, strTwo));
+			assertEquals(isAnagram, AnagramUtils.isAnagramUsingArrays(strOne, strTwo));
 		}
 	}
 
@@ -55,8 +58,8 @@ public class AnagramTest {
 		
 		@Test
 		public void testInvalidInputs() {
-			Assert.assertTrue(!AnagramUtils.isAnagramUsingArrays(null, "Test"));
-			Assert.assertTrue(!AnagramUtils.isAnagramUsingArrays("Test", null));
+			assertTrue(!AnagramUtils.isAnagramUsingArrays(null, "Test"));
+			assertTrue(!AnagramUtils.isAnagramUsingArrays("Test", null));
 			
 		}
 		
@@ -65,7 +68,7 @@ public class AnagramTest {
 			WordAnagram anagram = new WordAnagram();
 			String str = "AABCY";
 			
-			Assert.assertNotNull(anagram.getFilteredCombinations(str));
+			assertNotNull(anagram.getFilteredCombinations(str));
 		}
 		
 	}

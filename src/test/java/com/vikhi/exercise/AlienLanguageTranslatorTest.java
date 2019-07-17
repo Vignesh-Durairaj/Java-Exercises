@@ -1,9 +1,10 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -38,7 +39,7 @@ public class AlienLanguageTranslatorTest {
 	public void testAlienTranslation() {
 		String translatedText = alt.fromDefaultLanguage(inputStr);
 		String decodedText = alt.toDefaultLanguage(translatedText);
-		Assert.assertEquals(inputStr, decodedText);
+		assertEquals(inputStr, decodedText);
 	}
 	
 }
