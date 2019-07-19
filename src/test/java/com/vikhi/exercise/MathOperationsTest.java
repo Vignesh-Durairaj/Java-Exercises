@@ -1,9 +1,10 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
@@ -43,7 +44,7 @@ public class MathOperationsTest {
 		@Test
 		public void testPower() {
 			double ans = mathOperations.power(x, n);
-			Assert.assertEquals(this.ans, ans, 0.001D);
+			assertEquals(this.ans, ans, 0.001D);
 		}
 	}
 	
@@ -75,7 +76,7 @@ public class MathOperationsTest {
 		@Test
 		public void testPower() {
 			double ans = mathOperations.root(x, n);
-			Assert.assertEquals(this.ans, ans, 0.001D);
+			assertEquals(this.ans, ans, 0.001D);
 		}
 	}
 	
@@ -85,14 +86,14 @@ public class MathOperationsTest {
 		
 		@Test
 		public void testXor() {
-			Assert.assertEquals(11, mathOperations.getXor(10L));
-			Assert.assertEquals(0, mathOperations.getXor(55L));
+			assertEquals(11, mathOperations.getXor(10L));
+			assertEquals(0, mathOperations.getXor(55L));
 		}
 		
 		@Test
 		public void testXorForRange() {
-			Assert.assertEquals(12, mathOperations.getXorForRange(5, 8));
-			Assert.assertEquals(1, mathOperations.getXorForRange(20, 25));
+			assertEquals(12, mathOperations.getXorForRange(5, 8));
+			assertEquals(1, mathOperations.getXorForRange(20, 25));
 		}
 	}
 }
