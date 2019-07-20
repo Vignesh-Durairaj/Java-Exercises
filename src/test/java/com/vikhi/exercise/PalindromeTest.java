@@ -1,9 +1,12 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
@@ -48,25 +51,25 @@ public class PalindromeTest {
 		@Test
 		public void testIsPalindrome() {
 			boolean isPalindrome = palindrome.isPalindrome(str);
-			Assert.assertEquals(this.isPalindrome, isPalindrome);
+			assertEquals(this.isPalindrome, isPalindrome);
 		}
 		
 		@Test
 		public void testCharsShortForPalindrome() {
 			int shortageChars = palindrome.getCharsForPalindrome(str);
-			Assert.assertEquals(this.shortageChars, shortageChars);
+			assertEquals(this.shortageChars, shortageChars);
 		}
 		
 		@Test
 		public void testInsertableCharacters() {
 			int shortageChars = palindrome.getCharsForInsert(str);
-			Assert.assertEquals(0, shortageChars);
-			Assert.assertNotNull(Integer.valueOf(insertableChars));
+			assertEquals(0, shortageChars);
+			assertNotNull(Integer.valueOf(insertableChars));
 		}
 		
 		@Test
 		public void testPalindromicSubString() {
-			Assert.assertNull(palindrome.getPalindromicSubStrings(5, "Malayalam"));
+			assertNull(palindrome.getPalindromicSubStrings(5, "Malayalam"));
 		}
 	}
 }
