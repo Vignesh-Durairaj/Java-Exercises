@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 
 public class ArrayMethods {
 
-	final String NUMBER_STRING = "0123456789";
+	private final String NUMBER_STRING = "0123456789";
 	
 	public int getNthSmallElement (final int[] a, final int rank) {
 		if (a == null || a.length < rank || rank < 1) {
