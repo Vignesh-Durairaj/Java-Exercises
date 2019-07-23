@@ -38,6 +38,7 @@ Also few set of exercises from various sources using **Java programming language
 22. Simple Encryption - Decryption logic
 23. Calendar Utils
 24. Lucky Number Generator
+25. Simple Object Access application using Student details as complex objects
 
 
 ### Build details
