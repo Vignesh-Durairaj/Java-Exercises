@@ -34,7 +34,7 @@ public class NumberUtilsTest {
 	@Test
 	public void testIsBinary() {
 		assertTrue(NumberUtils.isBinary(1011));
-		assertTrue(!NumberUtils.isBinary(1234));
+		assertFalse(NumberUtils.isBinary(1234));
 		assertTrue(NumberUtils.isBinary(000));
 		assertTrue(NumberUtils.isBinary(111));
 	}
@@ -66,7 +66,7 @@ public class NumberUtilsTest {
 	@Test
 	public void testIsAmicable() {
 		assertTrue(NumberUtils.isAmicable(6L));
-		assertTrue(!NumberUtils.isAmicable(16L));
+		assertFalse(NumberUtils.isAmicable(16L));
 		assertTrue(NumberUtils.isAmicable(220L));
 	}
 	
@@ -85,15 +85,15 @@ public class NumberUtilsTest {
 	@Test
 	public void testIsValidISBN() {
 		assertTrue(NumberUtils.isValidISBN(8535902775L));
-		assertTrue(!NumberUtils.isValidISBN(1843369283L));
-		assertTrue(!NumberUtils.isValidISBN(18433693L));
-		assertTrue(!NumberUtils.isValidISBN(184336928334L));
+		assertFalse(NumberUtils.isValidISBN(1843369283L));
+		assertFalse(NumberUtils.isValidISBN(18433693L));
+		assertFalse(NumberUtils.isValidISBN(184336928334L));
 	}
 	
 	@Test
 	public void testIsConsecutiveDigitSum() {
 		assertTrue(NumberUtils.isConsecutiveDigitNum(12345));
-		assertTrue(!NumberUtils.isConsecutiveDigitNum(12354));
+		assertFalse(NumberUtils.isConsecutiveDigitNum(12354));
 		assertTrue(NumberUtils.isConsecutiveDigitNum(6789));
 	}
 	
@@ -103,7 +103,7 @@ public class NumberUtilsTest {
 		
 		assertTrue(an.isArmstrongNumber(4210818));
 		assertTrue(an.isArmstrongNumberFaster(146511208));
-		assertTrue(!an.isArmstrongNumberFaster(93085));
+		assertFalse(an.isArmstrongNumberFaster(93085));
 	}
 	
 	@Test
