@@ -45,6 +45,7 @@ public class ValueObjectTest {
 		});
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	public void testGettersAndSetters() {
 		PojoClass pojo = PojoClassFactory.getPojoClass(clazz);
@@ -57,7 +58,7 @@ public class ValueObjectTest {
 		validator.validate(pojo);
 		assertNotNull(pojo.getClass().hashCode());
 		assertNotNull(pojo.getClass().toString());
-		assertFalse(pojo.getClass().equals(null));
+		assertFalse(pojo.getClass().equals(PojoClassFactory.getPojoClass(clazz)));
 	}
 	
 	
