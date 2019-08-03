@@ -58,4 +58,16 @@ public class MobileNumberServiceTest {
 	public void isStudentHasNoMobileNumber() {
 		assertNull(mobileNumberService.getMobileNumber("", ""));
 	}
+	
+	@Test
+	public void isObjectsAreEqual() {
+		MobileNumber mobileNumber = student.getMobileNumber().get(0);
+		assertNotNull(mobileNumber.hashCode());
+		assertTrue(mobileNumber.equals(new MobileNumber("91", "123456")));
+		assertFalse(mobileNumber.equals(new MobileNumber("92", "989224")));
+		assertFalse(mobileNumber.equals(new MobileNumber(null, "989224")));
+		assertFalse(mobileNumber.equals(new MobileNumber("92", null)));
+		assertFalse(mobileNumber.equals(null));
+		assertFalse(mobileNumber.equals(new Student()));
+	}
 }
