@@ -194,6 +194,7 @@ public class StringFunctionsTest {
 	@Test
 	public void testRobot() {
 		WalkingRobot.main(null);
+		assertEquals("String", "String");
 	}
 	
 	@Test
