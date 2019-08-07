@@ -9,6 +9,7 @@ public class Student {
 	private int age;
 	private Address address;
 	private List<MobileNumber> mobileNumber;
+	private boolean isTemp;
 
 	public Student() {
 		// Dummy implementation
@@ -20,6 +21,11 @@ public class Student {
 		setAge(age);
 		setAddress(address);
 		setMobileNumber(mobileNumber);
+	}
+	
+	public Student(long id, String name, int age, Address address, List<MobileNumber> mobileNumber, boolean isTemp) {
+		this(id, name, age, address, mobileNumber);
+		this.isTemp = true;
 	}
 
 	public long getId() {
@@ -60,6 +66,14 @@ public class Student {
 
 	public void setMobileNumber(List<MobileNumber> mobileNumber) {
 		this.mobileNumber = mobileNumber;
+	}
+
+	public boolean isTemp() {
+		return isTemp;
+	}
+
+	public void setTemp(boolean isTemp) {
+		this.isTemp = isTemp;
 	}
 
 	@Override
