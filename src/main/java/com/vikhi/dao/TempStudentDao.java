@@ -23,6 +23,7 @@ public class TempStudentDao {
 	private List<TempStudent> getTempStudentsFromList(final List<Student> students) {
 		return students
 				.stream()
+				.filter(Student::isTemp)
 				.map(TempStudent::new)
 				.sorted(Comparator.comparing(TempStudent::getName))
 				.collect(Collectors.toList());
