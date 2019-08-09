@@ -21,11 +21,12 @@ public class Student {
 		setAge(age);
 		setAddress(address);
 		setMobileNumber(mobileNumber);
+		setTemp(true);
 	}
 	
 	public Student(long id, String name, int age, Address address, List<MobileNumber> mobileNumber, boolean isTemp) {
 		this(id, name, age, address, mobileNumber);
-		this.isTemp = true;
+		this.isTemp = isTemp;
 	}
 
 	public long getId() {
