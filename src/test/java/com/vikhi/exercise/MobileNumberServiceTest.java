@@ -27,7 +27,9 @@ public class MobileNumberServiceTest {
 		student.setMobileNumber(Arrays.asList(
 				new MobileNumber("91", "123456"), 
 				new MobileNumber("91", "634578"), 
-				new MobileNumber("92", "989224")));
+				new MobileNumber("92", "989224"), 
+				new MobileNumber(null, "123456"), 
+				new MobileNumber("91", null)));
 	}
 
 	@Test
@@ -63,6 +65,7 @@ public class MobileNumberServiceTest {
 	@Test
 	public void isObjectsAreEqual() {
 		MobileNumber mobileNumber = student.getMobileNumber().get(0);
+		assertTrue(mobileNumber.equals(student.getMobileNumber().get(0)));
 		assertTrue(mobileNumber.equals(new MobileNumber("91", "123456")));
 		assertFalse(mobileNumber.equals(new MobileNumber("92", "989224")));
 		assertFalse(mobileNumber.equals(new MobileNumber(null, "989224")));
