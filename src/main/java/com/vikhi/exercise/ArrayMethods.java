@@ -318,7 +318,8 @@ public class ArrayMethods {
 	 * @param inputArr - The array to be reversed. The same parameter passed will be reversed
 	 */
 	public void reverseArraySmartly (int[] inputArr) {
-		int arrLength = inputArr.length, j = arrLength - 1;
+		int arrLength = inputArr.length; 
+		int j = arrLength - 1;
 		int median = (inputArr.length / 2) - (arrLength % 2 == 0 ? 1 : 0);
 		
 		for (int i = 0; inputArr.length > 0 && i <= median; i ++, j --) {
