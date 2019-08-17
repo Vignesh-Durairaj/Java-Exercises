@@ -5,7 +5,8 @@ import java.util.stream.IntStream;
 public class LuckyNumberGenerator {
 
 	public int getLuckyNumberAsSum (final int inputNumber) {
-		int modSum = inputNumber, number = inputNumber;
+		int modSum = inputNumber; 
+		int number = inputNumber;
 		while(number  > 9) {
 		    int value = number;
 		    modSum = 0;
@@ -21,7 +22,8 @@ public class LuckyNumberGenerator {
 	
 	public int getLuckyNumberUsingStreams (final int inputNumber) {
 		
-		int sumValue = inputNumber, number = inputNumber;
+		int sumValue = inputNumber; 
+		int number = inputNumber;
 		
 		while (number > 9) {
 			char[] digitsArray = String.valueOf(number).toCharArray();
