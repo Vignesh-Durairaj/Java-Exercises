@@ -48,7 +48,10 @@ public class MobileNumberServiceTest {
 	public void isStudentMobileNumberDetailsAreCorrect() {
 		List<MobileNumber> mobileNumbers = student.getMobileNumber();
 		assertNotNull(mobileNumbers);
-		mobileNumbers.stream().forEach(mobileNumber -> {
+		mobileNumbers
+			.stream()
+			.filter(mobileNumber -> mobileNumber.getCountryCode() != null && mobileNumber.getNumber() != null)
+			.forEach(mobileNumber -> {
 			assertNotNull(mobileNumber.getNumber());
 			assertNotNull(mobileNumber.hashCode());
 			assertTrue("91".equals(mobileNumber.getCountryCode()) || "92".equals(mobileNumber.getCountryCode()));
