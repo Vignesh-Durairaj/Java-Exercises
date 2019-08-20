@@ -174,7 +174,9 @@ public class StringFunctions {
     	Supplier<String> starSupplier = new Supplier<String>() {
     		boolean isEvenLimit = limit % 2 == 0;
     		int rowMedian = (limit / 2) + (isEvenLimit ? 0 : 1);
-    		int counter = 1, startPos = rowMedian, endPos = rowMedian;
+    		int counter = 1; 
+    		int startPos = rowMedian; 
+    		int endPos = rowMedian;
 
     		@Override
 			public String get() {
