@@ -15,7 +15,8 @@ public class NumberUtilsTest {
 
 	@Test
 	public void testNumberSwap() {
-		int a = 10, b = 15;
+		int a = 10; 
+		int b = 15;
 		NumberModel numberModel = new NumberModel();
 		numberModel.setA(a);
 		numberModel.setB(b);
