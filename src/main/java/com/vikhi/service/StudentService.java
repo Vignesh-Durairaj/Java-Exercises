@@ -57,6 +57,7 @@ public class StudentService {
 	public List<String> getStudentNameList(List<Student> students) {
 		return students
 				.stream()
+				.sorted()
 				.map(Student::getName)
 				.collect(Collectors.toList());
 	}
