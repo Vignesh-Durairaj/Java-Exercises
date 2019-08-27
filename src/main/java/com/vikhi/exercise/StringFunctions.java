@@ -228,4 +228,11 @@ public class StringFunctions {
     			.reduce("", (a, b) -> a + b + " ")
     			.trim();
     }
+    
+    public String getStringFromNumbers(final List<Integer> ints) {
+    	return ints
+    			.stream()
+    			.map(i -> String.valueOf(i) + (i % 2 == 0 ? 'e' : 'o'))
+    			.collect(Collectors.joining(","));
+    }
 }
