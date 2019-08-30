@@ -234,4 +234,13 @@ public class StringFunctionsTest {
 		assertNotNull(intString);
 		assertEquals("23o,4e,1o,56e,7o,91o,3o", intString);
 	}
+	
+	@Test
+	public void testUpperCaseConversion() {
+		List<String> inStrings = Arrays.asList("Vignesh", "Durairaj");
+		List<String> outString = strFunctions.convertToUpperCase(inStrings);
+		assertNotNull(outString);
+		assertEquals("VIGNESH", outString.get(0));
+		assertEquals("DURAIRAJ", outString.get(1));
+	}
 }
