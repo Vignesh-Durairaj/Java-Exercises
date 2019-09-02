@@ -242,4 +242,11 @@ public class StringFunctions {
     			.map(String::toUpperCase)
     			.collect(Collectors.toList());
     }
+    
+    public <T extends Object> String printList(List<T> items) {
+    	return items
+    			.stream()
+    			.map(item -> item.toString())
+    			.collect(Collectors.joining(","));
+    }
 }
