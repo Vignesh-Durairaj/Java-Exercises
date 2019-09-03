@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import com.vikhi.dao.StudentDao;
 import com.vikhi.dao.TempStudentDao;
+import com.vikhi.exercise.StringFunctions;
 import com.vikhi.pojo.Student;
 import com.vikhi.pojo.TempStudent;
 
@@ -14,11 +15,13 @@ public class StudentService {
 	
 	private StudentDao studentDao;
 	private TempStudentDao tempStudentDao;
+	private StringFunctions stringFunctions;
 	
 	public StudentService() {
 		// TODO Inject this via DI container
 		studentDao = new StudentDao();
 		tempStudentDao = new TempStudentDao(studentDao);
+		stringFunctions = new StringFunctions();
 	}
 
 	public List<Student> getStudentsWithName(final String name) {
@@ -60,6 +63,10 @@ public class StudentService {
 				.sorted()
 				.map(Student::getName)
 				.collect(Collectors.toList());
+	}
+	
+	public String getStudentsNameList(List<Student> students) {
+		return stringFunctions.getListAsString(getStudentNameList(students));
 	}
 	
 	private Student getEldestStudentFromList(final List<Student> students) {

@@ -243,7 +243,7 @@ public class StringFunctions {
     			.collect(Collectors.toList());
     }
     
-    public <T extends Object> String printList(List<T> items) {
+    public <T extends Object> String getListAsString(List<T> items) {
     	return items
     			.stream()
     			.map(item -> item.toString())
