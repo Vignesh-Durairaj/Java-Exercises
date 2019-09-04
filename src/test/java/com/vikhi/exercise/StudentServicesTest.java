@@ -85,4 +85,11 @@ public class StudentServicesTest {
 		assertNotNull(nameList.get(0));
 		assertEquals("Kumar", nameList.get(0));
 	}
+	
+	@Test
+	public void getStudentNameListAsStringTest() {
+		String nameListString  = studentService.getStudentsNameList(studentService.getStudentsWithName("Kumar"));
+		assertNotNull(nameListString);
+		assertEquals("Kumar", nameListString);
+	}
 }
