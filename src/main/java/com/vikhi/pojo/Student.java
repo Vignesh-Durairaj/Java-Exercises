@@ -1,17 +1,15 @@
 package com.vikhi.pojo;
 
+import java.util.List;
+
 public class Student {
 
 	private String name;
-	
 	private int age;
-	
 	private Address address;
-	
-	private MobileNumber mobileNumber;
+	private List<MobileNumber> mobileNumber;
 
-	public Student(String name, int age, Address address, MobileNumber mobileNumber) {
-		super();
+	public Student(String name, int age, Address address, List<MobileNumber> mobileNumber) {
 		this.name = name;
 		this.age = age;
 		this.address = address;
@@ -42,11 +40,11 @@ public class Student {
 		this.address = address;
 	}
 
-	public MobileNumber getMobileNumber() {
+	public List<MobileNumber> getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(MobileNumber mobileNumber) {
+	public void setMobileNumber(List<MobileNumber> mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 

@@ -2,12 +2,11 @@ package com.vikhi.pojo;
 
 public class MobileNumber {
 	
-	private String countryCode;
+	private String countryCode = "1";
 	
 	private String mobileNumber;
 
 	public MobileNumber(String countryCode, String mobileNumber) {
-		super();
 		this.countryCode = countryCode;
 		this.mobileNumber = mobileNumber;
 	}
@@ -26,6 +25,11 @@ public class MobileNumber {
 
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "+" + countryCode + "-" + mobileNumber;
 	}
 
 }
