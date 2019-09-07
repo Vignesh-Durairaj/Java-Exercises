@@ -140,6 +140,20 @@ public class StringFunctionsTest {
 		assertNull(encryptedString);
 		assertNull(crypto.decrypt(encryptedString));
 		assertNull(crypto.decrypt(""));
+		
+		inputString = null;
+		encryptedString = crypto.encrypt(inputString);
+		decryptedString = crypto.decrypt(encryptedString);
+		
+		assertNull(encryptedString);
+		assertNull(decryptedString);
+		
+		inputString = "";
+		encryptedString = crypto.encrypt(inputString);
+		decryptedString = crypto.decrypt(encryptedString);
+		
+		assertNull(encryptedString);
+		assertNull(decryptedString);
 	}
 	
 	@Test
