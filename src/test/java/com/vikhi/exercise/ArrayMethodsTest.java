@@ -190,7 +190,7 @@ public class ArrayMethodsTest {
 		public void testArrayFunctions() {
 			ArrayFunctions af = new ArrayFunctions();
 			assertEquals(1, af.getNearestSmallestPositiveInt(null));
-			assertEquals(3, af.getNearestSmallestPositiveInt(new int[] {1, 4, 5, 2, 8}));
+			assertEquals(3, af.getNearestSmallestPositiveInt(new int[] {1, 4, 5, 2, 8, -1, 0}));
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
