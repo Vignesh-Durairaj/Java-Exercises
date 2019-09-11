@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import com.vikhi.dao.StudentDao;
 import com.vikhi.pojo.Student;
+import com.vikhi.pojo.TempStudent;
 
 public class StudentService {
 	
@@ -37,6 +38,13 @@ public class StudentService {
 	
 	public Student getEldestStudentWithZipCode(final String zipCode) {
 		return getEldestStudentFromList(getStudentWithZipCode(zipCode));
+	}
+	
+	public List<TempStudent> getTempStudents (final List<Student> students) {
+		return students
+				.stream()
+				.map(TempStudent::new)
+				.collect(Collectors.toList());
 	}
 	
 	private Student getEldestStudentFromList(final List<Student> students) {
