@@ -2,6 +2,7 @@ package com.vikhi.exercise;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -26,7 +27,8 @@ public class StudentServicesTest {
 		List<Student> studentsList = studentService.getStudentsWithName("Kumar");
 		assertNotNull(studentsList);
 		assertTrue(studentsList.size() == 1);
-		assertEquals(Long.valueOf(studentsList.get(0).getId()), Long.valueOf(1));
+		assertEquals(Long.valueOf(1), Long.valueOf(studentsList.get(0).getId()));
+		assertEquals("Kumar", studentsList.get(0).getName());
 	}
 	
 	@Test
@@ -34,7 +36,27 @@ public class StudentServicesTest {
 		List<Student> studentsList = studentService.getStudentWithZipCode("600100");
 		assertNotNull(studentsList);
 		assertTrue(studentsList.size() == 1);
-		assertEquals(Long.valueOf(studentsList.get(0).getId()), Long.valueOf(2));
-		assertEquals(studentsList.get(0).getName(), "Patel");
+		assertEquals(Long.valueOf(2), Long.valueOf(studentsList.get(0).getId()));
+		assertEquals("Patel", studentsList.get(0).getName());
+		assertEquals("600100", studentsList.get(0).getAddress().getZipCode());
+	}
+	
+	@Test
+	public void getEldestStudentWithName() {
+		Student eldestStudent = studentService.getEldestStudentWithName("Kumar");
+		assertNotNull(eldestStudent);
+		assertEquals(Long.valueOf(1), Long.valueOf(eldestStudent.getId()));
+		assertEquals("Kumar", eldestStudent.getName());
+		
+		eldestStudent = studentService.getEldestStudentWithName("Ravi");
+		assertNull(eldestStudent);
+	}
+	
+	@Test
+	public void getEldestStudentWithZipCode() {
+		Student eldestStudent = studentService.getEldestStudentWithZipCode("600100");
+		assertNotNull(eldestStudent);
+		assertEquals(Long.valueOf(2), Long.valueOf(eldestStudent.getId()));
+		assertEquals("Patel", eldestStudent.getName());
 	}
 }
