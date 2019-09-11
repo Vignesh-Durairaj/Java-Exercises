@@ -5,6 +5,10 @@ public class Address {
 	private String City;
 	private String zipCode;
 
+	public Address() {
+		// Dummy constructor
+	}
+	
 	public Address(String city, String zipCode) {
 		City = city;
 		this.zipCode = zipCode;
