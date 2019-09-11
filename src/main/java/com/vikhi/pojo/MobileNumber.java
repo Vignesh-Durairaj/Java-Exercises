@@ -32,4 +32,35 @@ public class MobileNumber {
 		return "+" + countryCode + "-" + number;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((countryCode == null) ? 0 : countryCode.hashCode());
+		result = prime * result + ((number == null) ? 0 : number.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MobileNumber other = (MobileNumber) obj;
+		if (countryCode == null) {
+			if (other.countryCode != null)
+				return false;
+		} else if (!countryCode.equals(other.countryCode))
+			return false;
+		if (number == null) {
+			if (other.number != null)
+				return false;
+		} else if (!number.equals(other.number))
+			return false;
+		return true;
+	}
+
 }
