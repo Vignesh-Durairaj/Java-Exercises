@@ -10,6 +10,10 @@ public class Student {
 	private Address address;
 	private List<MobileNumber> mobileNumber;
 
+	public Student() {
+		// Dummy implementation
+	}
+	
 	public Student(long id, String name, int age, Address address, List<MobileNumber> mobileNumber) {
 		setId(id);
 		setName(name);
