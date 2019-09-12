@@ -20,7 +20,7 @@ public class TempStudentDao {
 		return getTempStudentsFromList(studentDao.getAllStudents());
 	}
 	
-	public List<TempStudent> getTempStudentsFromList(final List<Student> students) {
+	private List<TempStudent> getTempStudentsFromList(final List<Student> students) {
 		return students
 				.stream()
 				.map(TempStudent::new)
