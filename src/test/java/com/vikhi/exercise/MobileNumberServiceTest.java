@@ -1,9 +1,11 @@
 package com.vikhi.exercise;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,16 +23,14 @@ public class MobileNumberServiceTest {
 	public void init() {
 		mobileNumberService = new MobileNumberService();
 		student = new Student();
-	}
-
-	@Test
-	public void isStudentHasMobileNumber() {
-		
 		student.setMobileNumber(Arrays.asList(
 				new MobileNumber("91", "123456"), 
 				new MobileNumber("91", "634578"), 
 				new MobileNumber("92", "989224")));
-		
+	}
+
+	@Test
+	public void isStudentHasMobileNumber() {
 		assertTrue(mobileNumberService.isStudentHasNumber(student, 
 				new MobileNumber("91", "123456")));
 		
@@ -39,5 +39,16 @@ public class MobileNumberServiceTest {
 		
 		assertFalse(mobileNumberService.isStudentHasNumbers(student, 
 				new MobileNumber("91", "123456"), new MobileNumber("92", "634578")));
+	}
+	
+	@Test
+	public void isStudentMobileNumberDetailsAreCorrect() {
+		List<MobileNumber> mobileNumbers = student.getMobileNumber();
+		assertNotNull(mobileNumbers);
+		mobileNumbers.stream().forEach(mobileNumber -> {
+			assertNotNull(mobileNumber.getNumber());
+			assertTrue("91".equals(mobileNumber.getCountryCode()) || "92".equals(mobileNumber.getCountryCode()));
+			
+		});
 	}
 }
