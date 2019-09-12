@@ -12,7 +12,7 @@ public class CharIterations {
 	    }
 	}	
 	 
-	public static void main (String[] args) throws java.lang.Exception {
+	public static void main (String[] args) throws Exception {
 		char[] inputArr = new char[] {'a', 'b', 'c'};
 		permutation(new char[inputArr.length] , inputArr , 0);
 	}

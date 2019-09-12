@@ -1,10 +1,11 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -51,6 +52,6 @@ public class NumberCompositionsTest {
 	@Test
 	public void testDiceCompositions() {
 		BigInteger probabilityCount = numberCompositions.getDiceCompositions(this.spaceCovered);
-		Assert.assertEquals(probabilityCount, this.probabilityCount);
+		assertEquals(probabilityCount, this.probabilityCount);
 	}
 }

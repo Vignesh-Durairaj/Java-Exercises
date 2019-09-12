@@ -1,8 +1,12 @@
 package com.vikhi.exercise;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import com.vikhi.pojo.NumberModel;
@@ -17,22 +21,22 @@ public class NumberUtilsTest {
 		numberModel.setB(b);
 		
 		NumberUtils.swapNumber(numberModel);
-		Assert.assertTrue(a == numberModel.getB());
-		Assert.assertTrue(b == numberModel.getA());
-		Assert.assertNotNull(numberModel.toString());
+		assertTrue(a == numberModel.getB());
+		assertTrue(b == numberModel.getA());
+		assertNotNull(numberModel.toString());
 		
 		NumberUtils.smartSwapNumber(numberModel);
-		Assert.assertTrue(a == numberModel.getA());
-		Assert.assertTrue(b == numberModel.getB());
-		Assert.assertNotNull(numberModel.toString());
+		assertTrue(a == numberModel.getA());
+		assertTrue(b == numberModel.getB());
+		assertNotNull(numberModel.toString());
 	}
 	
 	@Test
 	public void testIsBinary() {
-		Assert.assertTrue(NumberUtils.isBinary(1011));
-		Assert.assertTrue(!NumberUtils.isBinary(1234));
-		Assert.assertTrue(NumberUtils.isBinary(000));
-		Assert.assertTrue(NumberUtils.isBinary(111));
+		assertTrue(NumberUtils.isBinary(1011));
+		assertTrue(!NumberUtils.isBinary(1234));
+		assertTrue(NumberUtils.isBinary(000));
+		assertTrue(NumberUtils.isBinary(111));
 	}
 	
 	@Test
@@ -41,65 +45,65 @@ public class NumberUtilsTest {
 			NumberUtils.getLastNumberSamples(10, 3);
 			NumberUtils.getPosAndNegAverages(new int[]{1, 2, -3, 4, -2, -9, 4});
 		} catch (Exception e) {
-			Assert.fail("Failed the executions");
+			fail("Failed the executions");
 		}
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
 	public void testNegativeCases() {
 		NumberUtils.getLastNumberSamples(3, 15);
-		Assert.fail("This case is suppose to throw an exception, but not");
+		fail("This case is suppose to throw an exception, but not");
 	}
 	
 	@Test
 	public void testDigitOccurence() {
-		Assert.assertSame(3, NumberUtils.getDigitOccurence(121315, 1));
-		Assert.assertSame(0, NumberUtils.getDigitOccurence(123456, 7));
-		Assert.assertSame(2, NumberUtils.getDigitOccurence(15972421, 2));
-		Assert.assertSame(1, NumberUtils.getDigitOccurence(1234567, 5));
+		assertSame(3, NumberUtils.getDigitOccurence(121315, 1));
+		assertSame(0, NumberUtils.getDigitOccurence(123456, 7));
+		assertSame(2, NumberUtils.getDigitOccurence(15972421, 2));
+		assertSame(1, NumberUtils.getDigitOccurence(1234567, 5));
 	}
 	
 	@Test
 	public void testIsAmicable() {
-		Assert.assertTrue(NumberUtils.isAmicable(6L));
-		Assert.assertTrue(!NumberUtils.isAmicable(16L));
-		Assert.assertTrue(NumberUtils.isAmicable(220L));
+		assertTrue(NumberUtils.isAmicable(6L));
+		assertTrue(!NumberUtils.isAmicable(16L));
+		assertTrue(NumberUtils.isAmicable(220L));
 	}
 	
 	@Test
 	public void testAmicableSums() {
-		Assert.assertEquals(6, NumberUtils.getAmicableSums(20));
-		Assert.assertEquals(34, NumberUtils.getAmicableSums(30));
+		assertEquals(6, NumberUtils.getAmicableSums(20));
+		assertEquals(34, NumberUtils.getAmicableSums(30));
 	}
 	
 	@Test
 	public void testDivisbleSums() {
-		Assert.assertEquals(23, NumberUtils.getDivisibleSums(10));
-		Assert.assertEquals(78, NumberUtils.getDivisibleSums(20));
+		assertEquals(23, NumberUtils.getDivisibleSums(10));
+		assertEquals(78, NumberUtils.getDivisibleSums(20));
 	}
 	
 	@Test
 	public void testIsValidISBN() {
-		Assert.assertTrue(NumberUtils.isValidISBN(8535902775L));
-		Assert.assertTrue(!NumberUtils.isValidISBN(1843369283L));
-		Assert.assertTrue(!NumberUtils.isValidISBN(18433693L));
-		Assert.assertTrue(!NumberUtils.isValidISBN(184336928334L));
+		assertTrue(NumberUtils.isValidISBN(8535902775L));
+		assertTrue(!NumberUtils.isValidISBN(1843369283L));
+		assertTrue(!NumberUtils.isValidISBN(18433693L));
+		assertTrue(!NumberUtils.isValidISBN(184336928334L));
 	}
 	
 	@Test
 	public void testIsConsecutiveDigitSum() {
-		Assert.assertTrue(NumberUtils.isConsecutiveDigitNum(12345));
-		Assert.assertTrue(!NumberUtils.isConsecutiveDigitNum(12354));
-		Assert.assertTrue(NumberUtils.isConsecutiveDigitNum(6789));
+		assertTrue(NumberUtils.isConsecutiveDigitNum(12345));
+		assertTrue(!NumberUtils.isConsecutiveDigitNum(12354));
+		assertTrue(NumberUtils.isConsecutiveDigitNum(6789));
 	}
 	
 	@Test
 	public void testArmstrongNumbers() {
 		ArmstrongNumbers an = new ArmstrongNumbers();
 		
-		Assert.assertTrue(an.isArmstrongNumber(4210818));
-		Assert.assertTrue(an.isArmstrongNumberFaster(146511208));
-		Assert.assertTrue(!an.isArmstrongNumberFaster(93085));
+		assertTrue(an.isArmstrongNumber(4210818));
+		assertTrue(an.isArmstrongNumberFaster(146511208));
+		assertTrue(!an.isArmstrongNumberFaster(93085));
 	}
 	
 	@Test
@@ -109,127 +113,127 @@ public class NumberUtilsTest {
 			an.getArmstrongNumbers();
 			an.getArmstrongNumbersFaster();
 		} catch(Exception e) {
-			Assert.fail("Exception ecnountered !");
+			fail("Exception ecnountered !");
 		}
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
 	public void testInvalidTestCase() {
 		NumberUtils.getPosAndNegAverages(null);
-		Assert.fail("Exception is expected, but was not");
+		fail("Exception is expected, but was not");
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
 	public void testEmptyInputTestCase() {
 		NumberUtils.getPosAndNegAverages(new int[] {});
-		Assert.fail("Exception is expected, but was not");
+		fail("Exception is expected, but was not");
 	}
 	
 	@Test
 	public void testFactorials() {
 		Factorials factorial = new Factorials();
 		
-		Assert.assertEquals(1, factorial.getFactorial(0));
-		Assert.assertEquals(1, factorial.getFactorialRecursive(0));
-		Assert.assertEquals(1, factorial.getFactorialWithStreams(0));
+		assertEquals(1, factorial.getFactorial(0));
+		assertEquals(1, factorial.getFactorialRecursive(0));
+		assertEquals(1, factorial.getFactorialWithStreams(0));
 		
-		Assert.assertEquals(1, factorial.getFactorial(1));
-		Assert.assertEquals(1, factorial.getFactorialRecursive(1));
-		Assert.assertEquals(1, factorial.getFactorialWithStreams(1));
+		assertEquals(1, factorial.getFactorial(1));
+		assertEquals(1, factorial.getFactorialRecursive(1));
+		assertEquals(1, factorial.getFactorialWithStreams(1));
 		
-		Assert.assertEquals(120, factorial.getFactorial(5));
-		Assert.assertEquals(120, factorial.getFactorialRecursive(5));
-		Assert.assertEquals(120, factorial.getFactorialWithStreams(5));
+		assertEquals(120, factorial.getFactorial(5));
+		assertEquals(120, factorial.getFactorialRecursive(5));
+		assertEquals(120, factorial.getFactorialWithStreams(5));
 	}
 	
 	@Test
 	public void testLuckyNumberGenerator() {
 		LuckyNumberGenerator lng = new LuckyNumberGenerator();
 		
-		Assert.assertEquals(6, lng.getLuckyNumberAsSum(213));
-		Assert.assertEquals(3, lng.getLuckyNumberAsSum(3));
+		assertEquals(6, lng.getLuckyNumberAsSum(213));
+		assertEquals(3, lng.getLuckyNumberAsSum(3));
 	}
 	
 	@Test
 	public void testLuckyNumberGeneratorWithStreams() {
 		LuckyNumberGenerator lng = new LuckyNumberGenerator();
 		
-		Assert.assertEquals(6, lng.getLuckyNumberUsingStreams(213));
-		Assert.assertEquals(3, lng.getLuckyNumberUsingStreams(3));
+		assertEquals(6, lng.getLuckyNumberUsingStreams(213));
+		assertEquals(3, lng.getLuckyNumberUsingStreams(3));
 	}
 	
 	@Test
 	public void testOddSum() {
-		Assert.assertEquals(25, NumberUtils.getOddSum(10));
-		Assert.assertEquals(64, NumberUtils.getOddSum(15));
-		Assert.assertEquals(0, NumberUtils.getOddSum(0));
+		assertEquals(25, NumberUtils.getOddSum(10));
+		assertEquals(64, NumberUtils.getOddSum(15));
+		assertEquals(0, NumberUtils.getOddSum(0));
 	}
 	
 	@Test
 	public void testQuadrantIdentifier() {
-		Assert.assertEquals(1, NumberUtils.getQuadrant(362));
-		Assert.assertEquals(2, NumberUtils.getQuadrant(92));
-		Assert.assertEquals(3, NumberUtils.getQuadrant(197));
-		Assert.assertEquals(4, NumberUtils.getQuadrant(301));
-		Assert.assertEquals(1, NumberUtils.getQuadrant(30));
-		Assert.assertEquals(1, NumberUtils.getQuadrant(90));
-		Assert.assertEquals(2, NumberUtils.getQuadrant(180));
-		Assert.assertEquals(3, NumberUtils.getQuadrant(270));
-		Assert.assertEquals(4, NumberUtils.getQuadrant(271));
+		assertEquals(1, NumberUtils.getQuadrant(362));
+		assertEquals(2, NumberUtils.getQuadrant(92));
+		assertEquals(3, NumberUtils.getQuadrant(197));
+		assertEquals(4, NumberUtils.getQuadrant(301));
+		assertEquals(1, NumberUtils.getQuadrant(30));
+		assertEquals(1, NumberUtils.getQuadrant(90));
+		assertEquals(2, NumberUtils.getQuadrant(180));
+		assertEquals(3, NumberUtils.getQuadrant(270));
+		assertEquals(4, NumberUtils.getQuadrant(271));
 	}
 	
 	@Test
 	public void testIsPrime() {
-		Assert.assertFalse(NumberUtils.isPrime(1));
-		Assert.assertTrue(NumberUtils.isPrime(2));
-		Assert.assertTrue(NumberUtils.isPrime(3));
-		Assert.assertFalse(NumberUtils.isPrime(4));
-		Assert.assertTrue(NumberUtils.isPrime(5));
-		Assert.assertTrue(NumberUtils.isPrime(19));
-		Assert.assertFalse(NumberUtils.isPrime(21));
-		Assert.assertFalse(NumberUtils.isPrime(1000));
+		assertFalse(NumberUtils.isPrime(1));
+		assertTrue(NumberUtils.isPrime(2));
+		assertTrue(NumberUtils.isPrime(3));
+		assertFalse(NumberUtils.isPrime(4));
+		assertTrue(NumberUtils.isPrime(5));
+		assertTrue(NumberUtils.isPrime(19));
+		assertFalse(NumberUtils.isPrime(21));
+		assertFalse(NumberUtils.isPrime(1000));
 	}
 	
 	@Test
 	public void testOneCounts() {
-		Assert.assertEquals(4, NumberUtils.getOneCounts(1, 11));
-		Assert.assertEquals(34, NumberUtils.getOneCounts(11, 111));
-		Assert.assertEquals(36, NumberUtils.getOneCounts(1, 111));
+		assertEquals(4, NumberUtils.getOneCounts(1, 11));
+		assertEquals(34, NumberUtils.getOneCounts(11, 111));
+		assertEquals(36, NumberUtils.getOneCounts(1, 111));
 	}
 	
 	@Test
 	public void testPerfectNumbers() {
-		Assert.assertTrue(NumberUtils.isPerfectNumber(6));
-		Assert.assertTrue(NumberUtils.isPerfectNumber(28));
-		Assert.assertTrue(NumberUtils.isPerfectNumber(496));
+		assertTrue(NumberUtils.isPerfectNumber(6));
+		assertTrue(NumberUtils.isPerfectNumber(28));
+		assertTrue(NumberUtils.isPerfectNumber(496));
 		
-		Assert.assertFalse(NumberUtils.isPerfectNumber(10));
-		Assert.assertFalse(NumberUtils.isPerfectNumber(1));
-		Assert.assertFalse(NumberUtils.isPerfectNumber(25));
+		assertFalse(NumberUtils.isPerfectNumber(10));
+		assertFalse(NumberUtils.isPerfectNumber(1));
+		assertFalse(NumberUtils.isPerfectNumber(25));
 	}
 	
 	@Test
 	public void testAreaOfTriangle() {
-		Assert.assertEquals(0, NumberUtils.getAreaOfTriangle(0, 0, 0), 0.0001D);
-		Assert.assertEquals(0, NumberUtils.getAreaOfTriangle(1, 2, 3), 1D);
-		Assert.assertEquals(4.898, NumberUtils.getAreaOfTriangle(1, 2, 5), 1D);
+		assertEquals(0, NumberUtils.getAreaOfTriangle(0, 0, 0), 0.0001D);
+		assertEquals(0, NumberUtils.getAreaOfTriangle(1, 2, 3), 1D);
+		assertEquals(4.898, NumberUtils.getAreaOfTriangle(1, 2, 5), 1D);
 	}
 	
 	@Test
 	public void testSecondsMethods() {
-		Assert.assertEquals(39010, NumberUtils.getSeconds(10, 50, 10));
-		Assert.assertEquals(44705, NumberUtils.getSeconds(12, 25, 5));
-		Assert.assertEquals(605, NumberUtils.getSeconds(0, 10, 5));
+		assertEquals(39010, NumberUtils.getSeconds(10, 50, 10));
+		assertEquals(44705, NumberUtils.getSeconds(12, 25, 5));
+		assertEquals(605, NumberUtils.getSeconds(0, 10, 5));
 	}
 	
 	@Test
 	public void testIsAbundant() {
-		Assert.assertTrue(NumberUtils.isAbundantNumber(12));
-		Assert.assertTrue(NumberUtils.isAbundantNumber(18));
-		Assert.assertTrue(NumberUtils.isAbundantNumber(20));
+		assertTrue(NumberUtils.isAbundantNumber(12));
+		assertTrue(NumberUtils.isAbundantNumber(18));
+		assertTrue(NumberUtils.isAbundantNumber(20));
 		
-		Assert.assertFalse(NumberUtils.isAbundantNumber(1));
-		Assert.assertFalse(NumberUtils.isAbundantNumber(10));
+		assertFalse(NumberUtils.isAbundantNumber(1));
+		assertFalse(NumberUtils.isAbundantNumber(10));
 	}
 	
 	@Test

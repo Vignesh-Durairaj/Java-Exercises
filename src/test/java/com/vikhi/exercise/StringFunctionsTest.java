@@ -1,8 +1,15 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.Date;
 
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -25,11 +32,11 @@ public class StringFunctionsTest {
 		String sentence = "Fighting for simplicity";
 		String reversedSentence = "simplicity for Fighting";
 		
-		Assert.assertEquals(reversedSentence, strFunctions.getReversedSentence(sentence));
-		Assert.assertEquals(reversedSentence, strFunctions.getReversedSentenceWithStreams(sentence));
+		assertEquals(reversedSentence, strFunctions.getReversedSentence(sentence));
+		assertEquals(reversedSentence, strFunctions.getReversedSentenceWithStreams(sentence));
 		
 		String reversedCharSentence = "gnithgiF rof yticilpmis";
-		Assert.assertEquals(reversedCharSentence, strFunctions.getReversedCharsInString(sentence));
+		assertEquals(reversedCharSentence, strFunctions.getReversedCharsInString(sentence));
 	}
 	
 	@Test
@@ -64,7 +71,7 @@ public class StringFunctionsTest {
 			strFunctions.printDiamondStars(5);
 			strFunctions.printDiamondStars(6);
 		} catch (Exception e) {
-			Assert.fail("Failing this case explicitly because of exception : " + e.getMessage());
+			fail("Failing this case explicitly because of exception : " + e.getMessage());
 		}
 	}
 	
@@ -75,7 +82,7 @@ public class StringFunctionsTest {
 		
 		strFunctions.printSquare(0);
 		
-		Assert.fail("Expected an exception, but not !");
+		fail("Expected an exception, but not !");
 	}
 	
 	@Test
@@ -83,8 +90,8 @@ public class StringFunctionsTest {
 		CalendarUtils cu = new CalendarUtils();
 		Date prevMonthDate = cu.getPreviousMonthLastDate();
 		
-		Assert.assertNotNull(prevMonthDate);
-		Assert.assertSame(Date.class, prevMonthDate.getClass());
+		assertNotNull(prevMonthDate);
+		assertSame(Date.class, prevMonthDate.getClass());
 	}
 	
 	@Test
@@ -92,7 +99,7 @@ public class StringFunctionsTest {
 		try {
 			CharIterations.main(null);
 		} catch (Exception e) {
-			Assert.fail("Encountered an exception !");
+			fail("Encountered an exception !");
 		}
 	}
 	
@@ -103,7 +110,7 @@ public class StringFunctionsTest {
 			cbg.printCrossBox(10);
 			cbg.printCrossBox(7);
 		} catch(Exception e) {
-			Assert.fail("Encountered an exception !");
+			fail("Encountered an exception !");
 		}
 	}
 	
@@ -121,66 +128,66 @@ public class StringFunctionsTest {
 		String encryptedString = crypto.encrypt(inputString);
 		String decryptedString = crypto.decrypt(encryptedString);
 		
-		Assert.assertNotNull(encryptedString);
-		Assert.assertNotNull(decryptedString);
-		Assert.assertFalse(encryptedString.equals(inputString));
-		Assert.assertTrue(decryptedString.equals(inputString));
+		assertNotNull(encryptedString);
+		assertNotNull(decryptedString);
+		assertFalse(encryptedString.equals(inputString));
+		assertTrue(decryptedString.equals(inputString));
 		
 		encryptedString = crypto.encrypt("");
-		Assert.assertNull(encryptedString);
-		Assert.assertNull(crypto.decrypt(encryptedString));
-		Assert.assertNull(crypto.decrypt(""));
+		assertNull(encryptedString);
+		assertNull(crypto.decrypt(encryptedString));
+		assertNull(crypto.decrypt(""));
 	}
 	
 	@Test
 	public void testMessageProcessor() {
 		MessageProcessor mp = new MessageProcessor();
 		
-		Assert.assertEquals(3, mp.getTopMostNumber("3 2 POP"));
-		Assert.assertEquals(2,mp.getTopMostNumber("2 DUP"));
+		assertEquals(3, mp.getTopMostNumber("3 2 POP"));
+		assertEquals(2,mp.getTopMostNumber("2 DUP"));
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testInvalidMessage1() {
 		MessageProcessor mp = new MessageProcessor();
 		mp.getTopMostNumber("2 POP POP");
-		Assert.fail("Expected an exception, but was not !");
+		fail("Expected an exception, but was not !");
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testInvalidMessage2() {
 		MessageProcessor mp = new MessageProcessor();
 		mp.getTopMostNumber("DUP");
-		Assert.fail("Expected an exception, but was not !");
+		fail("Expected an exception, but was not !");
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testInvalidMessage3() {
 		MessageProcessor mp = new MessageProcessor();
 		mp.getTopMostNumber("2 POP 3 POP +");
-		Assert.fail("Expected an exception, but was not !");
+		fail("Expected an exception, but was not !");
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testInvalidMessage4() {
 		MessageProcessor mp = new MessageProcessor();
 		mp.getTopMostNumber("2 POP 3 POP -");
-		Assert.fail("Expected an exception, but was not !");
+		fail("Expected an exception, but was not !");
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testInvalidMessage5() {
 		MessageProcessor mp = new MessageProcessor();
 		mp.getTopMostNumber("2 DUP + POP R");
-		Assert.fail("Expected an exception, but was not !");
+		fail("Expected an exception, but was not !");
 	}
 	
 	@Test
 	public void testRepeatingAlphabets() {
 		RepeatingAlphabets ra = new RepeatingAlphabets();
-		Assert.assertEquals("baba", ra.getRepeatingAlphas(2, 2));
-		Assert.assertEquals("", ra.getRepeatingAlphas(0, 0));
-		Assert.assertEquals("ab", ra.getRepeatingAlphas(1, 1));
+		assertEquals("baba", ra.getRepeatingAlphas(2, 2));
+		assertEquals("", ra.getRepeatingAlphas(0, 0));
+		assertEquals("ab", ra.getRepeatingAlphas(1, 1));
 	}
 	
 	@Test
@@ -191,14 +198,14 @@ public class StringFunctionsTest {
 	@Test
 	public void testStrugacarro() {
 		Strugacarro strug = new Strugacarro();
-		Assert.assertEquals("", strug.getHighAmplitudeSeason(new int[] {12, 34, 24, 1}));
-		Assert.assertEquals("AUTUMN", strug.getHighAmplitudeSeason(
+		assertEquals("", strug.getHighAmplitudeSeason(new int[] {12, 34, 24, 1}));
+		assertEquals("AUTUMN", strug.getHighAmplitudeSeason(
 				new int[] {12, 34, 24, 1, -2, -21, 32, 87}));
-		Assert.assertEquals("WINTER", strug.getHighAmplitudeSeason(
+		assertEquals("WINTER", strug.getHighAmplitudeSeason(
 				new int[] {12, -12, -8, 1, 12, 21, 18, 12}));
-		Assert.assertEquals("SUMMER", strug.getHighAmplitudeSeason(
+		assertEquals("SUMMER", strug.getHighAmplitudeSeason(
 				new int[] {12, 12, 8, 1, 12, -21, 18, 12}));
-		Assert.assertEquals("SPRING", strug.getHighAmplitudeSeason(
+		assertEquals("SPRING", strug.getHighAmplitudeSeason(
 				new int[] {12, -12, -8, 39, 12, -21, 18, 12}));
 	}
 	
@@ -210,8 +217,8 @@ public class StringFunctionsTest {
 	
 	@Test
 	public void testCapitalization() {
-		Assert.assertEquals("Test", strFunctions.getCapitalization("test"));
-		Assert.assertEquals("", strFunctions.getCapitalization(""));
-		Assert.assertEquals("Hello World !", strFunctions.getCapitalization("hello wORld !"));
+		assertEquals("Test", strFunctions.getCapitalization("test"));
+		assertEquals("", strFunctions.getCapitalization(""));
+		assertEquals("Hello World !", strFunctions.getCapitalization("hello wORld !"));
 	}
 }

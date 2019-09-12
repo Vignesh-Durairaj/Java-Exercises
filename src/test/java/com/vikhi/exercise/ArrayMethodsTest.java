@@ -1,11 +1,13 @@
 package com.vikhi.exercise;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
@@ -46,9 +48,9 @@ public class ArrayMethodsTest {
 		@Test
 		public void testNormalSearch() {
 			int value = arrayMethods.getRankedElementFromArray(inputArr, rank);
-			Assert.assertTrue(val == value);
-			Assert.assertTrue(nonDistinctVal == arrayMethods.getNthSmallElement(rank, inputArr));
-			Assert.assertTrue(nonDistinctVal == arrayMethods.getNthSmallElement(inputArr, rank));
+			assertTrue(val == value);
+			assertTrue(nonDistinctVal == arrayMethods.getNthSmallElement(rank, inputArr));
+			assertTrue(nonDistinctVal == arrayMethods.getNthSmallElement(inputArr, rank));
 		}
 		
 	}
@@ -80,8 +82,8 @@ public class ArrayMethodsTest {
 		@Test(expected=IllegalArgumentException.class)
 		public void testNormalSearch() {
 			int value = arrayMethods.getRankedElementFromArray(inputArr, rank);
-			Assert.assertTrue(value > 0);
-			Assert.fail("This case should get failed for invalid arguements !");
+			assertTrue(value > 0);
+			fail("This case should get failed for invalid arguements !");
 		}
 		
 	}
@@ -136,14 +138,14 @@ public class ArrayMethodsTest {
 			int[] inputArr = {1, 2, 3, 2, 4, 4, 3, 4, 7, 4};
 			int[] outputArr = {4, 4, 4, 4, 2, 2, 3, 3, 1, 7};
 			
-			Assert.assertTrue(Arrays.equals(outputArr, am.frequencySortArray(inputArr)));
-			Assert.assertTrue(Arrays.equals(new int[] {}, am.frequencySortArray(new int[] {})));
+			assertTrue(Arrays.equals(outputArr, am.frequencySortArray(inputArr)));
+			assertTrue(Arrays.equals(new int[] {}, am.frequencySortArray(new int[] {})));
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidFrequencySort() {
 			am.frequencySortArray(null);
-			Assert.fail("Expected an exception, but not !");
+			fail("Expected an exception, but not !");
 		}
 		
 		@Test
@@ -158,15 +160,15 @@ public class ArrayMethodsTest {
 			am.getStatistics(new int[] {1});
 			am.getStatistics(new int[] {0});
 			
-			Assert.fail("Expected an exception, but not !");
+			fail("Expected an exception, but not !");
 		}
 		
 		@Test
 		public void testIsNumeric() {
-			Assert.assertTrue(am.isNumeric("1235"));
-			Assert.assertTrue(am.isNumeric("52369742"));
-			Assert.assertTrue(!am.isNumeric("123O5"));
-			Assert.assertTrue(!am.isNumeric("abcd"));
+			assertTrue(am.isNumeric("1235"));
+			assertTrue(am.isNumeric("52369742"));
+			assertTrue(!am.isNumeric("123O5"));
+			assertTrue(!am.isNumeric("abcd"));
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
@@ -180,128 +182,128 @@ public class ArrayMethodsTest {
 			am.smallestNotAdjacentSum(null);
 			am.smallestNotAdjacentSum(new int[] {1, 2, 3, 4});
 			
-			Assert.fail("Exception is expected, but not !");
+			fail("Exception is expected, but not !");
 		}
 		
 		@Test
 		public void testArrayFunctions() {
 			ArrayFunctions af = new ArrayFunctions();
-			Assert.assertEquals(1, af.getNearestSmallestPositiveInt(null));
-			Assert.assertEquals(3, af.getNearestSmallestPositiveInt(new int[] {1, 4, 5, 2, 8}));
+			assertEquals(1, af.getNearestSmallestPositiveInt(null));
+			assertEquals(3, af.getNearestSmallestPositiveInt(new int[] {1, 4, 5, 2, 8}));
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase1() {
 			am.getNthSmallElement(0, new int[] {1, 2, 3});
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase2() {
 			am.getNthSmallElement(1, null);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase3() {
 			am.getNthSmallElement(5, new int[] {1, 2, 3});
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase4() {
 			am.getNthSmallElement(new int[] {1, 2, 3}, 0);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase5() {
 			am.getNthSmallElement(null, 2);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase6() {
 			am.getNthSmallElement(new int[] {1, 2, 3}, 5);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase7() {
 			am.getRankedElementFromArray(new int[] {1, 2, 3}, 0);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase8() {
 			am.getRankedElementFromArray(null, 1);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase9() {
 			am.getRankedElementFromArray(new int[] {1, 2, 3}, 6);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase10() {
 			am.getSmallestSum(new int[] {1, 2, 3});
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase11() {
 			am.getSmallestSum(null);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase12() {
 			am.getSmallestSumUsingStream(new int[] {1, 2, 3});
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase13() {
 			am.getSmallestSumUsingStream(null);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase14() {
 			am.smallestNotAdjacentSum(null);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase15() {
 			am.smallestNotAdjacentSum(new int[] {1, 2, 3});
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase16() {
 			am.getStatistics(new int[] {1});
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase17() {
 			am.getStatistics(null);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase18() {
 			am.isNumeric("");
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
 		public void testInvalidCase19() {
 			am.isNumeric(null);
-			Assert.fail("Expected an exception, but was not!");
+			fail("Expected an exception, but was not!");
 		}
 	}
 	
@@ -330,19 +332,19 @@ public class ArrayMethodsTest {
 		
 		@Test
 		public void testClassicReversing() {
-			Assert.assertTrue(Arrays.equals(outputArr, am.reverseArray(inputArr)));
+			assertTrue(Arrays.equals(outputArr, am.reverseArray(inputArr)));
 		}
 		
 		@Test
 		public void testStreamedReversing() {
-			Assert.assertTrue(Arrays.equals(outputArr, am.reverseArrayWithStreams(inputArr)));
+			assertTrue(Arrays.equals(outputArr, am.reverseArrayWithStreams(inputArr)));
 		}
 		
 		@Test
 		public void testSmartReversing() {
 			int[] newInputArr = Arrays.copyOf(inputArr, inputArr.length);
 			am.reverseArraySmartly(newInputArr);
-			Assert.assertTrue(Arrays.equals(outputArr, newInputArr));
+			assertTrue(Arrays.equals(outputArr, newInputArr));
 		}
 	}
 	
@@ -372,23 +374,23 @@ public class ArrayMethodsTest {
 		
 		@Test
 		public void testSmallestSum() {
-			Assert.assertEquals(smallestSum, am.getSmallestSum(inputArr));
+			assertEquals(smallestSum, am.getSmallestSum(inputArr));
 		}
 		
 		@Test
 		public void testSmallestSumWithStreams() {
-			Assert.assertEquals(smallestSum, am.getSmallestSumUsingStream(inputArr));
+			assertEquals(smallestSum, am.getSmallestSumUsingStream(inputArr));
 		}
 		
 		@Test
 		public void testNonAdjacentSmallSum() {
-			Assert.assertEquals(smallestNonAdjSum, am.smallestNotAdjacentSum(inputArr));
+			assertEquals(smallestNonAdjSum, am.smallestNotAdjacentSum(inputArr));
 		}
 		
 		@Test
 		public void testFunction() {
 			Integer[] intArr = Arrays.stream(inputArr).boxed().toArray(Integer[]::new);
-			Assert.assertNotNull(am.function(intArr, 1, 3));
+			assertNotNull(am.function(intArr, 1, 3));
 		}
 	}
 }

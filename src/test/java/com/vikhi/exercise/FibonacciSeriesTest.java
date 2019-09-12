@@ -1,10 +1,13 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
@@ -27,28 +30,28 @@ public class FibonacciSeriesTest {
 		@Test(expected=IllegalArgumentException.class)
 		public void testNegativeInputForRecursice() {
 			BigInteger outputVal = numericalMethods.getValueFromRecursive(-1);
-			Assert.assertNotNull(outputVal);
-			Assert.fail("Input Arguments should not be a negative a value");
+			assertNotNull(outputVal);
+			fail("Input Arguments should not be a negative a value");
 		}
 		
 		@Test(expected=IllegalArgumentException.class)
 		public void testNegativeInputForMethod() {
 			BigInteger outputVal = numericalMethods.getValueFromMethod(-1);
-			Assert.assertNotNull(outputVal);
-			Assert.fail("Input Arguments should not be a negative a value");
+			assertNotNull(outputVal);
+			fail("Input Arguments should not be a negative a value");
 		}
 		
 		@Test(expected=IllegalArgumentException.class)
 		public void testNegativeInputForArrayProcess() {
 			BigInteger outputVal = numericalMethods.getValueUsingArrays(-1);
-			Assert.assertNotNull(outputVal);
-			Assert.fail("Input Arguments should not be a negative a value");
+			assertNotNull(outputVal);
+			fail("Input Arguments should not be a negative a value");
 		}
 		@Test(expected=IllegalArgumentException.class)
 		public void testNegativeInputForFastProcess() {
 			BigInteger outputVal = numericalMethods.getValueFromFastProcess(-1);
-			Assert.assertNotNull(outputVal);
-			Assert.fail("Input Arguments should not be a negative a value");
+			assertNotNull(outputVal);
+			fail("Input Arguments should not be a negative a value");
 		}
 	}
 	
@@ -88,39 +91,39 @@ public class FibonacciSeriesTest {
 		@Test
 		public void testRecursiveValue () {
 			BigInteger processedVal = numericalMethods.getValueFromRecursive(inputVal);
-			Assert.assertEquals(outputVal, processedVal);
+			assertEquals(outputVal, processedVal);
 		}
 		
 		@Test
 		public void testFunctionalValue () {
 			BigInteger processedVal = numericalMethods.getValueFromMethod(inputVal);
-			Assert.assertEquals(outputVal, processedVal);
+			assertEquals(outputVal, processedVal);
 		}
 		
 		@Test
 		public void testFastProcessValue () {
 			BigInteger processedVal = numericalMethods.getValueFromFastProcess(inputVal);
-			Assert.assertEquals(outputVal, processedVal);
+			assertEquals(outputVal, processedVal);
 		}
 		
 		@Test
 		public void testArrayProcessValue () {
 			BigInteger processedVal = numericalMethods.getValueUsingArrays(inputVal);
-			Assert.assertEquals(outputVal, processedVal);
+			assertEquals(outputVal, processedVal);
 		}
 		
 		@Test
 		public void testFibonacciAverage() {
 			float fibbAverage = numericalMethods.getFibonacciAverage(inputVal);
 			if (inputVal > 0) {
-				Assert.assertEquals(average, fibbAverage, 1);
+				assertEquals(average, fibbAverage, 1);
 			}
 		}
 		
 		@Test
 		public void testFibonacciAverageWithStreams() {
 			double fibbAverageDouble = numericalMethods.getFibonacciAverageUsingStream(inputVal);
-			Assert.assertEquals(averageDouble, fibbAverageDouble, 1);
+			assertEquals(averageDouble, fibbAverageDouble, 1);
 		}
 	}
 }
