@@ -47,6 +47,7 @@ public class StudentServicesTest {
 		assertNotNull(eldestStudent);
 		assertEquals(Long.valueOf(1), Long.valueOf(eldestStudent.getId()));
 		assertEquals("Kumar", eldestStudent.getName());
+		assertNotNull(eldestStudent.toString());
 		
 		eldestStudent = studentService.getEldestStudentWithName("Ravi");
 		assertNull(eldestStudent);

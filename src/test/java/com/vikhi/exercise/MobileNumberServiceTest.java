@@ -2,6 +2,7 @@ package com.vikhi.exercise;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
@@ -48,7 +49,13 @@ public class MobileNumberServiceTest {
 		mobileNumbers.stream().forEach(mobileNumber -> {
 			assertNotNull(mobileNumber.getNumber());
 			assertTrue("91".equals(mobileNumber.getCountryCode()) || "92".equals(mobileNumber.getCountryCode()));
+			assertNotNull(mobileNumber.equals(new MobileNumber("91", "123456")));
 			
 		});
+	}
+	
+	@Test
+	public void isStudentHasNoMobileNumber() {
+		assertNull(mobileNumberService.getMobileNumber("", ""));
 	}
 }
