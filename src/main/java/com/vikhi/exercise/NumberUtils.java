@@ -241,4 +241,19 @@ public class NumberUtils {
 			.filter(NumberUtils::isAbundantNumber)
 			.forEach(System.out::println);
 	}
+	
+	public static long countPrimes(long max) {
+		LongStream maxNumStream = LongStream.rangeClosed(2, max);
+		maxNumStream = max > 1000000 ? maxNumStream.parallel() : maxNumStream;
+		
+		long count =  maxNumStream
+			.filter(num -> LongStream
+					.rangeClosed(2, (long) Math.sqrt(num))
+					.noneMatch(n -> num % n == 0))
+			.count();
+		
+		maxNumStream.close();
+		return count;
+	}
+	
 }
