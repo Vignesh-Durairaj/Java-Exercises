@@ -82,7 +82,7 @@ public class MathOperationsTest {
 	
 	public static class XorFunctionTest {
 		
-		MathOperations mathOperations = new MathOperations();
+		private MathOperations mathOperations = new MathOperations();
 		
 		@Test
 		public void testXor() {

@@ -4,11 +4,11 @@ import java.util.stream.IntStream;
 
 public class ArmstrongNumbers {
 
-	private int getLength(int inNum) {
-		int length = 0;
-		while (inNum > 0) {
+	private int getLength(final int inNum) {
+		int length = 0, number = inNum;
+		while (number > 0) {
 			length ++;
-			inNum /= 10;
+			number /= 10;
 		}
 		return length;
 	}
