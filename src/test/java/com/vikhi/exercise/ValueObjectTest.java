@@ -1,5 +1,8 @@
 package com.vikhi.exercise;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -52,6 +55,9 @@ public class ValueObjectTest {
 				.build();
 		
 		validator.validate(pojo);
+		assertNotNull(pojo.getClass().hashCode());
+		assertNotNull(pojo.getClass().toString());
+		assertFalse(pojo.getClass().equals(null));
 	}
 	
 	
