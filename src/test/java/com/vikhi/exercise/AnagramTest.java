@@ -1,6 +1,7 @@
 package com.vikhi.exercise;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -58,8 +59,8 @@ public class AnagramTest {
 		
 		@Test
 		public void testInvalidInputs() {
-			assertTrue(!AnagramUtils.isAnagramUsingArrays(null, "Test"));
-			assertTrue(!AnagramUtils.isAnagramUsingArrays("Test", null));
+			assertFalse(AnagramUtils.isAnagramUsingArrays(null, "Test"));
+			assertFalse(AnagramUtils.isAnagramUsingArrays("Test", null));
 			
 		}
 		

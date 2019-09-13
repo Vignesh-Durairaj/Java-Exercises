@@ -1,6 +1,7 @@
 package com.vikhi.exercise;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -167,8 +168,8 @@ public class ArrayMethodsTest {
 		public void testIsNumeric() {
 			assertTrue(am.isNumeric("1235"));
 			assertTrue(am.isNumeric("52369742"));
-			assertTrue(!am.isNumeric("123O5"));
-			assertTrue(!am.isNumeric("abcd"));
+			assertFalse(am.isNumeric("123O5"));
+			assertFalse(am.isNumeric("abcd"));
 		}
 		
 		@Test(expected = IllegalArgumentException.class)

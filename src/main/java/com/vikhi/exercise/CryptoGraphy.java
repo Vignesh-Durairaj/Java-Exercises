@@ -10,7 +10,7 @@ public class CryptoGraphy {
 	
 	public String encrypt (final String inputString) {
 		String encryptedString = null;
-		if (inputString != null && inputString.trim() != "") {
+		if (inputString != null && !inputString.trim().equals("")) {
 			char[] charArr = inputString.toCharArray();
 			List<String> charMapList = 
 					IntStream
