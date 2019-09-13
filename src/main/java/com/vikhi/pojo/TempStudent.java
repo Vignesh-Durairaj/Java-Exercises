@@ -19,11 +19,8 @@ public class TempStudent {
 	}
 	
 	public TempStudent(final Student student) {
-		this.id = student.getId();
-		this.name = student.getName();
-		this.age = student.getAge();
-		this.address = student.getAddress();
-		this.mobileNumbers = student.getMobileNumber();
+		this(student.getId(), student.getName(), student.getAge(), 
+				student.getAddress(), student.getMobileNumber());
 	}
 
 	public long getId() {
