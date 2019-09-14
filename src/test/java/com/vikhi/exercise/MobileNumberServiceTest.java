@@ -81,7 +81,7 @@ public class MobileNumberServiceTest {
 		assertTrue(mobileNumber.equals(new MobileNumber(null, "123456")));
 		
 		mobileNumber = student.getMobileNumber().get(4);
-		assertFalse(mobileNumber.equals(new MobileNumber("91", null)));
+		assertTrue(mobileNumber.equals(new MobileNumber("91", null)));
 	}
 	
 	@Test
