@@ -2,6 +2,7 @@ package com.vikhi.exercise;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
@@ -78,6 +79,15 @@ public class NumberUtils {
 		
 		System.out.println("Average of positive numbers : " + (posCount == 0 ? 0 : ((double)posSum / posCount)));
 		System.out.println("Average of negative numbers : " + (negCount == 0 ? 0 : ((double)negSum / negCount)));
+	}
+	
+	public static Double getAverage (final List<Integer> ints) {
+		OptionalDouble averageOption =  ints
+				.stream()
+				.mapToInt(Integer::valueOf)
+				.average();
+		
+		return averageOption.isPresent() ? averageOption.getAsDouble() : null;
 	}
 	
 	public static int getDigitOccurence (final int number, final int digit) {

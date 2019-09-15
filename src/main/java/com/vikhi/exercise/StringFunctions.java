@@ -235,4 +235,11 @@ public class StringFunctions {
     			.map(i -> String.valueOf(i) + (i % 2 == 0 ? 'e' : 'o'))
     			.collect(Collectors.joining(","));
     }
+    
+    public List<String> convertToUpperCase(List<String> inStrings) {
+    	return inStrings
+    			.stream()
+    			.map(String::toUpperCase)
+    			.collect(Collectors.toList());
+    }
 }
