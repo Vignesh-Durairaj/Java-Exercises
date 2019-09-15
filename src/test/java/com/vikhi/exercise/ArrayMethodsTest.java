@@ -312,7 +312,8 @@ public class ArrayMethodsTest {
 	public static class ArrayReversalTest {
 		
 		private ArrayMethods am = new ArrayMethods();
-		private int[] inputArr, outputArr;
+		private int[] inputArr; 
+		private int[] outputArr;
 
 		public ArrayReversalTest(int[] inputArr, int[] outputArr) {
 			super();

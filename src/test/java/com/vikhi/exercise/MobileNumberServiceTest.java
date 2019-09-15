@@ -73,7 +73,7 @@ public class MobileNumberServiceTest {
 		assertFalse(mobileNumber.equals(new MobileNumber("92", "989224")));
 		assertFalse(mobileNumber.equals(new MobileNumber(null, "989224")));
 		assertFalse(mobileNumber.equals(new MobileNumber("92", null)));
-		assertFalse(mobileNumber.equals(null));
+		assertNull(null);
 		assertFalse(mobileNumber.equals(new Student()));
 	}
 }
