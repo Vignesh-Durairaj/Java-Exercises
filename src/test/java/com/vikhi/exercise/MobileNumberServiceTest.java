@@ -27,7 +27,9 @@ public class MobileNumberServiceTest {
 		student.setMobileNumber(Arrays.asList(
 				new MobileNumber("91", "123456"), 
 				new MobileNumber("91", "634578"), 
-				new MobileNumber("92", "989224")));
+				new MobileNumber("92", "989224"), 
+				new MobileNumber(null, "123456"), 
+				new MobileNumber("91", null)));
 	}
 
 	@Test
@@ -46,7 +48,10 @@ public class MobileNumberServiceTest {
 	public void isStudentMobileNumberDetailsAreCorrect() {
 		List<MobileNumber> mobileNumbers = student.getMobileNumber();
 		assertNotNull(mobileNumbers);
-		mobileNumbers.stream().forEach(mobileNumber -> {
+		mobileNumbers
+			.stream()
+			.filter(mobileNumber -> mobileNumber.getCountryCode() != null && mobileNumber.getNumber() != null)
+			.forEach(mobileNumber -> {
 			assertNotNull(mobileNumber.getNumber());
 			assertNotNull(mobileNumber.hashCode());
 			assertTrue("91".equals(mobileNumber.getCountryCode()) || "92".equals(mobileNumber.getCountryCode()));
@@ -63,6 +68,7 @@ public class MobileNumberServiceTest {
 	@Test
 	public void isObjectsAreEqual() {
 		MobileNumber mobileNumber = student.getMobileNumber().get(0);
+		assertTrue(mobileNumber.equals(student.getMobileNumber().get(0)));
 		assertTrue(mobileNumber.equals(new MobileNumber("91", "123456")));
 		assertFalse(mobileNumber.equals(new MobileNumber("92", "989224")));
 		assertFalse(mobileNumber.equals(new MobileNumber(null, "989224")));

@@ -5,7 +5,8 @@ import java.util.stream.IntStream;
 public class ArmstrongNumbers {
 
 	private int getLength(final int inNum) {
-		int length = 0, number = inNum;
+		int length = 0; 
+		int number = inNum;
 		while (number > 0) {
 			length ++;
 			number /= 10;

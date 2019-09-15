@@ -61,7 +61,11 @@ public class NumberUtils {
 			throw new IllegalArgumentException("Input array has to be non-empty");
 		}
 		
-		int posSum = 0, negSum = 0, posCount = 0, negCount= 0;
+		int posSum = 0; 
+		int negSum = 0; 
+		int posCount = 0; 
+		int negCount= 0;
+		
 		for (int num : inputArr) {
 			if (num > 0) {
 				posCount ++;
@@ -124,7 +128,8 @@ public class NumberUtils {
 		if (numStr.length() != 10) {
 			isValidISBN = Boolean.FALSE;
 		} else {
-			int sum = 0, counter = 1;
+			int sum = 0; 
+			int counter = 1;
 			for(int i = 9; i >= 0; i --, counter ++) {
 				sum += (Character.getNumericValue(numStr.charAt(i)) * counter);
 			}
@@ -156,7 +161,8 @@ public class NumberUtils {
 	}
 	
 	public static int getQuadrant(final int angle) {
-		int actualAngle = angle, quadrant = 0;
+		int actualAngle = angle; 
+		int quadrant = 0;
 		
 		while (actualAngle > 360) {
 			actualAngle -= 360;

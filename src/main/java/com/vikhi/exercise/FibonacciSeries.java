@@ -101,7 +101,9 @@ public class FibonacciSeries {
 	}
 	
 	public float getFibonacciAverage(final int count) {
-		int a = 0, b = 1, total = 1;
+		int a = 0; 
+		int b = 1; 
+		int total = 1;
 		
 		for (int i = 2; i < count; i ++) {
 			total += (a + b);
@@ -116,7 +118,8 @@ public class FibonacciSeries {
 		
 		IntSupplier fibbSupplier = new IntSupplier() {
 			
-			int previous = 0, current = 1;
+			int previous = 0; 
+			int current = 1;
 			
 			@Override
 			public int getAsInt() {
