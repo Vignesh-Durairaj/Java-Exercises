@@ -76,4 +76,13 @@ public class StudentServicesTest {
 		assertNotNull(tempStudents);
 		assertTrue(tempStudents.size() > 0);
 	}
+	
+	@Test
+	public void getStudentNameListTest() {
+		List<String> nameList = studentService.getStudentNameList(studentService.getStudentsWithName("Kumar"));
+		assertNotNull(nameList);
+		assertEquals(1, nameList.size());
+		assertNotNull(nameList.get(0));
+		assertEquals("Kumar", nameList.get(0));
+	}
 }

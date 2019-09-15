@@ -54,6 +54,13 @@ public class StudentService {
 		return tempStudentDao.getAllTempStudents();
 	}
 	
+	public List<String> getStudentNameList(List<Student> students) {
+		return students
+				.stream()
+				.map(Student::getName)
+				.collect(Collectors.toList());
+	}
+	
 	private Student getEldestStudentFromList(final List<Student> students) {
 		Optional<Student> optionalStudent = students
 				.stream()
@@ -62,5 +69,4 @@ public class StudentService {
 		
 		return optionalStudent.isPresent() ? optionalStudent.get() : null;
 	}
-	
 }
