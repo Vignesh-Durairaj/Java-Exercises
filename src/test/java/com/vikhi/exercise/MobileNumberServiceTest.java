@@ -48,6 +48,7 @@ public class MobileNumberServiceTest {
 		assertNotNull(mobileNumbers);
 		mobileNumbers.stream().forEach(mobileNumber -> {
 			assertNotNull(mobileNumber.getNumber());
+			assertNotNull(mobileNumber.hashCode());
 			assertTrue("91".equals(mobileNumber.getCountryCode()) || "92".equals(mobileNumber.getCountryCode()));
 			assertNotNull(mobileNumber.equals(new MobileNumber("91", "123456")));
 			
@@ -62,7 +63,6 @@ public class MobileNumberServiceTest {
 	@Test
 	public void isObjectsAreEqual() {
 		MobileNumber mobileNumber = student.getMobileNumber().get(0);
-		assertNotNull(mobileNumber.hashCode());
 		assertTrue(mobileNumber.equals(new MobileNumber("91", "123456")));
 		assertFalse(mobileNumber.equals(new MobileNumber("92", "989224")));
 		assertFalse(mobileNumber.equals(new MobileNumber(null, "989224")));
