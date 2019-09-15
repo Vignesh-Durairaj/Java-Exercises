@@ -8,7 +8,9 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -223,5 +225,13 @@ public class StringFunctionsTest {
 		assertEquals("Test", strFunctions.getCapitalization("test"));
 		assertEquals("", strFunctions.getCapitalization(""));
 		assertEquals("Hello World !", strFunctions.getCapitalization("hello wORld !"));
+	}
+	
+	@Test
+	public void testIntToString() {
+		List<Integer> ints = Arrays.asList(23,4,1,56,7,91,3);
+		String intString = strFunctions.getStringFromNumbers(ints);
+		assertNotNull(intString);
+		assertEquals("23o,4e,1o,56e,7o,91o,3o", intString);
 	}
 }
