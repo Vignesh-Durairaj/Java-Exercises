@@ -23,10 +23,4 @@ public class NumberCompositions {
 		
 		return probabilityCount[spaceCovered];
 	}
-	
-	public static void main(String[] args) {
-		NumberCompositions numberCompositions = new NumberCompositions();
-		System.out.println(numberCompositions.getDiceCompositions(1000));
-	}
-	
 }

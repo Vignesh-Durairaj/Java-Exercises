@@ -73,7 +73,15 @@ public class MobileNumberServiceTest {
 		assertFalse(mobileNumber.equals(new MobileNumber("92", "989224")));
 		assertFalse(mobileNumber.equals(new MobileNumber(null, "989224")));
 		assertFalse(mobileNumber.equals(new MobileNumber("92", null)));
-		assertNull(null);
+		assertFalse(mobileNumber.equals(null));
+		assertFalse(mobileNumber.equals(new MobileNumber(null, null)));
 		assertFalse(mobileNumber.equals(new Student()));
+	}
+	
+	@Test
+	public void testHashCode() {
+		assertNotNull(new MobileNumber("", "").hashCode());
+		assertNotNull(new MobileNumber(null, null).hashCode());
+		assertNotNull(new MobileNumber("91", "123456").hashCode());
 	}
 }
