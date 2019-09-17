@@ -9,6 +9,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -93,6 +94,10 @@ public class StringFunctionsTest {
 		CalendarUtils cu = new CalendarUtils();
 		Date prevMonthDate = cu.getPreviousMonthLastDate();
 		
+		assertNotNull(prevMonthDate);
+		assertSame(Date.class, prevMonthDate.getClass());
+		
+		prevMonthDate = cu.getPreviousMonthLastDate(0);
 		assertNotNull(prevMonthDate);
 		assertSame(Date.class, prevMonthDate.getClass());
 	}
