@@ -95,6 +95,10 @@ public class StringFunctionsTest {
 		
 		assertNotNull(prevMonthDate);
 		assertSame(Date.class, prevMonthDate.getClass());
+		
+		prevMonthDate = cu.getPreviousMonthLastDate(0);
+		assertNotNull(prevMonthDate);
+		assertSame(Date.class, prevMonthDate.getClass());
 	}
 	
 	@Test
