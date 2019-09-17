@@ -68,6 +68,8 @@ public class MobileNumberServiceTest {
 	@Test
 	public void isObjectsAreEqual() {
 		MobileNumber mobileNumber = student.getMobileNumber().get(0);
+		boolean isEqual = mobileNumber.equals(null);
+		
 		assertTrue(mobileNumber.equals(student.getMobileNumber().get(0)));
 		assertTrue(mobileNumber.equals(new MobileNumber("91", "123456")));
 		assertFalse(mobileNumber.equals(new MobileNumber("92", "989224")));
@@ -84,6 +86,7 @@ public class MobileNumberServiceTest {
 		mobileNumber = student.getMobileNumber().get(4);
 		assertTrue(mobileNumber.equals(new MobileNumber("91", null)));
 		assertFalse(mobileNumber.equals(new MobileNumber("91", "123456")));
+		assertFalse(isEqual);
 		
 	}
 	
