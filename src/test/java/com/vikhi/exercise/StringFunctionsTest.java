@@ -212,9 +212,23 @@ public class StringFunctionsTest {
 	}
 	
 	@Test
-	public void testRobot() {
-		WalkingRobot.main(null);
+	public void testRobot() throws InterruptedException {
+		WalkingRobot.main(new String[] {"5"});
 		assertEquals("String", "String");
+		
+		try {
+			WalkingRobot.main(null);
+		} catch (Exception e) {
+			System.out.println("NUll input encountered");
+		}
+		
+		WalkingRobot.main(new String[] {"15"});
+		try {
+			Thread.currentThread().stop();
+		} catch (Throwable t) {
+			System.out.println("Thread Death encountered");
+		}
+		
 	}
 	
 	@Test
