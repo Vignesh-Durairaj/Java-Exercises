@@ -146,6 +146,8 @@ public class ArrayMethodsTest {
 			assertTrue(Arrays.equals(newOutputArr, am.frequencySortArray(newInputArr)));
 			
 			assertTrue(Arrays.equals(new int[] {2, 4, 5, 1, 7, 3}, am.frequencySortArray(new int[] {2, 4, 5, 1, 7, 3})));
+			assertTrue(Arrays.equals(new int[] {3, 3, 3, 3, 1, 1, 1, 2, 2, 2}, am.frequencySortArray(new int[] {1, 1, 1, 2, 2, 2, 3, 3, 3, 3})));
+			assertTrue(Arrays.equals(new int[] {3, 3, 3, 3, 2, 2, 2, 1, 1, 1}, am.frequencySortArray(new int[] {2, 2, 2, 1, 1, 1, 3, 3, 3, 3})));
 		}
 		
 		@Test(expected = IllegalArgumentException.class)
