@@ -211,6 +211,7 @@ public class StringFunctionsTest {
 		assertEquals("ab", ra.getRepeatingAlphas(1, 1));
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testRobot() throws InterruptedException {
 		WalkingRobot.main(new String[] {"5"});
