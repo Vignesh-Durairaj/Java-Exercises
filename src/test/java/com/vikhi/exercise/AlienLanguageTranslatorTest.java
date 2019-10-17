@@ -31,7 +31,9 @@ public class AlienLanguageTranslatorTest {
 			{"Software Engineering"}, 
 			{""}, 
 			{" "}, 
-			{"!@#$%^(*&^12325abcdxyzABCDXYZ"}
+			{"!@#$%^(*&^12325abcdxyzABCDXYZ"},
+			{"abcdefghijklmnopqrstuvwxyz"}, 
+			{"ABCDEFGHTIJKLMNOPQRSTUVWXYZ"}
 		});
 	}
 	

@@ -4,8 +4,8 @@ public class WalkingRobot {
 
 	
 	public void move (int n) {
-		Thread t1 = new Thread (new LimbMovement(10, "Left"));
-		Thread t2 = new Thread (new LimbMovement(10, "Right"));
+		Thread t1 = new Thread (new LimbMovement(n, "Left"));
+		Thread t2 = new Thread (new LimbMovement(n, "Right"));
 		
 		System.out.println("Starting movement");
 		
@@ -15,7 +15,7 @@ public class WalkingRobot {
 	
 	public static void main(String[] args) {
 		WalkingRobot robot = new WalkingRobot();
-		robot.move(5);
+		robot.move(Integer.parseInt(args[0]));
 	}
 	
 	class LimbMovement implements Runnable {
