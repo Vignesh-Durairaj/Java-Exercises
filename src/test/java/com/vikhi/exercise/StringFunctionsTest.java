@@ -166,6 +166,8 @@ public class StringFunctionsTest {
 		
 		assertEquals(3, mp.getTopMostNumber("3 2 POP"));
 		assertEquals(2,mp.getTopMostNumber("2 DUP"));
+		assertEquals(0,mp.getTopMostNumber("2 DUP -"));
+		assertEquals(6,mp.getTopMostNumber("2 DUP 5 - 3 DUP +"));
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -211,6 +213,7 @@ public class StringFunctionsTest {
 		assertEquals("ab", ra.getRepeatingAlphas(1, 1));
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testRobot() throws InterruptedException {
 		WalkingRobot.main(new String[] {"5"});
