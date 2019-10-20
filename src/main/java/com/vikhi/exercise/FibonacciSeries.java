@@ -91,12 +91,10 @@ public class FibonacciSeries {
 	private BigInteger processFibonacciArray (final int position, final BigInteger[] fibonacciArr) {
 		if (fibonacciArr[position] != null) {
 			return fibonacciArr[position];
-		} else if (position >= 2) {
+		} else {
 			BigInteger newValue = processFibonacciArray(position - 1, fibonacciArr).add(processFibonacciArray(position - 2, fibonacciArr));
 			fibonacciArr[position] = newValue;
 			return newValue;
-		} else {
-			return fibonacciArr[position];
 		}
 	}
 	
