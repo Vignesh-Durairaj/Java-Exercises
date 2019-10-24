@@ -264,7 +264,7 @@ public class NumberUtilsTest {
 		assertNotNull(average);
 		assertEquals(Double.valueOf(5.5), average);
 		
-		average = NumberUtils.getAverage(List.of());
+		average = NumberUtils.getAverage(Arrays.asList());
 		assertNull(average);
 	}
 }
