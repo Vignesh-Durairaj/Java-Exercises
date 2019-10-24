@@ -222,6 +222,8 @@ public class StringFunctionsTest {
 		assertEquals("aababa", ra.getRepeatingAlphas(4, 2));
 		assertEquals("aa", ra.getRepeatingAlphas(2, 0));
 		assertEquals("bb", ra.getRepeatingAlphas(0, 2));
+		assertEquals("", ra.getRepeatingAlphas(0, 3));
+		assertEquals("", ra.getRepeatingAlphas(3, 0));
 	}
 	
 	@SuppressWarnings("deprecation")
