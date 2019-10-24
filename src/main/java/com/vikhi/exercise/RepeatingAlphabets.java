@@ -22,14 +22,12 @@ public class RepeatingAlphabets {
 		
 		while (a > 0 || b > 0) {
 			
-			if (builder.toString().endsWith("ab") || builder.toString().endsWith("ba")) {
-				if (b >= a) {
-					builder.append("b");
-					b --;
-				} else if (a > b) {
-					builder.append("a");
-					a --;
-				}
+			if (builder.toString().endsWith("ab") && a >= b) {
+				builder.append("a");
+				a --;
+			} else if (builder.toString().endsWith("ba") && b >= a) {
+				builder.append("b");
+				b --;
 			} else if (builder.toString().endsWith("aa")) {
 				if (b > 0) {
 					builder.append("b");
@@ -46,8 +44,16 @@ public class RepeatingAlphabets {
 					builder.delete(0, builder.length());
 					break;
 				}
-			} else if (builder.toString().equals("a") || builder.toString().equals("b")) {
+			} else if (builder.toString().equals("a")) {
 				if (a > b) {
+					builder.append("a");
+					a --;
+				} else if (b >= a) {
+					builder.append("b");
+					b --;
+				}
+			} else if (builder.toString().equals("b")) {
+				if (a >= b) {
 					builder.append("a");
 					a --;
 				} else if (b > a) {
