@@ -218,6 +218,10 @@ public class StringFunctionsTest {
 		assertEquals("ababa", ra.getRepeatingAlphas(3, 2));
 		assertEquals("babab", ra.getRepeatingAlphas(2, 3));
 		assertEquals("bababa", ra.getRepeatingAlphas(3, 3));
+		assertEquals("bbabab", ra.getRepeatingAlphas(2, 4));
+		assertEquals("aababa", ra.getRepeatingAlphas(4, 2));
+		assertEquals("aa", ra.getRepeatingAlphas(2, 0));
+		assertEquals("bb", ra.getRepeatingAlphas(0, 2));
 	}
 	
 	@SuppressWarnings("deprecation")
