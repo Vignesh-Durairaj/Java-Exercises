@@ -3,6 +3,7 @@ package com.vikhi.exercise;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -185,6 +186,7 @@ public class NumberUtilsTest {
 		assertEquals(2, NumberUtils.getQuadrant(180));
 		assertEquals(3, NumberUtils.getQuadrant(270));
 		assertEquals(4, NumberUtils.getQuadrant(271));
+		assertEquals(3, NumberUtils.getQuadrant(181));
 	}
 	
 	@Test
@@ -261,5 +263,8 @@ public class NumberUtilsTest {
 		Double average = NumberUtils.getAverage(ints);
 		assertNotNull(average);
 		assertEquals(Double.valueOf(5.5), average);
+		
+		average = NumberUtils.getAverage(List.of());
+		assertNull(average);
 	}
 }
