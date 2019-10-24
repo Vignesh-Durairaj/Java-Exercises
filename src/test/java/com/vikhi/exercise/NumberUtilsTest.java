@@ -48,6 +48,7 @@ public class NumberUtilsTest {
 		try {
 			NumberUtils.getLastNumberSamples(10, 3);
 			NumberUtils.getPosAndNegAverages(new int[]{1, 2, -3, 4, -2, -9, 4});
+			NumberUtils.getPosAndNegAverages(new int[]{1, 2, -3, 4, -2, -9, 0, -4});
 		} catch (Exception e) {
 			fail("Failed the executions");
 		}
