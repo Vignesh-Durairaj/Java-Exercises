@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import static java.lang.Math.abs;
+
 public class MathOperations {
 
 	private static final double ERROR_RANGE = 0.001;
@@ -23,7 +25,7 @@ public class MathOperations {
 		double start = x;
 		double end = x / n;
 		
-		while (start - end > ERROR_RANGE || end - start > ERROR_RANGE) {
+		while (abs(start - end) > ERROR_RANGE) {
 			start = end;
 			end = ((n - 1) * end + x / power(end, n - 1)) / n;
 		}
