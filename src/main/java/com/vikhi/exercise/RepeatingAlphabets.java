@@ -48,7 +48,7 @@ public class RepeatingAlphabets {
 				if (a > b) {
 					builder.append("a");
 					a --;
-				} else if (b >= a) {
+				} else {
 					builder.append("b");
 					b --;
 				}
@@ -56,7 +56,7 @@ public class RepeatingAlphabets {
 				if (a >= b) {
 					builder.append("a");
 					a --;
-				} else if (b > a) {
+				} else {
 					builder.append("b");
 					b --;
 				}
