@@ -235,6 +235,8 @@ public class StringFunctionsTest {
 	@Test
 	public void testRobot() throws InterruptedException {
 		WalkingRobot.main(new String[] {"5"});
+		WalkingRobot.main(new String[] {"0"});
+		WalkingRobot.main(new String[] {"-5"});
 		assertEquals("String", "String");
 		
 		try {
