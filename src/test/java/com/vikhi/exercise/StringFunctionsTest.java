@@ -224,6 +224,7 @@ public class StringFunctionsTest {
 		assertEquals("bb", ra.getRepeatingAlphas(0, 2));
 		assertEquals("", ra.getRepeatingAlphas(0, 3));
 		assertEquals("", ra.getRepeatingAlphas(3, 0));
+		assertEquals("bbabb", ra.getRepeatingAlphas(1, 4));
 	}
 	
 	@SuppressWarnings("deprecation")
