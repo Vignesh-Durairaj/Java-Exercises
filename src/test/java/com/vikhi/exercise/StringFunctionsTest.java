@@ -252,9 +252,16 @@ public class StringFunctionsTest {
 			System.out.println("Thread Death encountered");
 		}
 		
-		Thread.sleep(5000);
 		WalkingRobot.main(new String[] {"500"});
 		Thread.sleep(3000);
+		Thread.currentThread().interrupt();
+	}
+	
+	@Test
+	public void testInterruptedRobot() {
+		Thread.currentThread().interrupt();
+		Thread.currentThread().interrupt();
+		WalkingRobot.main(new String[] {"200"});
 		Thread.currentThread().interrupt();
 	}
 	
