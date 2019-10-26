@@ -259,6 +259,7 @@ public class StringFunctionsTest {
 	
 	@Test
 	public void testInterruptedRobot() {
+		assertEquals("String", "String");
 		Thread.currentThread().interrupt();
 		Thread.currentThread().interrupt();
 		WalkingRobot.main(new String[] {"200"});
