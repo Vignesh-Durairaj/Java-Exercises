@@ -250,6 +250,10 @@ public class StringFunctionsTest {
 			System.out.println("Thread Death encountered");
 		}
 		
+		Thread.sleep(5000);
+		WalkingRobot.main(new String[] {"500"});
+		Thread.sleep(3000);
+		Thread.currentThread().interrupt();
 	}
 	
 	@Test
