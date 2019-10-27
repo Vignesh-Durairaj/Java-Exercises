@@ -4,7 +4,11 @@ public class WalkingRobot {
 
 	
 	public void move (int n) {
-		Thread t1 = new Thread (new LimbMovement(n, "Left"));
+		Thread t1 = null;
+		if (n <= 0) {
+			t1 = new Thread(new LimbMovement(3, null));
+		}
+		t1 = new Thread (new LimbMovement(n, "Left"));
 		Thread t2 = new Thread (new LimbMovement(n, "Right"));
 		
 		System.out.println("Starting movement");
@@ -38,7 +42,7 @@ public class WalkingRobot {
 					i ++;
 					Thread.sleep(100);
 				}
-			} catch (Exception e) {
+			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}

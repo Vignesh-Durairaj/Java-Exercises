@@ -224,12 +224,19 @@ public class StringFunctionsTest {
 		assertEquals("bb", ra.getRepeatingAlphas(0, 2));
 		assertEquals("", ra.getRepeatingAlphas(0, 3));
 		assertEquals("", ra.getRepeatingAlphas(3, 0));
+		assertEquals("bbabb", ra.getRepeatingAlphas(1, 4));
+		assertEquals("bbab", ra.getRepeatingAlphas(1, 3));
+		assertEquals("aaba", ra.getRepeatingAlphas(3, 1));
+		assertEquals("bababa", ra.getRepeatingAlphas(3, 3));
+		assertEquals("aabaa", ra.getRepeatingAlphas(4, 1));
 	}
 	
 	@SuppressWarnings("deprecation")
 	@Test
 	public void testRobot() throws InterruptedException {
 		WalkingRobot.main(new String[] {"5"});
+		WalkingRobot.main(new String[] {"0"});
+		WalkingRobot.main(new String[] {"-5"});
 		assertEquals("String", "String");
 		
 		try {
@@ -245,6 +252,18 @@ public class StringFunctionsTest {
 			System.out.println("Thread Death encountered");
 		}
 		
+		WalkingRobot.main(new String[] {"500"});
+		Thread.sleep(3000);
+		Thread.currentThread().interrupt();
+	}
+	
+	@Test
+	public void testInterruptedRobot() {
+		assertEquals("String", "String");
+		Thread.currentThread().interrupt();
+		Thread.currentThread().interrupt();
+		WalkingRobot.main(new String[] {"200"});
+		Thread.currentThread().interrupt();
 	}
 	
 	@Test
