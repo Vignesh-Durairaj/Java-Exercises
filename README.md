@@ -1,8 +1,8 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Duke_%28Java_mascot%29_waving.svg"
      alt="Java Logo"
      style="float: right; margin-left: 10px;" 
-     width="25%"
-     height="20%"
+     width="20%"
+     height="10%"
      align="right"/>
 
 # Advanced Java Exercises
