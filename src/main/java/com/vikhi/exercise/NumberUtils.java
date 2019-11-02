@@ -272,7 +272,7 @@ public class NumberUtils {
 		return count;
 	}
 	
-	public static long sumOfDigitsBetween(int from, int to) {
+	public static long getSumOfDigitsBetween(int from, int to) {
 		return IntStream
 			.rangeClosed(from, to)
 			.mapToObj(Integer::toString)

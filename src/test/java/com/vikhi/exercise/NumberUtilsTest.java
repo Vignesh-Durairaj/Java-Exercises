@@ -20,7 +20,7 @@ import static com.vikhi.exercise.NumberUtils.isConsecutiveDigitNum;
 import static com.vikhi.exercise.NumberUtils.isPerfectNumber;
 import static com.vikhi.exercise.NumberUtils.isPrime;
 import static com.vikhi.exercise.NumberUtils.isValidISBN;
-import static com.vikhi.exercise.NumberUtils.sumOfDigitsBetween;
+import static com.vikhi.exercise.NumberUtils.getSumOfDigitsBetween;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -291,12 +291,12 @@ public class NumberUtilsTest {
 	
 	@Test
 	public void testSumOfDigitsBetween() {
-		assertEquals(3, sumOfDigitsBetween(10, 11));
-		assertEquals(2, sumOfDigitsBetween(-10, 11));
-		assertEquals(15, sumOfDigitsBetween(7, 8));
-		assertEquals(-29, sumOfDigitsBetween (-20, -17));
-		assertEquals(6, sumOfDigitsBetween(10, 12));
-		assertEquals(-19, sumOfDigitsBetween(-22, -19));
-		assertEquals(0, sumOfDigitsBetween(-19, -22));
+		assertEquals(3, getSumOfDigitsBetween(10, 11));
+		assertEquals(2, getSumOfDigitsBetween(-10, 11));
+		assertEquals(15, getSumOfDigitsBetween(7, 8));
+		assertEquals(-29, getSumOfDigitsBetween (-20, -17));
+		assertEquals(6, getSumOfDigitsBetween(10, 12));
+		assertEquals(-19, getSumOfDigitsBetween(-22, -19));
+		assertEquals(0, getSumOfDigitsBetween(-19, -22));
 	}
 }
