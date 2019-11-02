@@ -1,5 +1,13 @@
 package com.vikhi.exercise;
 
+import static com.vikhi.exercise.NumberUtils.countPrimes;
+import static com.vikhi.exercise.NumberUtils.getAbundantNumbers;
+import static com.vikhi.exercise.NumberUtils.getAreaOfTriangle;
+import static com.vikhi.exercise.NumberUtils.getAverage;
+import static com.vikhi.exercise.NumberUtils.getOneCounts;
+import static com.vikhi.exercise.NumberUtils.getSeconds;
+import static com.vikhi.exercise.NumberUtils.isAbundantNumber;
+import static com.vikhi.exercise.NumberUtils.isPerfectNumber;
 import static com.vikhi.exercise.NumberUtils.sumOfDigitsBetween;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -204,68 +212,68 @@ public class NumberUtilsTest {
 	
 	@Test
 	public void testOneCounts() {
-		assertEquals(4, NumberUtils.getOneCounts(1, 11));
-		assertEquals(34, NumberUtils.getOneCounts(11, 111));
-		assertEquals(36, NumberUtils.getOneCounts(1, 111));
+		assertEquals(4, getOneCounts(1, 11));
+		assertEquals(34, getOneCounts(11, 111));
+		assertEquals(36, getOneCounts(1, 111));
 	}
 	
 	@Test
 	public void testPerfectNumbers() {
-		assertTrue(NumberUtils.isPerfectNumber(6));
-		assertTrue(NumberUtils.isPerfectNumber(28));
-		assertTrue(NumberUtils.isPerfectNumber(496));
+		assertTrue(isPerfectNumber(6));
+		assertTrue(isPerfectNumber(28));
+		assertTrue(isPerfectNumber(496));
 		
-		assertFalse(NumberUtils.isPerfectNumber(10));
-		assertFalse(NumberUtils.isPerfectNumber(1));
-		assertFalse(NumberUtils.isPerfectNumber(25));
+		assertFalse(isPerfectNumber(10));
+		assertFalse(isPerfectNumber(1));
+		assertFalse(isPerfectNumber(25));
 	}
 	
 	@Test
 	public void testAreaOfTriangle() {
-		assertEquals(0, NumberUtils.getAreaOfTriangle(0, 0, 0), 0.0001D);
-		assertEquals(0, NumberUtils.getAreaOfTriangle(1, 2, 3), 1D);
-		assertEquals(4.898, NumberUtils.getAreaOfTriangle(1, 2, 5), 1D);
+		assertEquals(0, getAreaOfTriangle(0, 0, 0), 0.0001D);
+		assertEquals(0, getAreaOfTriangle(1, 2, 3), 1D);
+		assertEquals(4.898, getAreaOfTriangle(1, 2, 5), 1D);
 	}
 	
 	@Test
 	public void testSecondsMethods() {
-		assertEquals(39010, NumberUtils.getSeconds(10, 50, 10));
-		assertEquals(44705, NumberUtils.getSeconds(12, 25, 5));
-		assertEquals(605, NumberUtils.getSeconds(0, 10, 5));
+		assertEquals(39010, getSeconds(10, 50, 10));
+		assertEquals(44705, getSeconds(12, 25, 5));
+		assertEquals(605, getSeconds(0, 10, 5));
 	}
 	
 	@Test
 	public void testIsAbundant() {
-		assertTrue(NumberUtils.isAbundantNumber(12));
-		assertTrue(NumberUtils.isAbundantNumber(18));
-		assertTrue(NumberUtils.isAbundantNumber(20));
+		assertTrue(isAbundantNumber(12));
+		assertTrue(isAbundantNumber(18));
+		assertTrue(isAbundantNumber(20));
 		
-		assertFalse(NumberUtils.isAbundantNumber(1));
-		assertFalse(NumberUtils.isAbundantNumber(10));
+		assertFalse(isAbundantNumber(1));
+		assertFalse(isAbundantNumber(10));
 	}
 	
 	@Test
 	public void testPrintintAbundantNumbers() {
-		NumberUtils.getAbundantNumbers(20);
-		NumberUtils.getAbundantNumbers(40);
+		getAbundantNumbers(20);
+		getAbundantNumbers(40);
 		assertEquals("String", "String");
 	}
 	
 	@Test
 	public void testPrimeCount() {
-		assertEquals(78498, NumberUtils.countPrimes(1000001));
-		assertEquals(25, NumberUtils.countPrimes(100));
-		assertEquals(0, NumberUtils.countPrimes(1));
+		assertEquals(78498, countPrimes(1000001));
+		assertEquals(25, countPrimes(100));
+		assertEquals(0, countPrimes(1));
 	}
 	
 	@Test
 	public void testAverage() {
 		List<Integer> ints = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
-		Double average = NumberUtils.getAverage(ints);
+		Double average = getAverage(ints);
 		assertNotNull(average);
 		assertEquals(Double.valueOf(5.5), average);
 		
-		average = NumberUtils.getAverage(Arrays.asList());
+		average = getAverage(Arrays.asList());
 		assertNull(average);
 	}
 	
