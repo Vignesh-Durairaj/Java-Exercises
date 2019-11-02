@@ -1,5 +1,6 @@
 package com.vikhi.exercise;
 
+import static com.vikhi.exercise.NumberUtils.sumOfDigitsBetween;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -270,6 +271,6 @@ public class NumberUtilsTest {
 	
 	@Test
 	public void testSumOfDigitsBetween() {
-		assertEquals(3, NumberUtils.sumOfDigitsBetween(10, 11));
+		assertEquals(3, sumOfDigitsBetween(10, 11));
 	}
 }
