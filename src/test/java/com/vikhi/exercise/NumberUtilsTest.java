@@ -272,5 +272,11 @@ public class NumberUtilsTest {
 	@Test
 	public void testSumOfDigitsBetween() {
 		assertEquals(3, sumOfDigitsBetween(10, 11));
+		assertEquals(2, sumOfDigitsBetween(-10, 11));
+		assertEquals(15, sumOfDigitsBetween(7, 8));
+		assertEquals(-29, sumOfDigitsBetween (-20, -17));
+		assertEquals(6, sumOfDigitsBetween(10, 12));
+		assertEquals(-19, sumOfDigitsBetween(-22, -19));
+		assertEquals(0, sumOfDigitsBetween(-19, -22));
 	}
 }
