@@ -267,4 +267,9 @@ public class NumberUtilsTest {
 		average = NumberUtils.getAverage(Arrays.asList());
 		assertNull(average);
 	}
+	
+	@Test
+	public void testSumOfDigitsBetween() {
+		assertEquals(3, NumberUtils.sumOfDigitsBetween(10, 11));
+	}
 }
