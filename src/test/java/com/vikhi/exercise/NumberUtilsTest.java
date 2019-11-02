@@ -2,12 +2,24 @@ package com.vikhi.exercise;
 
 import static com.vikhi.exercise.NumberUtils.countPrimes;
 import static com.vikhi.exercise.NumberUtils.getAbundantNumbers;
+import static com.vikhi.exercise.NumberUtils.getAmicableSums;
 import static com.vikhi.exercise.NumberUtils.getAreaOfTriangle;
 import static com.vikhi.exercise.NumberUtils.getAverage;
+import static com.vikhi.exercise.NumberUtils.getDigitOccurence;
+import static com.vikhi.exercise.NumberUtils.getDivisibleSums;
+import static com.vikhi.exercise.NumberUtils.getLastNumberSamples;
+import static com.vikhi.exercise.NumberUtils.getOddSum;
 import static com.vikhi.exercise.NumberUtils.getOneCounts;
+import static com.vikhi.exercise.NumberUtils.getPosAndNegAverages;
+import static com.vikhi.exercise.NumberUtils.getQuadrant;
 import static com.vikhi.exercise.NumberUtils.getSeconds;
 import static com.vikhi.exercise.NumberUtils.isAbundantNumber;
+import static com.vikhi.exercise.NumberUtils.isAmicable;
+import static com.vikhi.exercise.NumberUtils.isBinary;
+import static com.vikhi.exercise.NumberUtils.isConsecutiveDigitNum;
 import static com.vikhi.exercise.NumberUtils.isPerfectNumber;
+import static com.vikhi.exercise.NumberUtils.isPrime;
+import static com.vikhi.exercise.NumberUtils.isValidISBN;
 import static com.vikhi.exercise.NumberUtils.sumOfDigitsBetween;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -47,18 +59,18 @@ public class NumberUtilsTest {
 	
 	@Test
 	public void testIsBinary() {
-		assertTrue(NumberUtils.isBinary(1011));
-		assertFalse(NumberUtils.isBinary(1234));
-		assertTrue(NumberUtils.isBinary(000));
-		assertTrue(NumberUtils.isBinary(111));
+		assertTrue(isBinary(1011));
+		assertFalse(isBinary(1234));
+		assertTrue(isBinary(000));
+		assertTrue(isBinary(111));
 	}
 	
 	@Test
 	public void testPositiveCases() {
 		try {
-			NumberUtils.getLastNumberSamples(10, 3);
-			NumberUtils.getPosAndNegAverages(new int[]{1, 2, -3, 4, -2, -9, 4});
-			NumberUtils.getPosAndNegAverages(new int[]{1, 2, -3, 4, -2, -9, 0, -4});
+			getLastNumberSamples(10, 3);
+			getPosAndNegAverages(new int[]{1, 2, -3, 4, -2, -9, 4});
+			getPosAndNegAverages(new int[]{1, 2, -3, 4, -2, -9, 0, -4});
 		} catch (Exception e) {
 			fail("Failed the executions");
 		}
@@ -66,50 +78,50 @@ public class NumberUtilsTest {
 	
 	@Test (expected = IllegalArgumentException.class)
 	public void testNegativeCases() {
-		NumberUtils.getLastNumberSamples(3, 15);
+		getLastNumberSamples(3, 15);
 		fail("This case is suppose to throw an exception, but not");
 	}
 	
 	@Test
 	public void testDigitOccurence() {
-		assertSame(3, NumberUtils.getDigitOccurence(121315, 1));
-		assertSame(0, NumberUtils.getDigitOccurence(123456, 7));
-		assertSame(2, NumberUtils.getDigitOccurence(15972421, 2));
-		assertSame(1, NumberUtils.getDigitOccurence(1234567, 5));
+		assertSame(3, getDigitOccurence(121315, 1));
+		assertSame(0, getDigitOccurence(123456, 7));
+		assertSame(2, getDigitOccurence(15972421, 2));
+		assertSame(1, getDigitOccurence(1234567, 5));
 	}
 	
 	@Test
 	public void testIsAmicable() {
-		assertTrue(NumberUtils.isAmicable(6L));
-		assertFalse(NumberUtils.isAmicable(16L));
-		assertTrue(NumberUtils.isAmicable(220L));
+		assertTrue(isAmicable(6L));
+		assertFalse(isAmicable(16L));
+		assertTrue(isAmicable(220L));
 	}
 	
 	@Test
 	public void testAmicableSums() {
-		assertEquals(6, NumberUtils.getAmicableSums(20));
-		assertEquals(34, NumberUtils.getAmicableSums(30));
+		assertEquals(6, getAmicableSums(20));
+		assertEquals(34, getAmicableSums(30));
 	}
 	
 	@Test
 	public void testDivisbleSums() {
-		assertEquals(23, NumberUtils.getDivisibleSums(10));
-		assertEquals(78, NumberUtils.getDivisibleSums(20));
+		assertEquals(23, getDivisibleSums(10));
+		assertEquals(78, getDivisibleSums(20));
 	}
 	
 	@Test
 	public void testIsValidISBN() {
-		assertTrue(NumberUtils.isValidISBN(8535902775L));
-		assertFalse(NumberUtils.isValidISBN(1843369283L));
-		assertFalse(NumberUtils.isValidISBN(18433693L));
-		assertFalse(NumberUtils.isValidISBN(184336928334L));
+		assertTrue(isValidISBN(8535902775L));
+		assertFalse(isValidISBN(1843369283L));
+		assertFalse(isValidISBN(18433693L));
+		assertFalse(isValidISBN(184336928334L));
 	}
 	
 	@Test
 	public void testIsConsecutiveDigitSum() {
-		assertTrue(NumberUtils.isConsecutiveDigitNum(12345));
-		assertFalse(NumberUtils.isConsecutiveDigitNum(12354));
-		assertTrue(NumberUtils.isConsecutiveDigitNum(6789));
+		assertTrue(isConsecutiveDigitNum(12345));
+		assertFalse(isConsecutiveDigitNum(12354));
+		assertTrue(isConsecutiveDigitNum(6789));
 	}
 	
 	@Test
@@ -134,13 +146,13 @@ public class NumberUtilsTest {
 	
 	@Test (expected = IllegalArgumentException.class)
 	public void testInvalidTestCase() {
-		NumberUtils.getPosAndNegAverages(null);
+		getPosAndNegAverages(null);
 		fail("Exception is expected, but was not");
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
 	public void testEmptyInputTestCase() {
-		NumberUtils.getPosAndNegAverages(new int[] {});
+		getPosAndNegAverages(new int[] {});
 		fail("Exception is expected, but was not");
 	}
 	
@@ -179,35 +191,35 @@ public class NumberUtilsTest {
 	
 	@Test
 	public void testOddSum() {
-		assertEquals(25, NumberUtils.getOddSum(10));
-		assertEquals(64, NumberUtils.getOddSum(15));
-		assertEquals(0, NumberUtils.getOddSum(0));
+		assertEquals(25, getOddSum(10));
+		assertEquals(64, getOddSum(15));
+		assertEquals(0, getOddSum(0));
 	}
 	
 	@Test
 	public void testQuadrantIdentifier() {
-		assertEquals(1, NumberUtils.getQuadrant(362));
-		assertEquals(2, NumberUtils.getQuadrant(92));
-		assertEquals(3, NumberUtils.getQuadrant(197));
-		assertEquals(4, NumberUtils.getQuadrant(301));
-		assertEquals(1, NumberUtils.getQuadrant(30));
-		assertEquals(1, NumberUtils.getQuadrant(90));
-		assertEquals(2, NumberUtils.getQuadrant(180));
-		assertEquals(3, NumberUtils.getQuadrant(270));
-		assertEquals(4, NumberUtils.getQuadrant(271));
-		assertEquals(3, NumberUtils.getQuadrant(181));
+		assertEquals(1, getQuadrant(362));
+		assertEquals(2, getQuadrant(92));
+		assertEquals(3, getQuadrant(197));
+		assertEquals(4, getQuadrant(301));
+		assertEquals(1, getQuadrant(30));
+		assertEquals(1, getQuadrant(90));
+		assertEquals(2, getQuadrant(180));
+		assertEquals(3, getQuadrant(270));
+		assertEquals(4, getQuadrant(271));
+		assertEquals(3, getQuadrant(181));
 	}
 	
 	@Test
 	public void testIsPrime() {
-		assertFalse(NumberUtils.isPrime(1));
-		assertTrue(NumberUtils.isPrime(2));
-		assertTrue(NumberUtils.isPrime(3));
-		assertFalse(NumberUtils.isPrime(4));
-		assertTrue(NumberUtils.isPrime(5));
-		assertTrue(NumberUtils.isPrime(19));
-		assertFalse(NumberUtils.isPrime(21));
-		assertFalse(NumberUtils.isPrime(1000));
+		assertFalse(isPrime(1));
+		assertTrue(isPrime(2));
+		assertTrue(isPrime(3));
+		assertFalse(isPrime(4));
+		assertTrue(isPrime(5));
+		assertTrue(isPrime(19));
+		assertFalse(isPrime(21));
+		assertFalse(isPrime(1000));
 	}
 	
 	@Test
