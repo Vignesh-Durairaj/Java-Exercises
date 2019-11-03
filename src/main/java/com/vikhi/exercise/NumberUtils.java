@@ -272,4 +272,23 @@ public class NumberUtils {
 		return count;
 	}
 	
+	public static long getSumOfDigitsBetween(int from, int to) {
+		return IntStream
+			.rangeClosed(from, to)
+			.mapToObj(Integer::toString)
+			.map(num -> num.split(""))
+			.mapToLong(NumberUtils::getSumOfDigits)
+			.sum();
+	}
+	
+	private static long getSumOfDigits(String[] numberAsStrings) {
+		boolean isNegative = (numberAsStrings[0].equals("-"));
+		int startIndex = isNegative ? 1 : 0;
+		int sum = 0;
+		for (int i = startIndex; i < numberAsStrings.length; i ++) {
+			sum += Integer.valueOf(numberAsStrings[i]);
+		}
+		
+		return sum * (isNegative ? -1 : 1);
+	}
 }
