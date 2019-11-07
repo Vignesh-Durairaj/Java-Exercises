@@ -15,21 +15,15 @@ public class RepeatingAlphabets {
 			return "ab";
 		}
 		
-		builder = new StringBuilder((a > b) ? "a" : "b");
-		if (a > b) {
-			a --;
-		} else {
-			b --;
-		}
-		
+		builder = new StringBuilder();
 		constructStringBuffer();
 		
 		return builder.toString();
 	}
 	
 	private void constructStringBuffer() {
+		appendWhenAIsGreaterThanB();
 		while (a > 0 || b > 0) {
-			
 			if (builder.toString().endsWith("ab")) {
 				appendWhenAIsGreaterThanOrEqualsB();
 			} else if (builder.toString().endsWith("ba")) {
