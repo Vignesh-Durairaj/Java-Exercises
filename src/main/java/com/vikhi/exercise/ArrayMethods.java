@@ -62,7 +62,7 @@ public class ArrayMethods {
 	}
 	
 	public int getFamilyNosForPlane(int totalRows, String reservedSeats) 
-			throws  IllegalStateException{
+			throws  IllegalArgumentException{
         
         Map<Character, Integer> columnMap = new HashMap<>();
 		columnMap.put('A', 0);
@@ -98,23 +98,9 @@ public class ArrayMethods {
         	}
 		}
 		
-		int familyCount = 0;
-		for (int i = 0; i < totalRows; i ++) {
-			if (seatArr[i][0] == 0 && seatArr[i][1] == 0 && seatArr[i][2] == 0) {
-				familyCount ++;
-			}
-			
-			if ((seatArr[i][3] == 0 && seatArr[i][4] == 0 && seatArr[i][5] == 0) || 
-					(seatArr[i][4] == 0 && seatArr[i][5] == 0) && seatArr[i][6] == 0){
-				familyCount ++;
-			}
-			
-			if (seatArr[i][7] == 0 && seatArr[i][8] == 0 && seatArr[i][9] == 0) {
-				familyCount ++;
-			}
-		}
 		
-		return familyCount;
+		
+		return getFamilyCount(totalRows, seatArr);
     }
 	
 	public int[] frequencySortArray (final int[] inArr) {
@@ -327,5 +313,20 @@ public class ArrayMethods {
 			inputArr[i] = inputArr[j];
 			inputArr[j] = temp;
 		}
+	}
+	
+	private int getFamilyCount(final int totalRows, final int[][] seatArr) {
+		int familyCount = 0;
+		for (int i = 0; i < totalRows; i ++) {
+			
+			int freeFirstColumn = (seatArr[i][0] == 0 && seatArr[i][1] == 0 && seatArr[i][2] == 0) ? 1 : 0;
+			int freeSecondColumn = ((seatArr[i][3] == 0 && seatArr[i][4] == 0 && seatArr[i][5] == 0) || 
+					(seatArr[i][4] == 0 && seatArr[i][5] == 0) && seatArr[i][6] == 0) ? 1 : 0;
+			int freeThirdColumn = (seatArr[i][7] == 0 && seatArr[i][8] == 0 && seatArr[i][9] == 0) ? 1 : 0;
+			
+			familyCount += (freeFirstColumn + freeSecondColumn + freeThirdColumn);
+		}
+		
+		return familyCount;
 	}
 }
