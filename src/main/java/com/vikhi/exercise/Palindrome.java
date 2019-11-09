@@ -72,8 +72,8 @@ public class Palindrome {
 	
 	private int getPalindromeLength(final String str) {
 	    int palLength = 0;
-	    for (float pivot = 0; pivot < str.length(); pivot += 0.5) {
-	        float palindromeRadius = pivot - (int)pivot;
+	    for (double pivot = 0; pivot < str.length(); pivot += 0.5D) {
+	        double palindromeRadius = pivot - (int)pivot;
 	        
 	        while ((pivot + palindromeRadius) < str.length() && 
 	            (pivot - palindromeRadius) >= 0 && 
