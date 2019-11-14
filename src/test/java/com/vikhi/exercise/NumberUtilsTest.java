@@ -17,6 +17,7 @@ import static com.vikhi.exercise.NumberUtils.isAbundantNumber;
 import static com.vikhi.exercise.NumberUtils.isAmicable;
 import static com.vikhi.exercise.NumberUtils.isBinary;
 import static com.vikhi.exercise.NumberUtils.isConsecutiveDigitNum;
+import static com.vikhi.exercise.NumberUtils.isKaprekarNumber;
 import static com.vikhi.exercise.NumberUtils.isPerfectNumber;
 import static com.vikhi.exercise.NumberUtils.isPrime;
 import static com.vikhi.exercise.NumberUtils.isValidISBN;
@@ -302,6 +303,16 @@ public class NumberUtilsTest {
 	
 	@Test
 	public void testKaprekarNumbers() {
-		assertTrue(NumberUtils.isKaprekarNumber(81));
+		assertTrue(isKaprekarNumber(1));
+		assertTrue(isKaprekarNumber(9));
+		assertTrue(isKaprekarNumber(45));
+		assertTrue(isKaprekarNumber(55));
+		assertTrue(isKaprekarNumber(99));
+		assertTrue(isKaprekarNumber(297));
+		assertTrue(isKaprekarNumber(703));
+		assertTrue(isKaprekarNumber(999));
+		
+		assertFalse(isKaprekarNumber(2));
+		assertFalse(isKaprekarNumber(81));
 	}
 }
