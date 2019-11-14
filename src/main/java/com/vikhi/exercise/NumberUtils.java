@@ -297,15 +297,19 @@ public class NumberUtils {
 			return true;
 		}
 		
-		boolean isKaprekarNumber = false;
 		long squaredVal = inputNumber * inputNumber;
 		String squaredValStr = String.valueOf(squaredVal);
 		int stringLen = squaredValStr.length();
-		if (stringLen % 2 == 0) {
-			long firstNum = Long.valueOf(squaredValStr.substring(0, stringLen / 2));
-			long secondNum = Long.valueOf(squaredValStr.substring(stringLen / 2, stringLen));
-			isKaprekarNumber = (firstNum + secondNum) == inputNumber;
+		
+		for (int i = 1; i < stringLen; i++) {
+			long firstNum = Long.valueOf(squaredValStr.substring(0, i));
+			long secondNum = Long.valueOf(squaredValStr.substring(i, stringLen));
+			
+			if ((firstNum + secondNum) == inputNumber) {
+				return true;
+			}
 		}
-		return isKaprekarNumber;
+		
+		return false;
 	}
 }
