@@ -1,5 +1,6 @@
 package com.vikhi.exercise;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
@@ -297,15 +298,16 @@ public class NumberUtils {
 			return true;
 		}
 		
-		long squaredVal = inputNumber * inputNumber;
-		String squaredValStr = String.valueOf(squaredVal);
+		String inputNumStr = String.valueOf(inputNumber);
+		BigInteger squaredVal = new BigInteger(inputNumStr).multiply(new BigInteger (inputNumStr));
+		String squaredValStr = squaredVal.toString();
 		int stringLen = squaredValStr.length();
 		
 		for (int i = 1; i < stringLen; i++) {
-			long firstNum = Long.valueOf(squaredValStr.substring(0, i));
-			long secondNum = Long.valueOf(squaredValStr.substring(i, stringLen));
+			BigInteger firstNum = new BigInteger(squaredValStr.substring(0, i));
+			BigInteger secondNum = new BigInteger(squaredValStr.substring(i, stringLen));
 			
-			if ((firstNum + secondNum) == inputNumber) {
+			if ((firstNum.add(secondNum)).equals(new BigInteger(inputNumStr))) {
 				return true;
 			}
 		}
