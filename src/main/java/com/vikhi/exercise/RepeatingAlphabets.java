@@ -3,8 +3,8 @@ package com.vikhi.exercise;
 public class RepeatingAlphabets {
 
 	private StringBuilder builder;
-	int a;
-	int b;
+	private int a;
+	private int b;
 	
 	public String getRepeatingAlphas(final int aCount, final int bCount) {
 		a = aCount;
