@@ -299,4 +299,9 @@ public class NumberUtilsTest {
 		assertEquals(-19, getSumOfDigitsBetween(-22, -19));
 		assertEquals(0, getSumOfDigitsBetween(-19, -22));
 	}
+	
+	@Test
+	public void testKaprekarNumbers() {
+		assertTrue(NumberUtils.isKaprekarNumber(81));
+	}
 }

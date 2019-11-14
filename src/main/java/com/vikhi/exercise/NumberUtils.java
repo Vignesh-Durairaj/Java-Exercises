@@ -291,4 +291,8 @@ public class NumberUtils {
 		
 		return sum * (isNegative ? -1 : 1);
 	}
+	
+	public static boolean isKaprekarNumber(final int inputNumber) {
+		return false;
+	}
 }
