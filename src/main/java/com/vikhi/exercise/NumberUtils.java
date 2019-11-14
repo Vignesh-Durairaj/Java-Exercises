@@ -1,5 +1,6 @@
 package com.vikhi.exercise;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
@@ -290,5 +291,27 @@ public class NumberUtils {
 		}
 		
 		return sum * (isNegative ? -1 : 1);
+	}
+	
+	public static boolean isKaprekarNumber(final int inputNumber) {
+		if (inputNumber == 1) {
+			return true;
+		}
+		
+		String inputNumStr = String.valueOf(inputNumber);
+		BigInteger squaredVal = new BigInteger(inputNumStr).multiply(new BigInteger (inputNumStr));
+		String squaredValStr = squaredVal.toString();
+		int stringLen = squaredValStr.length();
+		
+		for (int i = 1; i < stringLen; i++) {
+			BigInteger firstNum = new BigInteger(squaredValStr.substring(0, i));
+			BigInteger secondNum = new BigInteger(squaredValStr.substring(i, stringLen));
+			
+			if ((firstNum.add(secondNum)).equals(new BigInteger(inputNumStr))) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }
