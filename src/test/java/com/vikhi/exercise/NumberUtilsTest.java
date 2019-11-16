@@ -1,27 +1,27 @@
 package com.vikhi.exercise;
 
-import static com.vikhi.exercise.NumberUtils.countPrimes;
-import static com.vikhi.exercise.NumberUtils.getAbundantNumbers;
-import static com.vikhi.exercise.NumberUtils.getAmicableSums;
-import static com.vikhi.exercise.NumberUtils.getAreaOfTriangle;
-import static com.vikhi.exercise.NumberUtils.getAverage;
-import static com.vikhi.exercise.NumberUtils.getDigitOccurence;
-import static com.vikhi.exercise.NumberUtils.getDivisibleSums;
-import static com.vikhi.exercise.NumberUtils.getLastNumberSamples;
-import static com.vikhi.exercise.NumberUtils.getOddSum;
-import static com.vikhi.exercise.NumberUtils.getOneCounts;
-import static com.vikhi.exercise.NumberUtils.getPosAndNegAverages;
-import static com.vikhi.exercise.NumberUtils.getQuadrant;
-import static com.vikhi.exercise.NumberUtils.getSeconds;
-import static com.vikhi.exercise.NumberUtils.isAbundantNumber;
-import static com.vikhi.exercise.NumberUtils.isAmicable;
-import static com.vikhi.exercise.NumberUtils.isBinary;
-import static com.vikhi.exercise.NumberUtils.isConsecutiveDigitNum;
-import static com.vikhi.exercise.NumberUtils.isKaprekarNumber;
-import static com.vikhi.exercise.NumberUtils.isPerfectNumber;
-import static com.vikhi.exercise.NumberUtils.isPrime;
-import static com.vikhi.exercise.NumberUtils.isValidISBN;
-import static com.vikhi.exercise.NumberUtils.getSumOfDigitsBetween;
+import static com.vikhi.util.NumberUtils.countPrimes;
+import static com.vikhi.util.NumberUtils.getAbundantNumbers;
+import static com.vikhi.util.NumberUtils.getAmicableSums;
+import static com.vikhi.util.NumberUtils.getAreaOfTriangle;
+import static com.vikhi.util.NumberUtils.getAverage;
+import static com.vikhi.util.NumberUtils.getDigitOccurence;
+import static com.vikhi.util.NumberUtils.getDivisibleSums;
+import static com.vikhi.util.NumberUtils.getLastNumberSamples;
+import static com.vikhi.util.NumberUtils.getOddSum;
+import static com.vikhi.util.NumberUtils.getOneCounts;
+import static com.vikhi.util.NumberUtils.getPosAndNegAverages;
+import static com.vikhi.util.NumberUtils.getQuadrant;
+import static com.vikhi.util.NumberUtils.getSeconds;
+import static com.vikhi.util.NumberUtils.getSumOfDigitsBetween;
+import static com.vikhi.util.NumberUtils.isAbundantNumber;
+import static com.vikhi.util.NumberUtils.isAmicable;
+import static com.vikhi.util.NumberUtils.isBinary;
+import static com.vikhi.util.NumberUtils.isConsecutiveDigitNum;
+import static com.vikhi.util.NumberUtils.isKaprekarNumber;
+import static com.vikhi.util.NumberUtils.isPerfectNumber;
+import static com.vikhi.util.NumberUtils.isPrime;
+import static com.vikhi.util.NumberUtils.isValidISBN;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -36,6 +36,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.vikhi.pojo.NumberModel;
+import com.vikhi.util.NumberUtils;
 
 public class NumberUtilsTest {
 
