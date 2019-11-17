@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.util;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -243,7 +243,7 @@ public class NumberUtils {
 		return (hours * 3600) + (minutes * 60) + seconds;
 	}
 	
-	protected static boolean isAbundantNumber(final int number) {
+	public static boolean isAbundantNumber(final int number) {
 		int divisorSum = IntStream
 				.rangeClosed(1, number / 2 + 1)
 				.filter(num -> number % num == 0)
