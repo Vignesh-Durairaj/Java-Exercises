@@ -249,4 +249,8 @@ public class StringFunctions {
     			.map(item -> item.toString())
     			.collect(Collectors.joining(","));
     }
+    
+    public String getNonDuplicatedValue(final String input) {
+    	return null;
+    }
 }
