@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import static java.util.Arrays.asList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
@@ -251,6 +253,11 @@ public class StringFunctions {
     }
     
     public String getNonDuplicatedValue(final String input) {
-    	return null;
+    	List<String> chars = asList(input.split(""));
+    	StringBuilder nonDuplicatedValueBuilder = new StringBuilder();
+    	chars.stream()
+    		.filter(character -> nonDuplicatedValueBuilder.indexOf(character) < 0)
+    		.forEach(nonDuplicatedValueBuilder::append);
+    	return nonDuplicatedValueBuilder.toString();
     }
 }
