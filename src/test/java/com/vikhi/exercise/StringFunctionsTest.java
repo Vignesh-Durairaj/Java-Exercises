@@ -315,6 +315,7 @@ public class StringFunctionsTest {
 	@Test
 	public void testNonDuplicatedValue() {
 		assertEquals("bans", strFunctions.getNonDuplicatedValue("bananas"));
+		assertEquals("progamin", strFunctions.getNonDuplicatedValue("programming"));
 		
 	}
 }
