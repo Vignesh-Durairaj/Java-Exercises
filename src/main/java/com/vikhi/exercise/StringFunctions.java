@@ -253,9 +253,8 @@ public class StringFunctions {
     }
     
     public String getNonDuplicatedValue(final String input) {
-    	List<String> chars = asList(input.split(""));
     	StringBuilder nonDuplicatedValueBuilder = new StringBuilder();
-    	chars.stream()
+    	asList(input.split("")).stream()
     		.filter(character -> nonDuplicatedValueBuilder.indexOf(character) < 0)
     		.forEach(nonDuplicatedValueBuilder::append);
     	return nonDuplicatedValueBuilder.toString();
