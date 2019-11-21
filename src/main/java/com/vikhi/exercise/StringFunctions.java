@@ -1,5 +1,7 @@
 package com.vikhi.exercise;
 
+import static java.util.Arrays.asList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
@@ -248,5 +250,13 @@ public class StringFunctions {
     			.stream()
     			.map(item -> item.toString())
     			.collect(Collectors.joining(","));
+    }
+    
+    public String getNonDuplicatedValue(final String input) {
+    	StringBuilder nonDuplicatedValueBuilder = new StringBuilder();
+    	asList(input.split("")).stream()
+    		.filter(character -> nonDuplicatedValueBuilder.indexOf(character) < 0)
+    		.forEach(nonDuplicatedValueBuilder::append);
+    	return nonDuplicatedValueBuilder.toString();
     }
 }

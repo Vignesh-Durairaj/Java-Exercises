@@ -310,4 +310,12 @@ public class StringFunctionsTest {
 		assertEquals("VIGNESH", outString.get(0));
 		assertEquals("DURAIRAJ", outString.get(1));
 	}
+	
+	
+	@Test
+	public void testNonDuplicatedValue() {
+		assertEquals("bans", strFunctions.getNonDuplicatedValue("bananas"));
+		assertEquals("progamin", strFunctions.getNonDuplicatedValue("programming"));
+		
+	}
 }
