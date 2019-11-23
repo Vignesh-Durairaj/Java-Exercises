@@ -15,6 +15,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import com.vikhi.exercise.datastrucutres.ArrayFunctions;
+import com.vikhi.exercise.datastrucutres.ArrayMethods;
+
 @RunWith(Enclosed.class)
 public class ArrayMethodsTest {
 
