@@ -15,6 +15,14 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.vikhi.exercise.string.CharIterations;
+import com.vikhi.exercise.string.CrossBoxGenerator;
+import com.vikhi.exercise.string.CryptoGraphy;
+import com.vikhi.exercise.string.MessageProcessor;
+import com.vikhi.exercise.string.RepeatingAlphabets;
+import com.vikhi.exercise.string.StringFunctions;
+import com.vikhi.exercise.string.Strugacarro;
+import com.vikhi.exercise.string.WalkingRobot;
 import com.vikhi.util.CalendarUtils;
 
 public class StringFunctionsTest {

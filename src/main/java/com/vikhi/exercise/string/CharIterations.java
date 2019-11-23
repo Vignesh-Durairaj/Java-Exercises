@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.exercise.string;
 
 public class CharIterations {
 	public void permutation(char[] outArr, char[] inputArr, int pos) {

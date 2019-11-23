@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import com.vikhi.exercise.string.WordAnagram;
 import com.vikhi.util.AnagramUtils;
 
 @RunWith(Enclosed.class)
