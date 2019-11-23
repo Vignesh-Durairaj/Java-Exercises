@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.vikhi.util.BinaryUtils;
+import com.vikhi.util.BitWiseUtils;
+
 public class BinaryUtilsTest {
 
 	@Test

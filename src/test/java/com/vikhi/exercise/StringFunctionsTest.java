@@ -15,6 +15,8 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.vikhi.util.CalendarUtils;
+
 public class StringFunctionsTest {
 
 	private static StringFunctions strFunctions;
