@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.exercise.math;
 
 import java.math.BigInteger;
 import java.util.HashMap;

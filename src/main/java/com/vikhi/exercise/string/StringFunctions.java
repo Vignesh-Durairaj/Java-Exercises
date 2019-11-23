@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.exercise.string;
 
 import static java.util.Arrays.asList;
 

@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.exercise.scenario;
 
 import java.util.Arrays;
 

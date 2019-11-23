@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.util;
 
 public class BinaryUtils {
 

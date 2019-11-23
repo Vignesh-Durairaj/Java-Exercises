@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.exercise.math;
 
 import static java.lang.Math.abs;
 

@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.exercise.datastrucutres;
 
 import java.util.Collections;
 import java.util.List;

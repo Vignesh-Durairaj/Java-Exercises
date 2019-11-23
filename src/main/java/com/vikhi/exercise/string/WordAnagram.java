@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.exercise.string;
 
 import java.util.Arrays;
 import java.util.HashSet;

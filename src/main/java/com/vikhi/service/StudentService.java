@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import com.vikhi.dao.StudentDao;
 import com.vikhi.dao.TempStudentDao;
-import com.vikhi.exercise.StringFunctions;
+import com.vikhi.exercise.string.StringFunctions;
 import com.vikhi.pojo.Student;
 import com.vikhi.pojo.TempStudent;
 
