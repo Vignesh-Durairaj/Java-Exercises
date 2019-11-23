@@ -35,6 +35,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.vikhi.exercise.math.ArmstrongNumbers;
+import com.vikhi.exercise.math.Factorials;
+import com.vikhi.exercise.math.LuckyNumberGenerator;
 import com.vikhi.pojo.NumberModel;
 import com.vikhi.util.NumberUtils;
 
