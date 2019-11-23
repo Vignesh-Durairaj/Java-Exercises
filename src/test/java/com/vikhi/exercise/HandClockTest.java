@@ -6,6 +6,8 @@ import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.vikhi.exercise.scenario.HandClock;
+
 public class HandClockTest {
 
 	private static HandClock handClock;
