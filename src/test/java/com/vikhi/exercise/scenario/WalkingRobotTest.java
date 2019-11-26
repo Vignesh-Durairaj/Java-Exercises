@@ -52,9 +52,6 @@ public class WalkingRobotTest {
 			} catch (Throwable t) {
 				t.printStackTrace();
 			}
-			
-			WalkingRobot.makeRobotMove(500);
-			Thread.sleep(3000);
 		}
 		
 		@Test
