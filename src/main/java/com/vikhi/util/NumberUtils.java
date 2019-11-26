@@ -7,9 +7,13 @@ import java.util.OptionalDouble;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
+import org.apache.log4j.Logger;
+
 import com.vikhi.pojo.NumberModel;
 
 public class NumberUtils {
+	
+	private static final Logger LOGGER = Logger.getLogger(NumberUtils.class);
 	
 	private NumberUtils() {
 		// Implement this if needed
@@ -55,7 +59,7 @@ public class NumberUtils {
 			numList.add(String.valueOf(sampled --));
 		}
 		
-		System.out.println(String.join(" ", numList));
+		LOGGER.info(String.join(" ", numList));
 	}
 	
 	public static void getPosAndNegAverages(final int[] inputArr) {
@@ -78,8 +82,8 @@ public class NumberUtils {
 			}
 		}
 		
-		System.out.println("Average of positive numbers : " + (posCount == 0 ? 0 : ((double)posSum / posCount)));
-		System.out.println("Average of negative numbers : " + (negCount == 0 ? 0 : ((double)negSum / negCount)));
+		LOGGER.info("Average of positive numbers : " + (posCount == 0 ? 0 : ((double)posSum / posCount)));
+		LOGGER.info("Average of negative numbers : " + (negCount == 0 ? 0 : ((double)negSum / negCount)));
 	}
 	
 	public static Double getAverage (final List<Integer> ints) {
@@ -256,7 +260,7 @@ public class NumberUtils {
 		IntStream
 			.rangeClosed(2, maxRange)
 			.filter(NumberUtils::isAbundantNumber)
-			.forEach(System.out::println);
+			.forEach(LOGGER::info);
 	}
 	
 	public static long countPrimes(long max) {

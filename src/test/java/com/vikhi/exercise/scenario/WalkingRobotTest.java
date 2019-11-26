@@ -50,12 +50,11 @@ public class WalkingRobotTest {
 			try {
 				Thread.currentThread().stop();
 			} catch (Throwable t) {
-				System.out.println("Thread Death encountered");
+				t.printStackTrace();
 			}
 			
 			WalkingRobot.makeRobotMove(500);
 			Thread.sleep(3000);
-			Thread.currentThread().interrupt();
 		}
 		
 		@Test

@@ -1,9 +1,10 @@
 package com.vikhi.exercise.scenario;
 
-import static java.lang.System.out;
+import org.apache.log4j.Logger;
 
 public class WalkingRobot {
 
+	private final Logger log = Logger.getLogger(this.getClass());
 	
 	protected boolean move (int n) {
 		Thread t1 = null;
@@ -13,7 +14,7 @@ public class WalkingRobot {
 		t1 = new Thread (new LimbMovement(n, "Left"));
 		Thread t2 = new Thread (new LimbMovement(n, "Right"));
 		
-		out.println("Starting movement");
+		log.info("Starting movement");
 		
 		t1.start();
 		t2.start();
@@ -40,7 +41,7 @@ public class WalkingRobot {
 			int i = 0;
 			try {
 				while (i < n) {
-					out.println(limb + " - " + i);
+					log.info(limb + " - " + i);
 					i ++;
 					Thread.sleep(100);
 				}
