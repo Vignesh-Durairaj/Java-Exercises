@@ -28,7 +28,7 @@ jobs:
             path: target/JavaExercises-0.0.1-SNAPSHOT.jar
 
 workflows:
-  main:
+  sonar-cloud:
     jobs:
       - build:
           context: SonarCloud
