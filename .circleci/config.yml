@@ -8,6 +8,9 @@ jobs:
          - image: circleci/openjdk:8-jdk-browsers
       steps:
          - checkout
+         - run:
+            name: SonarCloud analysis
+            command: mvn verify sonar:sonar
          - restore_cache:
             key: Java-Exercises-{{ checksum "pom.xml" }}
          - run: mvn dependency:go-offline
@@ -23,3 +26,9 @@ jobs:
             token: 96c6d7c1-7f08-4916-8bf4-7790425fb04c
          - store_artifacts: 
             path: target/JavaExercises-0.0.1-SNAPSHOT.jar
+
+workflows:
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
