@@ -1,4 +1,4 @@
-package com.vikhi.exercise.datastrucutres.misc;
+package com.vikhi.exercise.misc;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
