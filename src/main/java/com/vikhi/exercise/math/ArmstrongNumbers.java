@@ -2,8 +2,12 @@ package com.vikhi.exercise.math;
 
 import java.util.stream.IntStream;
 
+import org.apache.log4j.Logger;
+
 public class ArmstrongNumbers {
 
+	private final Logger log = Logger.getLogger(this.getClass());
+	
 	private int getLength(final int inNum) {
 		int length = 0; 
 		int number = inNum;
@@ -54,13 +58,13 @@ public class ArmstrongNumbers {
 		IntStream
 			.rangeClosed(1, 1000)
 			.filter(this::isArmstrongNumber)
-			.forEach(System.out::println);
+			.forEach(log::info);
 	}
 
 	public void getArmstrongNumbersFaster() {
 		IntStream
 			.rangeClosed(1, 1000)
 			.filter(this::isArmstrongNumberFaster)
-			.forEach(System.out::println);
+			.forEach(log::info);
 	}
 }

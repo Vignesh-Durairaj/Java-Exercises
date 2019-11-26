@@ -11,9 +11,12 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import org.apache.log4j.Logger;
+
 public class ArrayMethods {
 
 	private static final String NUMBER_STRING = "0123456789";
+	private final Logger log = Logger.getLogger(ArrayMethods.class);
 	
 	public int getNthSmallElement (final int[] a, final int rank) {
 		if (a == null || a.length < rank || rank < 1) {
@@ -258,11 +261,11 @@ public class ArrayMethods {
 					.filter(ele -> ele > 0)
 					.summaryStatistics();
 	
-		System.out.println("Max Value : " + stats.getMax());
-		System.out.println("Min Value : " + stats.getMin());
-		System.out.println("Total Value : " + stats.getSum());
-		System.out.println("Total Entries : " + stats.getCount());
-		System.out.println("Average Value : " + stats.getAverage());
+		log.info("Max Value : " + stats.getMax());
+		log.info("Min Value : " + stats.getMin());
+		log.info("Total Value : " + stats.getSum());
+		log.info("Total Entries : " + stats.getCount());
+		log.info("Average Value : " + stats.getAverage());
 	}
 	
 	public boolean isNumeric(final String s) {
