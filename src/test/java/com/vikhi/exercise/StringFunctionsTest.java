@@ -17,7 +17,6 @@ import org.junit.Test;
 
 import com.vikhi.exercise.datastrucutres.BinaryTreeTraversal;
 import com.vikhi.exercise.scenario.Strugacarro;
-import com.vikhi.exercise.scenario.WalkingRobot;
 import com.vikhi.exercise.string.CharIterations;
 import com.vikhi.exercise.string.CrossBoxGenerator;
 import com.vikhi.exercise.string.CryptoGraphy;
@@ -29,12 +28,10 @@ import com.vikhi.util.CalendarUtils;
 public class StringFunctionsTest {
 
 	private static StringFunctions strFunctions;
-	private static WalkingRobot WalkingRobot;
 	
 	@BeforeClass
 	public static void init() {
 		strFunctions = new StringFunctions();
-		WalkingRobot = new WalkingRobot();
 	}
 	
 	@Test
@@ -257,36 +254,6 @@ public class StringFunctionsTest {
 		assertEquals("aaba", ra.getRepeatingAlphas(3, 1));
 		assertEquals("bababa", ra.getRepeatingAlphas(3, 3));
 		assertEquals("aabaa", ra.getRepeatingAlphas(4, 1));
-	}
-	
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testRobot() throws InterruptedException {
-		WalkingRobot.makeRobotMove(5);
-		WalkingRobot.makeRobotMove(0);
-		WalkingRobot.makeRobotMove(-5);
-		assertEquals("String", "String");
-		
-		WalkingRobot.makeRobotMove(15);
-		try {
-			Thread.currentThread().stop();
-		} catch (Throwable t) {
-			System.out.println("Thread Death encountered");
-		}
-		
-		WalkingRobot.makeRobotMove(500);
-		Thread.sleep(3000);
-		Thread.currentThread().interrupt();
-	}
-	
-	@Test
-	public void testInterruptedRobot() {
-		assertEquals("String", "String");
-		Thread.currentThread().interrupt();
-		Thread.currentThread().interrupt();
-		WalkingRobot.makeRobotMove(200);
-		WalkingRobot.makeRobotMove(10);
-		Thread.currentThread().interrupt();
 	}
 	
 	@Test

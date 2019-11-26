@@ -5,7 +5,7 @@ import static java.lang.System.out;
 public class WalkingRobot {
 
 	
-	public void move (int n) {
+	protected boolean move (int n) {
 		Thread t1 = null;
 		if (n <= 0) {
 			t1 = new Thread(new LimbMovement(3, null));
@@ -17,6 +17,7 @@ public class WalkingRobot {
 		
 		t1.start();
 		t2.start();
+		return true;
 	}
 	
 	public void makeRobotMove (int steps) {
