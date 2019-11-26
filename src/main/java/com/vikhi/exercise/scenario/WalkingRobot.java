@@ -46,7 +46,7 @@ public class WalkingRobot {
 					Thread.sleep(100);
 				}
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				log.error(e);
 				Thread.currentThread().interrupt();
 			}
 		}
