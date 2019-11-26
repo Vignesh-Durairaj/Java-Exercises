@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.exercise.numbers;
 
 import static com.vikhi.util.NumberUtils.countPrimes;
 import static com.vikhi.util.NumberUtils.getAbundantNumbers;
