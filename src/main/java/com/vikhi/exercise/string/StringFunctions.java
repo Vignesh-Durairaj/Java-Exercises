@@ -8,8 +8,12 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.log4j.Logger;
+
 public class StringFunctions {
 
+	private final Logger log = Logger.getLogger(this.getClass());
+	
     public String getReversedSentence (final String sentence) {
     	
     	String[] strArr = sentence.split(" ");
@@ -54,96 +58,106 @@ public class StringFunctions {
     
     public void printPyramidNumbersDynamicRows(final int rows) {
     	int val = 1;
+    	StringBuilder builder;
     	for (int i = rows; i > 0; i--) {
+    		builder = new StringBuilder();
     		for (int j = 1; j <= i; j ++) {
-    			System.out.print(" ");
+    			builder.append(" ");
     		}
     		
     		for (int j = 1; j <= val; j ++) {
-    			System.out.print(j);
+    			builder.append(j);
     			if(j != val) {
-    				System.out.print(" ");
+    				builder.append(" ");
     			}
     		}
     		
-    		System.out.println("");
+    		log.info(builder.toString());
     		val ++;
     	}
     }
     
     public void printPyramidNumbersStaticRows(final int rows) {
     	int val = 1;
+    	StringBuilder builder;
     	for (int i = rows; i > 0; i--) {
+    		builder = new StringBuilder();
     		for (int j = 1; j <= i; j ++) {
-    			System.out.print(" ");
+    			builder.append(" ");
     		}
     		
     		for (int j = 1; j <= val; j ++) {
-    			System.out.print(val);
+    			builder.append(val);
     			if(j != val) {
-    				System.out.print(" ");
+    				builder.append(" ");
     			}
     		}
     		
-    		System.out.println("");
+    		log.info(builder.toString());
     		val ++;
     	}
     }
     
     public void printPyramidStars(final int rows) {
     	int val = 1;
+    	StringBuilder builder;
     	for (int i = rows; i > 0; i--) {
+    		builder = new StringBuilder();
     		for (int j = 1; j <= i; j ++) {
-    			System.out.print(" ");
+    			builder.append(" ");
     		}
     		
     		for (int j = 1; j <= val; j ++) {
-    			System.out.print("*");
+    			builder.append("*");
     			if(j != val) {
-    				System.out.print(" ");
+    				builder.append(" ");
     			}
     		}
     		
-    		System.out.println("");
+    		log.info(builder.toString());
     		val ++;
     	}
     }
     
     public void printPyramidStarsUpright(final int rows) {
     	int val = rows;
+    	StringBuilder builder;
     	for (int i = rows; i > 0; i--) {
+    		builder = new StringBuilder();
     		for (int j = i; j <= rows; j ++) {
-    			System.out.print(" ");
+    			builder.append(" ");
     		}
     		
     		for (int j = 1; j <= val; j ++) {
-    			System.out.print("*");
+    			builder.append("*");
     			if(j != val) {
-    				System.out.print(" ");
+    				builder.append(" ");
     			}
     		}
     		
-    		System.out.println("");
+    		log.info(builder.toString());
     		val --;
     	}
     }
     
     public void printSymmetricPyramidNumbers(final int rows) {
     	int val = 1;
+    	StringBuilder builder;
     	for (int i = rows; i > 0; i--) {
+    		builder = new StringBuilder();
     		int mid = val / 2;
     		for (int j = 1; j <= i; j ++) {
-    			System.out.print(" ");
+    			builder.append(" ");
     		}
     		
     		for (int j = 1; j <= val; j ++) {
-    			System.out.print(j <= mid ? j : (val - j + 1));
+    			builder.append(j <= mid ? j : (val - j + 1));
     			if(j != val) {
-    				System.out.print(" ");
+    				builder.append(" ");
     			}
     		}
     		
-    		System.out.println("");
+    		log.info(builder.toString());
     		val ++;
     	}
     }
@@ -153,17 +167,20 @@ public class StringFunctions {
     		throw new IllegalArgumentException("The rectangle's dimensions are not to be zero");
     	}
     	
+    	StringBuilder builder;
+    	
     	for (int h = 1; h <= height; h ++) {
+    		builder = new StringBuilder();
     		if (h == 1 || h == height) {
     			for (int w = 1; w <= width; w ++) {
-        			System.out.print("*");
+        			builder.append("*");
         		}
     		} else {
     			for (int w = 1; w <= width; w ++) {
-        			System.out.print(w != 1 && w != width ? " " : "*");
+        			builder.append(w != 1 && w != width ? " " : "*");
         		}
     		}
-    		System.out.println();
+    		log.info(builder.toString());
     	}
     }
     
@@ -203,17 +220,18 @@ public class StringFunctions {
     	Stream
     		.generate(starSupplier)
     		.limit(limit)
-    		.forEach(System.out::println);
+    		.forEach(log::info);
     }
     
     public void printTriangularNumbers(final int limit) {
     	int counter = 1;
-    	
+    	StringBuilder builder;
     	for (int i = 1; i <= limit; i ++) {
+    		builder = new StringBuilder();
     		for (int j = 1; j <= i; j ++, counter ++) {
-    			System.out.print(counter + " ");
+    			builder.append(counter).append(" ");
     		}
-    		System.out.println("");
+    		log.info(builder.toString());
     	}
     }
     
@@ -226,7 +244,7 @@ public class StringFunctions {
     	return Arrays
     			.stream(str.split(" "))
     			.map(ele -> ele.toUpperCase().charAt(0) + ele.toLowerCase().substring(1, ele.length()))
-    			.peek(System.out::println)
+    			.peek(log::info)
     			.reduce("", (a, b) -> a + b + " ")
     			.trim();
     }
