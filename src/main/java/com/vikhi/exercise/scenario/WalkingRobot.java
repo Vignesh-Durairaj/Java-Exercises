@@ -19,9 +19,8 @@ public class WalkingRobot {
 		t2.start();
 	}
 	
-	public static void makeRobotMove (int steps) {
-		WalkingRobot robot = new WalkingRobot();
-		robot.move(steps);
+	public void makeRobotMove (int steps) {
+		move(steps);
 	}
 	
 	class LimbMovement implements Runnable {
