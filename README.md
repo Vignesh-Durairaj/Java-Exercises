@@ -8,6 +8,7 @@
 # Advanced Java Exercises
 
 [![CircleCI](https://circleci.com/gh/Vignesh-Durairaj/Java-Exercises.svg?style=svg)](https://circleci.com/gh/Vignesh-Durairaj/Java-Exercises) 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Vignesh-Durairaj_Java-Exercises&metric=alert_status)](https://sonarcloud.io/dashboard?id=Vignesh-Durairaj_Java-Exercises)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/90a4e8d774414db5a3805b2d62fd2f4e)](https://app.codacy.com/app/Vignesh-Durairaj/Java-Exercises?utm_source=github.com&utm_medium=referral&utm_content=Vignesh-Durairaj/Java-Exercises&utm_campaign=Badge_Grade_Dashboard) [![Code Coverage](https://codecov.io/gh/Vignesh-Durairaj/Java-Exercises/branch/development/graph/badge.svg)](https://codecov.io/gh/Vignesh-Durairaj/Java-Exercises) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Twitter Follow](https://img.shields.io/twitter/follow/vigneshdurairaj.svg?style=social)
 
 Also few set of exercises from various sources using **Java programming language** with some uses of functional programming using *Java 8 streams* and *Lambdas*. Exercise ideas are mostly obtained from coding challenge sites like `HackerRank` and `Programmr`.
