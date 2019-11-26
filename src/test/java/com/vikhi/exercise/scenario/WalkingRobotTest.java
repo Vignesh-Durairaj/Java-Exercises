@@ -33,6 +33,8 @@ public class WalkingRobotTest {
 		
 		private static WalkingRobot WalkingRobot;
 		
+		private String string = "String";
+		
 		@BeforeClass
 		public static void init() {
 			WalkingRobot = new WalkingRobot();
@@ -44,7 +46,7 @@ public class WalkingRobotTest {
 			WalkingRobot.makeRobotMove(5);
 			WalkingRobot.makeRobotMove(0);
 			WalkingRobot.makeRobotMove(-5);
-			assertEquals("String", "String");
+			assertEquals(string, "String");
 			
 			WalkingRobot.makeRobotMove(15);
 			try {
@@ -56,7 +58,7 @@ public class WalkingRobotTest {
 		
 		@Test
 		public void testInterruptedRobot() {
-			assertEquals("String", "String");
+			assertEquals(string, "String");
 			Thread.currentThread().interrupt();
 			Thread.currentThread().interrupt();
 			WalkingRobot.makeRobotMove(200);
