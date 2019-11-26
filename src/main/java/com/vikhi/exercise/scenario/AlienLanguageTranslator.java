@@ -1,4 +1,4 @@
-package com.vikhi.exercise.string;
+package com.vikhi.exercise.scenario;
 
 import com.vikhi.exercise.interfaces.LanguageTranslator;
 

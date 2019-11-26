@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.exercise.scenario;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,7 +11,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import com.vikhi.exercise.interfaces.LanguageTranslator;
-import com.vikhi.exercise.string.AlienLanguageTranslator;
+import com.vikhi.exercise.scenario.AlienLanguageTranslator;
 
 
 @RunWith(Parameterized.class)
