@@ -235,12 +235,12 @@ public class NumberUtils {
 	}
 	
 	public static double getAreaOfTriangle(final int a, final int b, final int c) {
-		double s = (a + b + c) / 2;
+		double s = (a + b + c) / (double) 2;
 		return Math.sqrt(Math.abs(s * (s - a) * (s - b) * (s - c)));
 	}
 	
 	public static long getSeconds(final int hours, final int minutes, final int seconds) {
-		return (hours * 3600) + (minutes * 60) + seconds;
+		return (hours * 3600) + (minutes * 60) + (long)seconds;
 	}
 	
 	public static boolean isAbundantNumber(final int number) {
@@ -285,9 +285,9 @@ public class NumberUtils {
 	private static long getSumOfDigits(String[] numberAsStrings) {
 		boolean isNegative = (numberAsStrings[0].equals("-"));
 		int startIndex = isNegative ? 1 : 0;
-		int sum = 0;
+		long sum = 0;
 		for (int i = startIndex; i < numberAsStrings.length; i ++) {
-			sum += Integer.valueOf(numberAsStrings[i]);
+			sum += Long.valueOf(numberAsStrings[i]);
 		}
 		
 		return sum * (isNegative ? -1 : 1);

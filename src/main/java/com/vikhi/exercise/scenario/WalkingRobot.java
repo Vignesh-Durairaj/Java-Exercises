@@ -1,5 +1,7 @@
 package com.vikhi.exercise.scenario;
 
+import static java.lang.System.out;
+
 public class WalkingRobot {
 
 	
@@ -11,15 +13,15 @@ public class WalkingRobot {
 		t1 = new Thread (new LimbMovement(n, "Left"));
 		Thread t2 = new Thread (new LimbMovement(n, "Right"));
 		
-		System.out.println("Starting movement");
+		out.println("Starting movement");
 		
 		t1.start();
 		t2.start();
 	}
 	
-	public static void main(String[] args) {
+	public static void makeRobotMove (int steps) {
 		WalkingRobot robot = new WalkingRobot();
-		robot.move(Integer.parseInt(args[0]));
+		robot.move(steps);
 	}
 	
 	class LimbMovement implements Runnable {
@@ -34,16 +36,17 @@ public class WalkingRobot {
 		}
 		
 		@Override
-		public void run() {
+		public void run(){
 			int i = 0;
 			try {
 				while (i < n) {
-					System.out.println(limb + " - " + i);
+					out.println(limb + " - " + i);
 					i ++;
 					Thread.sleep(100);
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 		}
 	}

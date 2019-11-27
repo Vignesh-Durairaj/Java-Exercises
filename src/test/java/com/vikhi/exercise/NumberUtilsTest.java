@@ -76,6 +76,8 @@ public class NumberUtilsTest {
 			getLastNumberSamples(10, 3);
 			getPosAndNegAverages(new int[]{1, 2, -3, 4, -2, -9, 4});
 			getPosAndNegAverages(new int[]{1, 2, -3, 4, -2, -9, 0, -4});
+			getPosAndNegAverages(new int[]{1, 2, 3, 4, 9});
+			getPosAndNegAverages(new int[]{-1, -2, -3, -4});
 		} catch (Exception e) {
 			fail("Failed the executions");
 		}

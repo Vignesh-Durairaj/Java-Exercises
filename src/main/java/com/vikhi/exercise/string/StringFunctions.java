@@ -248,7 +248,7 @@ public class StringFunctions {
     public <T extends Object> String getListAsString(List<T> items) {
     	return items
     			.stream()
-    			.map(item -> item.toString())
+    			.map(Object::toString)
     			.collect(Collectors.joining(","));
     }
     

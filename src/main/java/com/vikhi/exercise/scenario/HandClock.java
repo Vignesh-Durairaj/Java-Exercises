@@ -2,13 +2,10 @@ package com.vikhi.exercise.scenario;
 
 public class HandClock {
 
-	public int hourHand;
-	
-	public int minuteHand;
-	
-	public double hourAngle;
-	
-	public double minuteAngle;
+	private int hourHand;
+	private int minuteHand;
+	private double hourAngle;
+	private double minuteAngle;
 	
 	public HandClock() {
 		// Can be implemented if needed in future.

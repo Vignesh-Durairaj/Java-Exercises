@@ -1,5 +1,6 @@
 package com.vikhi.exercise;
 
+import static com.vikhi.exercise.scenario.WalkingRobot.makeRobotMove;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -17,7 +18,6 @@ import org.junit.Test;
 
 import com.vikhi.exercise.datastrucutres.BinaryTreeTraversal;
 import com.vikhi.exercise.scenario.Strugacarro;
-import com.vikhi.exercise.scenario.WalkingRobot;
 import com.vikhi.exercise.string.CharIterations;
 import com.vikhi.exercise.string.CrossBoxGenerator;
 import com.vikhi.exercise.string.CryptoGraphy;
@@ -90,12 +90,27 @@ public class StringFunctionsTest {
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void testPrintintMethodsNegativeCases() {
+	public void testPrintRectangleWithZeroWidth() {
 		strFunctions.printRectangle(0, 12);
+		fail("Expected an exception, but not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPrintRectangleWithZeroHeight() {
 		strFunctions.printRectangle(5, 0);
-		
+		fail("Expected an exception, but not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPrintRectangleWithZeroWidthAndHeight() {
+		strFunctions.printRectangle(0, 0);
 		strFunctions.printSquare(0);
-		
+		fail("Expected an exception, but not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPrintRSquareWithZeroSize() {
+		strFunctions.printSquare(0);
 		fail("Expected an exception, but not !");
 	}
 	
@@ -245,25 +260,19 @@ public class StringFunctionsTest {
 	@SuppressWarnings("deprecation")
 	@Test
 	public void testRobot() throws InterruptedException {
-		WalkingRobot.main(new String[] {"5"});
-		WalkingRobot.main(new String[] {"0"});
-		WalkingRobot.main(new String[] {"-5"});
+		makeRobotMove(5);
+		makeRobotMove(0);
+		makeRobotMove(-5);
 		assertEquals("String", "String");
 		
-		try {
-			WalkingRobot.main(null);
-		} catch (Exception e) {
-			System.out.println("NUll input encountered");
-		}
-		
-		WalkingRobot.main(new String[] {"15"});
+		makeRobotMove(15);
 		try {
 			Thread.currentThread().stop();
 		} catch (Throwable t) {
 			System.out.println("Thread Death encountered");
 		}
 		
-		WalkingRobot.main(new String[] {"500"});
+		makeRobotMove(500);
 		Thread.sleep(3000);
 		Thread.currentThread().interrupt();
 	}
@@ -273,7 +282,8 @@ public class StringFunctionsTest {
 		assertEquals("String", "String");
 		Thread.currentThread().interrupt();
 		Thread.currentThread().interrupt();
-		WalkingRobot.main(new String[] {"200"});
+		makeRobotMove(200);
+		makeRobotMove(10);
 		Thread.currentThread().interrupt();
 	}
 	
