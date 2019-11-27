@@ -2,11 +2,9 @@ package com.vikhi.pojo;
 
 public class BinaryNode {
 
-	public int value;
-
-	public BinaryNode rightNode;
-
-	public BinaryNode leftNode;
+	private int value;
+	private BinaryNode rightNode;
+	private BinaryNode leftNode;
 
 	public BinaryNode(int value, BinaryNode leftNode, BinaryNode rightNode) {
 		this.value = value;
