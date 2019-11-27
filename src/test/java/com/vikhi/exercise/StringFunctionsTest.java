@@ -18,7 +18,6 @@ import org.junit.Test;
 
 import com.vikhi.exercise.datastrucutres.BinaryTreeTraversal;
 import com.vikhi.exercise.scenario.Strugacarro;
-import com.vikhi.exercise.scenario.WalkingRobot;
 import com.vikhi.exercise.string.CharIterations;
 import com.vikhi.exercise.string.CrossBoxGenerator;
 import com.vikhi.exercise.string.CryptoGraphy;
