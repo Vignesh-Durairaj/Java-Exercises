@@ -90,12 +90,27 @@ public class StringFunctionsTest {
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void testPrintintMethodsNegativeCases() {
+	public void testPrintRectangleWithZeroWidth() {
 		strFunctions.printRectangle(0, 12);
+		fail("Expected an exception, but not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPrintRectangleWithZeroHeight() {
 		strFunctions.printRectangle(5, 0);
-		
+		fail("Expected an exception, but not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPrintRectangleWithZeroWidthAndHeight() {
+		strFunctions.printRectangle(0, 0);
 		strFunctions.printSquare(0);
-		
+		fail("Expected an exception, but not !");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPrintRSquareWithZeroSize() {
+		strFunctions.printSquare(0);
 		fail("Expected an exception, but not !");
 	}
 	
