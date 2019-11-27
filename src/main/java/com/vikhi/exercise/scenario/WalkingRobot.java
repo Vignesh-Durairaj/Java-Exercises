@@ -17,9 +17,9 @@ public class WalkingRobot {
 		t2.start();
 	}
 	
-	public static void main(String[] args) {
+	public static void makeRobotMove (int steps) {
 		WalkingRobot robot = new WalkingRobot();
-		robot.move(Integer.parseInt(args[0]));
+		robot.move(steps);
 	}
 	
 	class LimbMovement implements Runnable {
