@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 
 public class ArrayMethods {
 
-	private final String NUMBER_STRING = "0123456789";
+	private static final String NUMBER_STRING = "0123456789";
 	
 	public int getNthSmallElement (final int[] a, final int rank) {
 		if (a == null || a.length < rank || rank < 1) {
@@ -61,8 +61,7 @@ public class ArrayMethods {
 		return sortedArray[rank - 1];
 	}
 	
-	public int getFamilyNosForPlane(int totalRows, String reservedSeats) 
-			throws  IllegalArgumentException{
+	public int getFamilyNosForPlane(int totalRows, String reservedSeats) {
         
         Map<Character, Integer> columnMap = new HashMap<>();
 		columnMap.put('A', 0);
