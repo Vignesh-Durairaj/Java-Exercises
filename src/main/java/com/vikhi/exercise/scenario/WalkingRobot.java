@@ -34,7 +34,7 @@ public class WalkingRobot {
 		}
 		
 		@Override
-		public void run() {
+		public void run(){
 			int i = 0;
 			try {
 				while (i < n) {
@@ -44,6 +44,7 @@ public class WalkingRobot {
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 		}
 	}
