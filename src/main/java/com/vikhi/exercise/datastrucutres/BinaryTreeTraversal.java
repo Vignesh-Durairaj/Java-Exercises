@@ -3,20 +3,25 @@ package com.vikhi.exercise.datastrucutres;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.vikhi.pojo.BinaryNode;
 
 public class BinaryTreeTraversal {
 
+	private final Logger log = Logger.getLogger(this.getClass());
+	
 	public void printBinaryTree (final BinaryNode rootNode) {
 		
 		List<BinaryNode> nodeList = new ArrayList<>();
 		List<BinaryNode> tmpList = new ArrayList<>();
+		StringBuilder builder;
 		int endOfDepth = 0 ;
 		
 		nodeList.add(rootNode);
 		while (!nodeList.isEmpty()) {
+			builder = new StringBuilder();
 			for (int i = 0; i < nodeList.size(); i ++) {
-				
 				BinaryNode node = nodeList.get(i);
 				if (node.getLeftNode() != null) {
 					tmpList.add(node.getLeftNode());
@@ -26,13 +31,14 @@ public class BinaryTreeTraversal {
 					tmpList.add(node.getRightNode());
 				}
 				
-				System.out.print(node);
+				builder.append(node);
 				if (i < endOfDepth) {
-					System.out.print(",");
+					builder.append(",");
 				}
 			}
 			
-			System.out.println(nodeList.get(0).getValue());
+			builder.append(" - ").append(nodeList.get(0).getValue());
+			log.info(builder.toString());
 			
 			endOfDepth = (nodeList.size() * 2) - 1;
 			nodeList = tmpList;

@@ -2,8 +2,12 @@ package com.vikhi.exercise.string;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 public class Palindrome {
 
+	private final Logger log = Logger.getLogger(this.getClass());
+	
 	public boolean isPalindrome (final String str) {
 		if (str == null || str.isEmpty()) {
 			throw new IllegalArgumentException("Please specify a valid input string !");
@@ -64,7 +68,7 @@ public class Palindrome {
 	public ArrayList<Integer> getPalindromicSubStrings(int stringLength, String inString){
         for (int i = 1; i <= stringLength; i ++) {
             String subject = inString.substring(0, i);
-            System.out.println(getPalindromeLength(subject));
+            log.info(getPalindromeLength(subject));
         }
         
         return null;

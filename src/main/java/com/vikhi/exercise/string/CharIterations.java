@@ -1,9 +1,14 @@
 package com.vikhi.exercise.string;
 
+import org.apache.log4j.Logger;
+
 public class CharIterations {
+	
+	private final Logger log = Logger.getLogger(this.getClass());
+	
 	public void permutation(char[] outArr, char[] inputArr, int pos) {
 	    if (pos == outArr.length) {
-	        System.out.println(new String(outArr));
+	        log.info(new String(outArr));
 	    } else {
 	        for (int i = 0 ; i < inputArr.length ; i++) {
 	            outArr[pos] = inputArr[i];

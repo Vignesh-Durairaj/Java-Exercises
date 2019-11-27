@@ -1,6 +1,5 @@
-package com.vikhi.exercise;
+package com.vikhi.service.string;
 
-import static com.vikhi.exercise.scenario.WalkingRobot.makeRobotMove;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -255,36 +254,6 @@ public class StringFunctionsTest {
 		assertEquals("aaba", ra.getRepeatingAlphas(3, 1));
 		assertEquals("bababa", ra.getRepeatingAlphas(3, 3));
 		assertEquals("aabaa", ra.getRepeatingAlphas(4, 1));
-	}
-	
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testRobot() throws InterruptedException {
-		makeRobotMove(5);
-		makeRobotMove(0);
-		makeRobotMove(-5);
-		assertEquals("String", "String");
-		
-		makeRobotMove(15);
-		try {
-			Thread.currentThread().stop();
-		} catch (Throwable t) {
-			System.out.println("Thread Death encountered");
-		}
-		
-		makeRobotMove(500);
-		Thread.sleep(3000);
-		Thread.currentThread().interrupt();
-	}
-	
-	@Test
-	public void testInterruptedRobot() {
-		assertEquals("String", "String");
-		Thread.currentThread().interrupt();
-		Thread.currentThread().interrupt();
-		makeRobotMove(200);
-		makeRobotMove(10);
-		Thread.currentThread().interrupt();
 	}
 	
 	@Test

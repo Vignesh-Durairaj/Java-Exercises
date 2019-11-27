@@ -1,4 +1,4 @@
-package com.vikhi.exercise;
+package com.vikhi.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
