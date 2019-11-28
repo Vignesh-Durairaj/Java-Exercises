@@ -1,6 +1,6 @@
 package com.vikhi.exercise.math;
 
-import static com.vikhi.util.Constants.MSG_HOULD_BE_POSITIVE_INTEGER;
+import static com.vikhi.util.ConstantsHelper.MSG_HOULD_BE_POSITIVE_INTEGER;
 
 import java.math.BigInteger;
 import java.util.HashMap;

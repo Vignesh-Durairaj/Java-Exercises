@@ -1,6 +1,6 @@
 package com.vikhi.util;
 
-public class Constants {
+public class ConstantsHelper {
 
 	public static final String DEFAULT_TRANSLATION = "EN";
 	
