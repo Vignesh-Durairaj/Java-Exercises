@@ -10,8 +10,8 @@ public class AnagramUtils {
 	
 	public static boolean isAnagram(final String stringOne, final String stringTwo) {
 		boolean isAnagram = Boolean.TRUE;
-		char[] charArr = stringOne.replaceAll(" ", "").toLowerCase().toCharArray();
-		StringBuilder builder = new StringBuilder(stringTwo.replaceAll(" " , "").toLowerCase());
+		char[] charArr = stringOne.replace(" ", "").toLowerCase().toCharArray();
+		StringBuilder builder = new StringBuilder(stringTwo.replace(" " , "").toLowerCase());
 		
 		for (char c : charArr) {
 			int idx = builder.indexOf(String.valueOf(c));
@@ -35,8 +35,8 @@ public class AnagramUtils {
 			return false;
 		}
 		
-		char[] charArrOne = stringOne.replaceAll(" ", "").toLowerCase().toCharArray();
-		char[] charArrTwo = stringTwo.replaceAll(" ", "").toLowerCase().toCharArray();
+		char[] charArrOne = stringOne.replace(" ", "").toLowerCase().toCharArray();
+		char[] charArrTwo = stringTwo.replace(" ", "").toLowerCase().toCharArray();
 		
 		if (charArrOne.length != charArrTwo.length) {
 			return false;

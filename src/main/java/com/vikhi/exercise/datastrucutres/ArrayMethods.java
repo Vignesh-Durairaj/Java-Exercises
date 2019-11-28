@@ -228,7 +228,7 @@ public class ArrayMethods {
 		return smallestSum;
 	}
 	
-	public void getStatistics(final int[] intArr) {
+	public boolean getStatistics(final int[] intArr) {
 		if (intArr == null || intArr.length < 2) {
 			throw new IllegalArgumentException("Input array is either null or containing insufficient data");
 		}
@@ -245,6 +245,7 @@ public class ArrayMethods {
 		log.info("Total Value : " + stats.getSum());
 		log.info("Total Entries : " + stats.getCount());
 		log.info("Average Value : " + stats.getAverage());
+		return true;
 	}
 	
 	public boolean isNumeric(final String s) {

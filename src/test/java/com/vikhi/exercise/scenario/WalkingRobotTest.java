@@ -1,6 +1,8 @@
 package com.vikhi.exercise.scenario;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
@@ -33,11 +35,13 @@ public class WalkingRobotTest {
 		}
 		
 		@SuppressWarnings({ "static-access", "unchecked" })
-		@Test
+		@Test(expected = InterruptedException.class)
 		public void testForAnotherInterruption() throws InterruptedException {
 			when(newDummy.getDummy()).thenThrow(InterruptedException.class);
 			LimbMovement limbMovement = interruptedRobot.new LimbMovement(10, "left").setDummy(newDummy);
 			limbMovement.run();
+			assertTrue(newDummy.getDummy());
+			fail("A failure is expected");
 		}
 	}
 	

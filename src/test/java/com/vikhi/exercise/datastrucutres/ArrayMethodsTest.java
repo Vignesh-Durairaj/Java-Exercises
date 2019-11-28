@@ -161,7 +161,7 @@ public class ArrayMethodsTest {
 		
 		@Test
 		public void testStatistics() {
-			am.getStatistics(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8});
+			assertTrue(am.getStatistics(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8}));
 		}
 		
 		@Test(expected = IllegalArgumentException.class)

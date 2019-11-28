@@ -256,11 +256,12 @@ public class NumberUtils {
 		return (divisorSum > number);
 	}
 	
-	public static void getAbundantNumbers(final int maxRange) {
+	public static boolean getAbundantNumbers(final int maxRange) {
 		IntStream
 			.rangeClosed(2, maxRange)
 			.filter(NumberUtils::isAbundantNumber)
 			.forEach(LOGGER::info);
+		return true;
 	}
 	
 	public static long countPrimes(long max) {

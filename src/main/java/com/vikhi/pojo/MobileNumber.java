@@ -53,13 +53,15 @@ public class MobileNumber {
 		if (countryCode == null) {
 			if (other.countryCode != null)
 				return false;
-		} else if (!countryCode.equals(other.countryCode))
+		} else if (!countryCode.equals(other.countryCode)) {
 			return false;
+		}
 		if (number == null) {
 			if (other.number != null)
 				return false;
-		} else if (!number.equals(other.number))
+		} else if (!number.equals(other.number)) {
 			return false;
+		}
 		return true;
 	}
 

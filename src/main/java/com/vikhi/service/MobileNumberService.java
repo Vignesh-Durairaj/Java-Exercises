@@ -11,7 +11,6 @@ public class MobileNumberService {
 	private MobileNumberDao mobileNumberDao;
 	
 	public MobileNumberService() {
-		//TODO: Inject this from DI container in future.
 		mobileNumberDao = new MobileNumberDao();
 	}
 
