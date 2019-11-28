@@ -73,7 +73,7 @@ public class PalindromeTest {
 		
 		@Test
 		public void testPalindromicSubString() {
-			assertEquals(0, palindrome.getPalindromicSubStrings(5, "Malayalam").size());
+			assertEquals(1, palindrome.getPalindromicSubStrings(5, "Malayalam").size());
 		}
 	}
 	

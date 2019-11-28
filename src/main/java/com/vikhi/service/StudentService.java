@@ -18,7 +18,6 @@ public class StudentService {
 	private StringFunctions stringFunctions;
 	
 	public StudentService() {
-		// TODO Inject this via DI container
 		studentDao = new StudentDao();
 		tempStudentDao = new TempStudentDao(studentDao);
 		stringFunctions = new StringFunctions();
