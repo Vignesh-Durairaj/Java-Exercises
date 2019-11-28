@@ -244,7 +244,6 @@ public class StringFunctions {
     	return Arrays
     			.stream(str.split(" "))
     			.map(ele -> ele.toUpperCase().charAt(0) + ele.toLowerCase().substring(1, ele.length()))
-    			.peek(log::info)
     			.reduce("", (a, b) -> a + b + " ")
     			.trim();
     }

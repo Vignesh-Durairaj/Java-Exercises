@@ -1,5 +1,7 @@
 package com.vikhi.exercise.string;
 
+import static com.vikhi.util.ConstantsHelper.MSG_SPECIFY_VALID_STRING_INPUT;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,7 +13,7 @@ public class Palindrome {
 	
 	public boolean isPalindrome (final String str) {
 		if (str == null || str.isEmpty()) {
-			throw new IllegalArgumentException("Please specify a valid input string !");
+			throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
 		}
 		
 		boolean isPalindrome = true;
@@ -30,7 +32,7 @@ public class Palindrome {
 	
 	public int getCharsForPalindrome (final String str) {
 		if (str == null || str.isEmpty()) {
-			throw new IllegalArgumentException("Please specify a valid input string !");
+			throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
 		}
 		
 		int shortageChars = 0;
@@ -53,7 +55,7 @@ public class Palindrome {
 	
 	public int getCharsForInsert(final String str) {
 		if (str == null || str.isEmpty()) {
-			throw new IllegalArgumentException("Please specify a valid input string !");
+			throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
 		}
 		
 		if (isPalindrome(str)){
@@ -69,7 +71,7 @@ public class Palindrome {
             log.info(getPalindromeLength(subject));
         }
         
-        return Arrays.asList();
+        return Arrays.asList(stringLength);
     }
 	
 	private int getPalindromeLength(final String str) {
