@@ -48,7 +48,8 @@ public class PalindromeTest {
 				{"Medleidem", false, 8, 2},
 				{"abieba", false, 5, 1}, 
 				{"acidedc", false, 6, 2}, 
-				{"aci dedc", false, 7, 2}
+				{"aci dedc", false, 7, 2},
+				{"Vignesh", false, 6, 0}, 
 			});
 		}
 		

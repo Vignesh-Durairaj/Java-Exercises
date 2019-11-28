@@ -42,6 +42,7 @@ public class Palindrome {
 				inputStr = inputStr.substring(0, inputStr.length() - appendedStr.length()) + c + appendedStr;
 				appendedStr = c + appendedStr;
 			} else {
+				log.info("The input string is already a palindrome.");
 				break;
 			}
 		}
