@@ -2,18 +2,22 @@ package com.vikhi.exercise.scenario;
 
 import java.util.Arrays;
 
+import org.apache.log4j.Logger;
+
 public class Strugacarro {
 
-	public String getHighAmplitudeSeason(int[] T) {
+	public String getHighAmplitudeSeason(int[] temperatureArray) {
         
-        int days = T.length/4;
+		final Logger log = Logger.getLogger(this.getClass());
+		
+        int days = temperatureArray.length/4;
         int startIdx = 0;
         int maxAmplitude = 0;
         String season = "";
-        int[] winterArray = Arrays.copyOfRange(T, startIdx, startIdx + days);
-        int[] springArray = Arrays.copyOfRange(T, startIdx + days, startIdx + (days * 2));
-        int[] summerArray = Arrays.copyOfRange(T, startIdx + (days * 2), startIdx + (days * 3));
-        int[] autumnArray = Arrays.copyOfRange(T, startIdx + (days * 3), startIdx + (days * 4));
+        int[] winterArray = Arrays.copyOfRange(temperatureArray, startIdx, startIdx + days);
+        int[] springArray = Arrays.copyOfRange(temperatureArray, startIdx + days, startIdx + (days * 2));
+        int[] summerArray = Arrays.copyOfRange(temperatureArray, startIdx + (days * 2), startIdx + (days * 3));
+        int[] autumnArray = Arrays.copyOfRange(temperatureArray, startIdx + (days * 3), startIdx + (days * 4));
         
         Arrays.sort(winterArray);
         Arrays.sort(springArray);
@@ -44,6 +48,8 @@ public class Strugacarro {
         	maxAmplitude = autumnAmplitude;
         	season = "AUTUMN";
         }
+        
+        log.info("The maximum amplitude is : " + maxAmplitude );
         return season;
     }
 }

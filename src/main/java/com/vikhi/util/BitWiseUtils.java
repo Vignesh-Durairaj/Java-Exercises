@@ -2,15 +2,15 @@ package com.vikhi.util;
 
 public class BitWiseUtils {
 
-	public int getXorProduct (int a, int N) {
+	public int getXorProduct (int numOne, int numTwo) {
 		
 		int[] xorTracker;
-	    if(a % 2 == 0) {
-	        xorTracker = new int[] {N, 1, N ^ 1, 0};
+	    if(numOne % 2 == 0) {
+	        xorTracker = new int[] {numTwo, 1, numTwo ^ 1, 0};
 	    } else {
-	        xorTracker = new int[] {a, a ^ N, a - 1, (a - 1) ^ N};
+	        xorTracker = new int[] {numOne, numOne ^ numTwo, numOne - 1, (numOne - 1) ^ numTwo};
 	    }
 	    		
-	    return xorTracker[(N - a) % 4];
+	    return xorTracker[(numTwo - numOne) % 4];
 	}
 }

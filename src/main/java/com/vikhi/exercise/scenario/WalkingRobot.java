@@ -9,10 +9,12 @@ public class WalkingRobot {
 	protected boolean move (int n) {
 		Thread t1 = null;
 		if (n <= 0) {
-			t1 = new Thread(new LimbMovement(3, null));
+			t1 = new Thread(new LimbMovement(3, null).setDummy(new Dummy()));
+		} else {
+			t1 = new Thread (new LimbMovement(n, "Left").setDummy(new Dummy()));
 		}
-		t1 = new Thread (new LimbMovement(n, "Left"));
-		Thread t2 = new Thread (new LimbMovement(n, "Right"));
+		
+		Thread t2 = new Thread (new LimbMovement(n, "Right").setDummy(new Dummy()));
 		
 		log.info("Starting movement");
 		
@@ -27,8 +29,9 @@ public class WalkingRobot {
 	
 	class LimbMovement implements Runnable {
 		
-		private int n;
 		
+		private int n;
+		private Dummy dummy;
 		private String limb;
 
 		public LimbMovement(int n, String limb) {
@@ -43,12 +46,26 @@ public class WalkingRobot {
 				while (i < n) {
 					log.info(limb + " - " + i);
 					i ++;
+					dummy.getDummy();
 					Thread.sleep(100);
 				}
 			} catch (InterruptedException e) {
-				log.error(e);
+				log.error("The robot's limb movement is interrupted", e);
 				Thread.currentThread().interrupt();
 			}
+		}
+
+		public LimbMovement setDummy(Dummy dummy) {
+			this.dummy = dummy;
+			return this;
+		}
+		
+	}
+	
+	class Dummy {
+		
+		public boolean getDummy() {
+			return true;
 		}
 	}
 }

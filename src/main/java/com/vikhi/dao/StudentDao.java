@@ -11,7 +11,6 @@ public class StudentDao {
 	private MobileNumberDao mobileNumberDao;
 	
 	public StudentDao() {
-		// TODO: Future plan - Get them injected via DI container
 		addressDao = new AddressDao();
 		mobileNumberDao = new MobileNumberDao();
 	}

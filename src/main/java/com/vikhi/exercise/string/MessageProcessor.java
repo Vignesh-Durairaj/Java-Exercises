@@ -1,10 +1,11 @@
 package com.vikhi.exercise.string;
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class MessageProcessor {
 
 	public int getTopMostNumber(final String str) {
-		Stack<Integer> myStack = new Stack<>();
+		Deque<Integer> myStack = new ArrayDeque<>();
 		
 		for (String inStr : str.split(" ")) {
 			int len = myStack.size();
