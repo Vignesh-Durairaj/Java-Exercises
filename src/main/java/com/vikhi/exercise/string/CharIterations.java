@@ -17,7 +17,7 @@ public class CharIterations {
 	    }
 	}	
 	 
-	public static void main (String[] args) throws Exception {
+	public static void main (String[] args) {
 		CharIterations ci = new CharIterations();
 		char[] inputArr = new char[] {'a', 'b', 'c'};
 		ci.permutation(new char[inputArr.length] , inputArr , 0);

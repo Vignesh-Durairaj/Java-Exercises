@@ -1,6 +1,7 @@
 package com.vikhi.exercise.string;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -33,14 +34,14 @@ public class Palindrome {
 		}
 		
 		int shortageChars = 0;
-		String appendedStr = "";
+		StringBuilder builder = new StringBuilder();
 		String inputStr = str;
 		
 		for (char c : str.toCharArray()) {
 			if (!isPalindrome(inputStr)) {
 				shortageChars ++;
-				inputStr = inputStr.substring(0, inputStr.length() - appendedStr.length()) + c + appendedStr;
-				appendedStr = c + appendedStr;
+				inputStr = inputStr.substring(0, inputStr.length() - builder.length()) + c + builder.toString();
+				builder.insert(0, c);
 			} else {
 				log.info("The input string is already a palindrome.");
 				break;
@@ -59,20 +60,16 @@ public class Palindrome {
 			return 0;
 		}
 		
-		int insertableChars = 0;
-		// String tempStr = str.toUpperCase();
-		
-		
-		return insertableChars;
+		return 0;
 	}
 	
-	public ArrayList<Integer> getPalindromicSubStrings(int stringLength, String inString){
+	public List<Integer> getPalindromicSubStrings(int stringLength, String inString){
         for (int i = 1; i <= stringLength; i ++) {
             String subject = inString.substring(0, i);
             log.info(getPalindromeLength(subject));
         }
         
-        return null;
+        return Arrays.asList();
     }
 	
 	private int getPalindromeLength(final String str) {

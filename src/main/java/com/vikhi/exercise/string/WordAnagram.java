@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class WordAnagram {
 	
-	private static final List<Character> VOWEL_CHARS = Arrays.asList(new Character[]{'A', 'E', 'I', 'O', 'U'});
+	private static final List<Character> VOWEL_CHARS = Arrays.asList('A', 'E', 'I', 'O', 'U');
 	
 	public Set<String> getFilteredCombinations(final String str) {
 		Set<String> comboSet = getCombinations(str);
@@ -21,7 +21,7 @@ public class WordAnagram {
 	}
 	
 	private Set<String> getCombinations(final String str) {
-		Set<String> combinationsSet = new HashSet<String>();
+		Set<String> combinationsSet = new HashSet<>();
         
 		if (str.length() == 0) {
             combinationsSet.add("");

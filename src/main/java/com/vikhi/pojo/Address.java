@@ -2,7 +2,7 @@ package com.vikhi.pojo;
 
 public class Address {
 
-	private String City;
+	private String city;
 	private String zipCode;
 
 	public Address() {
@@ -10,16 +10,16 @@ public class Address {
 	}
 	
 	public Address(String city, String zipCode) {
-		City = city;
+		this.city = city;
 		this.zipCode = zipCode;
 	}
 
 	public String getCity() {
-		return City;
+		return city;
 	}
 
 	public void setCity(String city) {
-		City = city;
+		this.city = city;
 	}
 
 	public String getZipCode() {
