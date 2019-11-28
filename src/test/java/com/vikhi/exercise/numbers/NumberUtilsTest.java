@@ -273,9 +273,8 @@ public class NumberUtilsTest {
 	
 	@Test
 	public void testPrintintAbundantNumbers() {
-		getAbundantNumbers(20);
-		getAbundantNumbers(40);
-		assertEquals("String", "String");
+		assertTrue(getAbundantNumbers(20));
+		assertTrue(getAbundantNumbers(40));
 	}
 	
 	@Test

@@ -12,7 +12,6 @@ public class TempStudentDao {
 	private StudentDao studentDao;
 	
 	public TempStudentDao(final StudentDao studentDao) {
-		//TODO: In future, get these beans injected via DI container
 		this.studentDao = studentDao;
 	}
 	

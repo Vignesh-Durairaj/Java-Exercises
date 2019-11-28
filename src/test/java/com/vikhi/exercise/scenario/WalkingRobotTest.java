@@ -58,7 +58,7 @@ public class WalkingRobotTest {
 			WalkingRobot.makeRobotMove(5);
 			WalkingRobot.makeRobotMove(0);
 			WalkingRobot.makeRobotMove(-5);
-			assertEquals(string, "String");
+			assertEquals("String", string);
 			
 			WalkingRobot.makeRobotMove(15);
 			try {
@@ -70,7 +70,7 @@ public class WalkingRobotTest {
 		
 		@Test
 		public void testInterruptedRobot() {
-			assertEquals(string, "String");
+			assertEquals("String", string);
 			Thread.currentThread().interrupt();
 			Thread.currentThread().interrupt();
 			WalkingRobot.makeRobotMove(200);
