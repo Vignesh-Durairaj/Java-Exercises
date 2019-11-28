@@ -7,7 +7,7 @@ public class CollectionsMethods {
 
 	public int getLargestNumber (List<Integer> inputList) {
 		
-		if (inputList == null || inputList.size() == 0) {
+		if (inputList == null || inputList.isEmpty()) {
 			throw new IllegalArgumentException("The input array is of invalid size or may be NULL !");
 		}
 		

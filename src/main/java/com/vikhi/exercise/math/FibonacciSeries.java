@@ -1,5 +1,7 @@
 package com.vikhi.exercise.math;
 
+import static com.vikhi.util.Constants.MSG_HOULD_BE_POSITIVE_INTEGER;
+
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +32,7 @@ public class FibonacciSeries {
 	public BigInteger getValueFromRecursive (final int position) {
 		
 		if (position < 0) {
-			throw new IllegalArgumentException("Input number should be a positive integer");
+			throw new IllegalArgumentException(MSG_HOULD_BE_POSITIVE_INTEGER);
 		} else if (position <= 1) {
 			return BigInteger.valueOf(position);
 		} else {
@@ -44,7 +46,7 @@ public class FibonacciSeries {
 		BigInteger val = BigInteger.ZERO;
 		
 		if (position < 0) {
-			throw new IllegalArgumentException("Input position should be a positive integer");
+			throw new IllegalArgumentException(MSG_HOULD_BE_POSITIVE_INTEGER);
 		} else if (position > 1) {
 			for (int i = 2; i <= position; i++) {
 				val = s0.add(s1);
@@ -60,7 +62,7 @@ public class FibonacciSeries {
 	
 	public BigInteger getValueFromFastProcess(final int position) {
 		if (position < 0) {
-			throw new IllegalArgumentException("Input position should be a positive integer");
+			throw new IllegalArgumentException(MSG_HOULD_BE_POSITIVE_INTEGER);
 		} else {
 			if (fibonacciMap.containsKey(position)){
 				return fibonacciMap.get(position);
@@ -74,7 +76,7 @@ public class FibonacciSeries {
 	
 	public BigInteger getValueUsingArrays (final int position) {
 		if (position < 0) {
-			throw new IllegalArgumentException("Input position should be a positive integer");
+			throw new IllegalArgumentException(MSG_HOULD_BE_POSITIVE_INTEGER);
 		} else {
 			BigInteger[] fibonacciArr = new BigInteger[position + 1];
 			fibonacciArr[0] = BigInteger.ZERO;
