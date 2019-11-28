@@ -111,30 +111,9 @@ public class ArrayMethods {
 			throw new IllegalArgumentException("Input Array Should not be null");
 		}
 		
-		Map<Integer, Integer> countMap = new HashMap<>();
-		List<Integer> myList = Arrays.stream(inArr).boxed().collect(Collectors.toList());
-		for (int num : myList) {
-			if (countMap.containsKey(num)) {
-				countMap.put(num, countMap.get(num) + 1);
-			} else {
-				countMap.put(num, 1);
-			}
-		}
-		
-		List<Entry<Integer, Integer>> entryList = new ArrayList<>(countMap.entrySet());
-		entryList.sort((e1, e2) -> {
-			if (e1.getValue() > e2.getValue()) {
-				return -1;
-			} else if (e1.getValue() < e2.getValue()) {
-				return 1;
-			} else {
-				if (myList.indexOf(e1.getKey()) < myList.indexOf(e2.getKey())) {
-					return -1;
-				} else {
-					return 1;
-				}
-			}
-		});
+		List<Integer> myList = convertArrayToList(inArr);
+		Map<Integer, Integer> countMap = getCountMap(myList);
+		List<Entry<Integer, Integer>> entryList = getSortedEntryList(myList, countMap);
 		
 		int[] outArr = new int[inArr.length];
 		int i = 0;
@@ -148,33 +127,33 @@ public class ArrayMethods {
 		return outArr;
 	}
 	
-	public int function(Integer[] A, int K, int l){
+	public int function(Integer[] inputArray, int lowerBound, int upperBound){
         int sum = 0;
 
-        Integer[] maxArrayIndices = getMaxArrayIndices(A, K);
+        Integer[] maxArrayIndices = getMaxArrayIndices(inputArray, lowerBound);
         sum+=maxArrayIndices[0];
-        Integer[] leadingElements = Arrays.copyOfRange(A, 0, maxArrayIndices[1]);
-        Integer[] trailingElements = Arrays.copyOfRange(A, (maxArrayIndices[1]+K), A.length);
+        Integer[] leadingElements = Arrays.copyOfRange(inputArray, 0, maxArrayIndices[1]);
+        Integer[] trailingElements = Arrays.copyOfRange(inputArray, (maxArrayIndices[1]+lowerBound), inputArray.length);
 
         List<Integer> mergedLeadingAndTrailingElements = new ArrayList<>(Arrays.asList(leadingElements));
         mergedLeadingAndTrailingElements.addAll(Arrays.asList(trailingElements));
         Integer[] mergedLeadingAndTrailingElementsArray =  mergedLeadingAndTrailingElements.toArray(new Integer[0]);
 
-        maxArrayIndices = getMaxArrayIndices(mergedLeadingAndTrailingElementsArray, l);
+        maxArrayIndices = getMaxArrayIndices(mergedLeadingAndTrailingElementsArray, upperBound);
         sum+=maxArrayIndices[0];
         return sum;
     }
 
-    private Integer[] getMaxArrayIndices(Integer[] A, int N){
+    private Integer[] getMaxArrayIndices(Integer[] inputArray, int limit){
         Integer[] maxArrayIndices = new Integer[2];
         int sumFromStart = 0; 
         int sumFromPrev = 0; 
         int tmpIdx = 0;
         
-        for(int i = 0; i < A.length; i++){
-            if(i <= A.length - N) {
-                for (int j = i; j < i + N; j++) {
-                    sumFromStart += A[j];
+        for(int i = 0; i < inputArray.length; i++){
+            if(i <= inputArray.length - limit) {
+                for (int j = i; j < i + limit; j++) {
+                    sumFromStart += inputArray[j];
                 }
             }
 
@@ -330,5 +309,41 @@ public class ArrayMethods {
 		}
 		
 		return familyCount;
+	}
+	
+	private Map<Integer, Integer> getCountMap (final List<Integer> inputList) {
+		Map<Integer, Integer> countMap = new HashMap<>();
+		for (int num : inputList) {
+			if (countMap.containsKey(num)) {
+				countMap.put(num, countMap.get(num) + 1);
+			} else {
+				countMap.put(num, 1);
+			}
+		}
+		
+		return countMap;
+	}
+	
+	private List<Integer> convertArrayToList(final int[] inArr) {
+		return Arrays.stream(inArr).boxed().collect(Collectors.toList());
+	}
+	
+	private List<Entry<Integer, Integer>> getSortedEntryList (final List<Integer> inputList, final Map<Integer, Integer> frequencyCountMap) {
+		List<Entry<Integer, Integer>> entryList = new ArrayList<>(frequencyCountMap.entrySet());
+		entryList.sort((e1, e2) -> {
+			if (e1.getValue() > e2.getValue()) {
+				return -1;
+			} else if (e1.getValue() < e2.getValue()) {
+				return 1;
+			} else {
+				if (inputList.indexOf(e1.getKey()) < inputList.indexOf(e2.getKey())) {
+					return -1;
+				} else {
+					return 1;
+				}
+			}
+		});
+		
+		return entryList;
 	}
 }

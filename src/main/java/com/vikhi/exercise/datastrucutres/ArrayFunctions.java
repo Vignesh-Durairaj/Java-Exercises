@@ -5,18 +5,18 @@ import java.util.Set;
 
 public class ArrayFunctions {
 
-	public int getNearestSmallestPositiveInt (final int[] A) {
+	public int getNearestSmallestPositiveInt (final int[] inputArr) {
 		
 		Set<Integer> hashSet = new HashSet<>();
 		int smallInt = 1;
 		
-		if (A == null) {
+		if (inputArr == null) {
 		    return smallInt;
 		}
 		
-		for (int i = 0 ; i < A.length; i++) {
-		    if (A[i] > 0) {
-		        hashSet.add(A[i]);   
+		for (int i = 0 ; i < inputArr.length; i++) {
+		    if (inputArr[i] > 0) {
+		        hashSet.add(inputArr[i]);   
 		    }
 		}
 
