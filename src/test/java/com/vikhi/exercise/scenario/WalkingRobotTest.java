@@ -1,15 +1,19 @@
 package com.vikhi.exercise.scenario;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import com.vikhi.exercise.scenario.WalkingRobot.Dummy;
+import com.vikhi.exercise.scenario.WalkingRobot.LimbMovement;
 
 
 @RunWith(Enclosed.class)
@@ -18,14 +22,22 @@ public class WalkingRobotTest {
 	@RunWith(MockitoJUnitRunner.class)
 	public static class InterruptedRobotTest {
 		
-		@Spy
-		private WalkingRobot interruptedRobot = spy(new WalkingRobot());
+		@Spy private WalkingRobot interruptedRobot = spy(new WalkingRobot());
+		private Dummy newDummy = mock(Dummy.class);
 		
 		@SuppressWarnings("unchecked")
 		@Test(expected = InterruptedException.class)
 		public void testForInterruptedRobot() {
-			Mockito.when(interruptedRobot.move(100)).thenThrow(InterruptedException.class);
+			when(interruptedRobot.move(100)).thenThrow(InterruptedException.class);
 			interruptedRobot.makeRobotMove(100);
+		}
+		
+		@SuppressWarnings({ "static-access", "unchecked" })
+		@Test
+		public void testForAnotherInterruption() throws InterruptedException {
+			when(newDummy.getDummy()).thenThrow(InterruptedException.class);
+			LimbMovement limbMovement = interruptedRobot.new LimbMovement(10, "left").setDummy(newDummy);
+			limbMovement.run();
 		}
 	}
 	
