@@ -4,7 +4,7 @@ import static java.util.Arrays.asList;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -272,7 +272,7 @@ public class StringFunctions {
     	}
     }
     
-    private void addCharacterToBuilder(final StringBuilder builder, final int width, Function<Integer, String> func) {
+    private void addCharacterToBuilder(final StringBuilder builder, final int width, IntFunction<String> func) {
     	IntStream.rangeClosed(1, width)
     		.forEach(num -> builder.append(func.apply(num)));
     }

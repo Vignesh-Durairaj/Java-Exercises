@@ -14,6 +14,15 @@ public class AlienLanguageTranslator implements LanguageTranslator {
 		return getTranslation(languageTokens, false);
 	}
 	
+	protected char getTransformedCharacter (final char c, final boolean isFromDefaultLanguage) {
+		int asciiVal = (int)c;
+		if ((asciiVal >= 65 && asciiVal <= 90) || (asciiVal >= 97 && asciiVal <= 122)) {
+			return ((char)getTranslatedValue(asciiVal, isFromDefaultLanguage));
+		} else {
+			return c;
+		}
+	}
+	
 	private String getTranslation(final String languageTokens, final boolean isFromDefaultLanguage) {
 		char[] inArr = languageTokens.toCharArray();
 		StringBuilder builder = new StringBuilder();
@@ -23,15 +32,6 @@ public class AlienLanguageTranslator implements LanguageTranslator {
 		return builder.toString();
 	}
 	
-	private char getTransformedCharacter (final char c, final boolean isFromDefaultLanguage) {
-		int asciiVal = (int)c;
-		if ((asciiVal >= 65 && asciiVal <= 90) || 
-				asciiVal >= 97 && asciiVal <= 122) {
-			return ((char)getTranslatedValue(asciiVal, isFromDefaultLanguage));
-		} else {
-			return c;
-		}
-	}
 	
 	private int getTranslatedValue(final int asciiVal, final boolean isFromDefaultLanguage) {
 		return asciiVal <= 90 ? 
