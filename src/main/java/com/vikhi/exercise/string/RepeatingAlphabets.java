@@ -24,30 +24,40 @@ public class RepeatingAlphabets {
 	private void constructStringBuffer() {
 		appendWhenAIsGreaterThanB();
 		while (a > 0 || b > 0) {
-			if (builder.toString().endsWith("ab")) {
-				appendWhenAIsGreaterThanOrEqualsB();
-			} else if (builder.toString().endsWith("ba")) {
-				appendWhenBIsGreaterThanOrEqualsA();
-			} else if (builder.toString().endsWith("aa")) {
-				if (b > 0) {
-					appendB();
-				} else {
-					builder.delete(0, builder.length());
-					break;
-				}
-			} else if (builder.toString().endsWith("bb")) {
-				if (a > 0) {
-					appendA();
-				} else {
-					builder.delete(0, builder.length());
-					break;
-				}
-			} else if (builder.toString().equals("a")) {
-				appendWhenAIsGreaterThanB();
-			} else if (builder.toString().equals("b")) {
-				appendWhenAIsGreaterThanOrEqualsB();
+			boolean quitLooping = buildStringObject();
+			if (quitLooping) {
+				break;
 			}
 		}
+	}
+	
+	private boolean buildStringObject() {
+		boolean breakLoop = false; 
+		if (builder.toString().endsWith("ab")) {
+			appendWhenAIsGreaterThanOrEqualsB();
+		} else if (builder.toString().endsWith("ba")) {
+			appendWhenBIsGreaterThanOrEqualsA();
+		} else if (builder.toString().endsWith("aa")) {
+			if (b > 0) {
+				appendB();
+			} else {
+				builder.delete(0, builder.length());
+				return true;
+			}
+		} else if (builder.toString().endsWith("bb")) {
+			if (a > 0) {
+				appendA();
+			} else {
+				builder.delete(0, builder.length());
+				return true;
+			}
+		} else if (builder.toString().equals("a")) {
+			appendWhenAIsGreaterThanB();
+		} else if (builder.toString().equals("b")) {
+			appendWhenAIsGreaterThanOrEqualsB();
+		}
+		
+		return breakLoop;
 	}
 	
 	private void appendWhenAIsGreaterThanOrEqualsB() {

@@ -58,11 +58,7 @@ public class Palindrome {
 			throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
 		}
 		
-		if (isPalindrome(str)){
-			return 0;
-		}
-		
-		return 0;
+		return isPalindrome(str) ? 0 : getCharsForPalindrome(str);
 	}
 	
 	public List<Integer> getPalindromicSubStrings(int stringLength, String inString){

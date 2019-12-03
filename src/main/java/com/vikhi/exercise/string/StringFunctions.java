@@ -4,8 +4,10 @@ import static java.util.Arrays.asList;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.IntFunction;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.apache.log4j.Logger;
@@ -167,21 +169,7 @@ public class StringFunctions {
     		throw new IllegalArgumentException("The rectangle's dimensions are not to be zero");
     	}
     	
-    	StringBuilder builder;
-    	
-    	for (int h = 1; h <= height; h ++) {
-    		builder = new StringBuilder();
-    		if (h == 1 || h == height) {
-    			for (int w = 1; w <= width; w ++) {
-        			builder.append("*");
-        		}
-    		} else {
-    			for (int w = 1; w <= width; w ++) {
-        			builder.append(w != 1 && w != width ? " " : "*");
-        		}
-    		}
-    		log.info(builder.toString());
-    	}
+    	constructRectangle(width, height);
     }
     
     public void printSquare (final int size) {
@@ -200,13 +188,8 @@ public class StringFunctions {
     		@Override
 			public String get() {
 				StringBuilder starBuilder = new StringBuilder();
-				for (int i = 1; i <= endPos; i ++) {
-					if (i >= startPos) {
-						starBuilder.append("*");
-					} else {
-						starBuilder.append(" ");
-					}
-				}
+				IntStream.rangeClosed(1, endPos)
+					.forEach(num -> starBuilder.append (num >= startPos ? "*" : " "));
 				
 				counter ++;
 				if (!isEvenLimit || counter != (rowMedian + 1)) {
@@ -275,5 +258,22 @@ public class StringFunctions {
     		.filter(character -> nonDuplicatedValueBuilder.indexOf(character) < 0)
     		.forEach(nonDuplicatedValueBuilder::append);
     	return nonDuplicatedValueBuilder.toString();
+    }
+    
+    private void constructRectangle(final int width, final int height) {
+    	for (int h = 1; h <= height; h ++) {
+    		StringBuilder builder = new StringBuilder();
+    		if (h == 1 || h == height) {
+    			addCharacterToBuilder(builder, width, num -> "*");
+    		} else {
+    			addCharacterToBuilder(builder, width, num -> (num != 1 && num != width) ? " " : "*");
+    		}
+    		log.info(builder.toString());
+    	}
+    }
+    
+    private void addCharacterToBuilder(final StringBuilder builder, final int width, IntFunction<String> func) {
+    	IntStream.rangeClosed(1, width)
+    		.forEach(num -> builder.append(func.apply(num)));
     }
 }

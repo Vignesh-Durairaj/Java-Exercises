@@ -67,7 +67,7 @@ public class PalindromeTest {
 		@Test
 		public void testInsertableCharacters() {
 			int shortageChars = palindrome.getCharsForInsert(str);
-			assertEquals(0, shortageChars);
+			assertEquals(this.shortageChars, shortageChars);
 			assertNotNull(Integer.valueOf(insertableChars));
 		}
 		
