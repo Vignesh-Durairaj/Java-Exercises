@@ -67,6 +67,8 @@ public class AlienLanguageTranslatorTest {
 			assertTrue('c' == alt.getTransformedCharacter('z', true));
 			
 			assertTrue(' ' == alt.getTransformedCharacter(' ', true));
+			assertTrue('!' == alt.getTransformedCharacter('!', true));
+			assertTrue('[' == alt.getTransformedCharacter('[', true));
 		}
 		
 		@Test
@@ -77,6 +79,8 @@ public class AlienLanguageTranslatorTest {
 			assertTrue('w' == alt.getTransformedCharacter('z', false));
 			
 			assertTrue(' ' == alt.getTransformedCharacter(' ', false));
+			assertTrue('!' == alt.getTransformedCharacter('!', false));
+			assertTrue('[' == alt.getTransformedCharacter('[', false));
 			
 			assertTrue('X' == alt.getTransformedCharacter('A', false));
 			assertTrue('Y' == alt.getTransformedCharacter('B', false));
