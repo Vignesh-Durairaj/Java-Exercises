@@ -326,4 +326,11 @@ public class StringFunctionsTest {
 		assertNull(strFunctions.asciiSortedString(" "));
 		fail("An exception is expected and should not come upto this line");
 	}
+	
+	@Test
+	public void testAsciiSortedString() {
+		assertEquals("eegks", strFunctions.asciiSortedString("geeks"));
+		assertEquals(" !HWdellloor", strFunctions.asciiSortedString("Hello World!"));
+		assertEquals(" !dehllloorw", strFunctions.asciiSortedString("hello world!"));
+	}
 }

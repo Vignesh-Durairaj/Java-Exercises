@@ -13,8 +13,6 @@ import java.util.stream.Stream;
 
 import org.apache.log4j.Logger;
 
-import com.vikhi.util.ConstantsHelper;
-
 public class StringFunctions {
 
 	private final Logger log = Logger.getLogger(this.getClass());
@@ -268,8 +266,12 @@ public class StringFunctions {
     		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
     	}
     	
-    	
-    	return null;
+    	char[] characters = input.toCharArray();
+    	return IntStream.range(0, characters.length)
+    		.map(index -> (int) characters[index])
+    		.sorted()
+    		.mapToObj(num -> String.valueOf((char)num))
+    		.collect(Collectors.joining());
     }
     
     private void constructRectangle(final int width, final int height) {
