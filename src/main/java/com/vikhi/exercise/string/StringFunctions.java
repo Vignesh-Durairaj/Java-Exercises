@@ -1,5 +1,6 @@
 package com.vikhi.exercise.string;
 
+import static com.vikhi.util.ConstantsHelper.MSG_SPECIFY_VALID_STRING_INPUT;
 import static java.util.Arrays.asList;
 
 import java.util.Arrays;
@@ -11,6 +12,8 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.apache.log4j.Logger;
+
+import com.vikhi.util.ConstantsHelper;
 
 public class StringFunctions {
 
@@ -258,6 +261,15 @@ public class StringFunctions {
     		.filter(character -> nonDuplicatedValueBuilder.indexOf(character) < 0)
     		.forEach(nonDuplicatedValueBuilder::append);
     	return nonDuplicatedValueBuilder.toString();
+    }
+    
+    public String asciiSortedString(final String input) {
+    	if (input == null || input.trim().equals("")) {
+    		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+    	}
+    	
+    	
+    	return null;
     }
     
     private void constructRectangle(final int width, final int height) {
