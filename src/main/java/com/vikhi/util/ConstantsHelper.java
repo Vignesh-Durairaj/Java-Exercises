@@ -10,5 +10,7 @@ public class ConstantsHelper {
 	public static final String MSG_INSUFFICIENT_INPUT_DATA = "Not enough elements to process";
 	public static final String MSG_INVALID_NUMBER_STRING = "Input string is not a number";
 	
+	public static final String SYMBOL_BLANK = "";
+	
 	private ConstantsHelper() {}
 }
