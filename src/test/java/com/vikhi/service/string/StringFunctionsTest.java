@@ -343,4 +343,10 @@ public class StringFunctionsTest {
 		assertEquals("##ippy", strFunctions.maskify("Skippy"));
 		assertEquals("####################################man!", strFunctions.maskify("Nananananananananananananananana Batman!"));
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testMaskifyForFailure() {
+		assertEquals("test", strFunctions.maskify(null));
+		fail("Not suppose to execute this.");
+	}
 }
