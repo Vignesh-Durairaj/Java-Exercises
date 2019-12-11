@@ -6,7 +6,15 @@ public class CaseConverter {
 		return null;
 	}
 	
+	public String convertToPascalCase(final String inputString) {
+		return null;
+	}
+	
 	public String convertToKebabCase(final String inputString) {
+		return null;
+	}
+	
+	public String convertToSnakeCase(final String inputString) {
 		return null;
 	}
 }
