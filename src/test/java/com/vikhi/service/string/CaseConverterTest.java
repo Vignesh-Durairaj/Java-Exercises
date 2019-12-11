@@ -20,6 +20,9 @@ public class CaseConverterTest {
 	public void testConvertToCamelCase() {
 		assertEquals("theStealthWarrior", converter.convertToCamelCase("the-stealth-warrior"));
 		assertEquals("theStealthWarrior", converter.convertToCamelCase("The_stealth_warrior"));
+		assertEquals("a", converter.convertToCamelCase("a"));
+		assertEquals("", converter.convertToCamelCase(""));
+		assertEquals("theStealthWarrior", converter.convertToCamelCase("TheStealthWarrior"));
 	}
 	
 	
@@ -27,6 +30,9 @@ public class CaseConverterTest {
 	public void testConvertToPascalString() {
 		assertEquals("TheStealthWarrior", converter.convertToPascalCase("the-stealth-warrior"));
 		assertEquals("TheStealthWarrior", converter.convertToPascalCase("The_stealth_warrior"));
+		assertEquals("A", converter.convertToPascalCase("a"));
+		assertEquals("", converter.convertToPascalCase(""));
+		assertEquals("TheStealthWarrior", converter.convertToPascalCase("theStealthWarrior"));
 	}
 	
 	@Test
