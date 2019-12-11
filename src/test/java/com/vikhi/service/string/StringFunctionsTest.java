@@ -333,4 +333,14 @@ public class StringFunctionsTest {
 		assertEquals(" !HWdellloor", strFunctions.asciiSortedString("Hello World!"));
 		assertEquals(" !dehllloorw", strFunctions.asciiSortedString("hello world!"));
 	}
+	
+	@Test
+	public void testMaskify() {
+		assertEquals("############5616", strFunctions.maskify("4556364607935616"));
+		assertEquals("#######5616", strFunctions.maskify("64607935616"));
+		assertEquals("1", strFunctions.maskify("1"));
+		assertEquals("", strFunctions.maskify(""));
+		assertEquals("##ippy", strFunctions.maskify("Skippy"));
+		assertEquals("####################################man!", strFunctions.maskify("Nananananananananananananananana Batman!"));
+	}
 }

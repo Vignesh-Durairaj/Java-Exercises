@@ -274,6 +274,14 @@ public class StringFunctions {
     		.collect(Collectors.joining());
     }
     
+    public String maskify(final String inputString) {
+    	if (inputString == null) {
+    		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+    	}
+    	
+    	return null;
+    }
+    
     private void constructRectangle(final int width, final int height) {
     	for (int h = 1; h <= height; h ++) {
     		StringBuilder builder = new StringBuilder();
