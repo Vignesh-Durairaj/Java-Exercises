@@ -277,9 +277,12 @@ public class StringFunctions {
     public String maskify(final String inputString) {
     	if (inputString == null) {
     		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+    	} else if (inputString.length() <= 4) {
+    		return inputString;
+    	} else {
+    		int startIndex = inputString.length() - 4;
+    		return IntStream.range(0, startIndex).mapToObj(idx -> String.valueOf("#")).collect(Collectors.joining()).concat(inputString.substring(startIndex, inputString.length()));
     	}
-    	
-    	return null;
     }
     
     private void constructRectangle(final int width, final int height) {
