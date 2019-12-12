@@ -11,6 +11,8 @@ public class ConstantsHelper {
 	public static final String MSG_INVALID_NUMBER_STRING = "Input string is not a number";
 	
 	public static final String SYMBOL_BLANK = "";
+	public static final String SYMBOL_HYPHEN = "-";
+	public static final String SYMBOL_UNDER_SCORE = "_";
 	
 	private ConstantsHelper() {}
 }
