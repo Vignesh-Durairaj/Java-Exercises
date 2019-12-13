@@ -359,4 +359,22 @@ public class StringFunctionsTest {
 		assertEquals(2, strFunctions.getDuplicateCount("aA11"));
 		assertEquals(2, strFunctions.getDuplicateCount("ABBA"));
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testDuplicatesForNullString() {
+		assertEquals(0, strFunctions.getDuplicateCount(null));
+		fail("Not suppose to execute this.");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testDuplicatesForEmptyString() {
+		assertEquals(0, strFunctions.getDuplicateCount(""));
+		fail("Not suppose to execute this.");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testDuplicatesForSpace() {
+		assertEquals(0, strFunctions.getDuplicateCount(" "));
+		fail("Not suppose to execute this.");
+	}
 }

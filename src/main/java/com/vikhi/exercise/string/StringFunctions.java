@@ -286,6 +286,10 @@ public class StringFunctions {
     }
     
     public int getDuplicateCount(final String text) {
+    	if (text == null || "".equals(text.trim())) {
+    		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+    	}
+    	
     	return 0;
     }
     
