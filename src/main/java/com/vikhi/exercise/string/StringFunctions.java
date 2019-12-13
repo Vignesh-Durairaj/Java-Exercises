@@ -285,6 +285,10 @@ public class StringFunctions {
     	}
     }
     
+    public int getDuplicateCount(final String text) {
+    	return 0;
+    }
+    
     private void constructRectangle(final int width, final int height) {
     	for (int h = 1; h <= height; h ++) {
     		StringBuilder builder = new StringBuilder();

@@ -349,4 +349,14 @@ public class StringFunctionsTest {
 		assertEquals("test", strFunctions.maskify(null));
 		fail("Not suppose to execute this.");
 	}
+	
+	@Test
+	public void testDuplicatesInString() {
+		assertEquals(0, strFunctions.getDuplicateCount("abcde"));
+		assertEquals(1, strFunctions.getDuplicateCount("abcdea"));
+		assertEquals(1, strFunctions.getDuplicateCount("indivisibility"));
+		assertEquals(2, strFunctions.getDuplicateCount("Indivisibilities"));
+		assertEquals(2, strFunctions.getDuplicateCount("aA11"));
+		assertEquals(2, strFunctions.getDuplicateCount("ABBA"));
+	}
 }
