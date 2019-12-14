@@ -3,7 +3,9 @@ package com.vikhi.exercise.string;
 import static com.vikhi.util.ConstantsHelper.MSG_SPECIFY_VALID_STRING_INPUT;
 import static java.util.Arrays.asList;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -303,7 +305,27 @@ public class StringFunctions {
     }
     
     public boolean areValidBraces(final String braces) {
-    	return false;
+    	
+    	Map<Character, Character> bracesMap = new HashMap<>();
+    	bracesMap.put('(', ')');
+    	bracesMap.put('[', ']');
+    	bracesMap.put('{', '}');
+    	
+    	Deque<Character> bracesStack = new ArrayDeque<>();
+    	for (char c : braces.toCharArray()) {
+    		if (!bracesStack.isEmpty()) {
+    			char top = bracesStack.peek();
+    			if (bracesMap.containsKey(top) && c == bracesMap.get(top)) {
+    				bracesStack.pop();
+    			} else {
+    				bracesStack.push(c);
+    			}
+    		} else {
+    			bracesStack.push(c);
+    		}
+    	}
+    	
+    	return bracesStack.isEmpty();
     }
     
     private void constructRectangle(final int width, final int height) {
