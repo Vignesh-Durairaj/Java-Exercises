@@ -302,6 +302,10 @@ public class StringFunctions {
     			.count();
     }
     
+    public boolean areValidBraces(final String braces) {
+    	return false;
+    }
+    
     private void constructRectangle(final int width, final int height) {
     	for (int h = 1; h <= height; h ++) {
     		StringBuilder builder = new StringBuilder();

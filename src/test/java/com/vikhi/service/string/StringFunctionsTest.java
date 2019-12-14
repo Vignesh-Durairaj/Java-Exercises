@@ -377,4 +377,13 @@ public class StringFunctionsTest {
 		assertEquals(0, strFunctions.getDuplicateCount(" "));
 		fail("Not suppose to execute this.");
 	}
+	
+	@Test
+	public void testValidBraces() {
+		assertTrue(strFunctions.areValidBraces("(){}[]"));
+		assertTrue(strFunctions.areValidBraces("([{}])"));
+		assertFalse(strFunctions.areValidBraces("(}"));
+		assertFalse(strFunctions.areValidBraces("[(])"));
+		assertFalse(strFunctions.areValidBraces("[({})](]"));
+	}
 }
