@@ -361,7 +361,7 @@ public class StringFunctionsTest {
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void testDuplicatesForNullString() {
+	public void testDuplicatesForNull() {
 		assertEquals(0, strFunctions.getDuplicateCount(null));
 		fail("Not suppose to execute this.");
 	}
@@ -385,5 +385,23 @@ public class StringFunctionsTest {
 		assertFalse(strFunctions.areValidBraces("(}"));
 		assertFalse(strFunctions.areValidBraces("[(])"));
 		assertFalse(strFunctions.areValidBraces("[({})](]"));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testValidBracesForNull() {
+		assertEquals("test", strFunctions.areValidBraces(null));
+		fail("Not suppose to execute this.");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testValidBracesForEmptyString() {
+		assertEquals(0, strFunctions.areValidBraces(""));
+		fail("Not suppose to execute this.");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testValidBracesForSpace() {
+		assertEquals(0, strFunctions.areValidBraces(" "));
+		fail("Not suppose to execute this.");
 	}
 }
