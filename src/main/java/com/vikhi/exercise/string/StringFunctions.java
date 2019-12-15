@@ -305,6 +305,9 @@ public class StringFunctions {
     }
     
     public boolean areValidBraces(final String braces) {
+    	if (braces == null || "".equals(braces.trim())) {
+    		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+    	}
     	
     	Map<Character, Character> bracesMap = new HashMap<>();
     	bracesMap.put('(', ')');
