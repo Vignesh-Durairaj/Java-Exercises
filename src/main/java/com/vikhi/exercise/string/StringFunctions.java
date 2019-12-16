@@ -331,6 +331,14 @@ public class StringFunctions {
     	return bracesStack.isEmpty();
     }
     
+    public boolean isPangram(final String sentence) {
+    	if (sentence == null || "".equals(sentence.trim())) {
+    		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+    	}
+    	
+    	return false;
+    }
+    
     private void constructRectangle(final int width, final int height) {
     	for (int h = 1; h <= height; h ++) {
     		StringBuilder builder = new StringBuilder();
