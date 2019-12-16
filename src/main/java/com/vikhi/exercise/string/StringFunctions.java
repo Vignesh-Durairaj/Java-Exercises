@@ -1,6 +1,7 @@
 package com.vikhi.exercise.string;
 
 import static com.vikhi.util.ConstantsHelper.MSG_SPECIFY_VALID_STRING_INPUT;
+import static com.vikhi.util.ConstantsHelper.SYMBOL_BLANK;
 import static java.util.Arrays.asList;
 
 import java.util.ArrayDeque;
@@ -336,7 +337,14 @@ public class StringFunctions {
     		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
     	}
     	
-    	return false;
+    	String filteredSentence = sentence.toUpperCase().replaceAll("[^A-Z]", SYMBOL_BLANK);
+    	for (char c = 'A'; c <= 'Z'; c ++) {
+    		if (filteredSentence.indexOf(c) < 0) {
+    			return false;
+    		}
+    	}
+    	
+    	return true;
     }
     
     private void constructRectangle(final int width, final int height) {
