@@ -404,4 +404,28 @@ public class StringFunctionsTest {
 		assertEquals(0, strFunctions.areValidBraces(" "));
 		fail("Not suppose to execute this.");
 	}
+	
+	@Test
+	public void testPangram() {
+		assertTrue(strFunctions.isPangram("The quick brown fox jumps over the lazy dog."));
+		assertFalse(strFunctions.isPangram("You shall not pass!"));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPangramForNull() {
+		assertTrue(strFunctions.isPangram(null));
+		fail("Not suppose to execute this.");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPangramForEmptyString() {
+		assertTrue(strFunctions.isPangram(""));
+		fail("Not suppose to execute this.");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPangramForSpace() {
+		assertTrue(strFunctions.isPangram(" "));
+		fail("Not suppose to execute this.");
+	}
 }
