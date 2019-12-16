@@ -4,7 +4,9 @@ import static com.vikhi.util.ConstantsHelper.MSG_SPECIFY_VALID_STRING_INPUT;
 import static java.util.Arrays.asList;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.IntFunction;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -283,6 +285,21 @@ public class StringFunctions {
     		int startIndex = inputString.length() - 4;
     		return IntStream.range(0, startIndex).mapToObj(idx -> String.valueOf("#")).collect(Collectors.joining()).concat(inputString.substring(startIndex, inputString.length()));
     	}
+    }
+    
+    public long getDuplicateCount(final String text) {
+    	if (text == null || "".equals(text.trim())) {
+    		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+    	}
+    	
+    	Map<String, Integer> countMap = new HashMap<>();
+    	Arrays.stream(text.toLowerCase().split(""))
+    		.forEach(c -> countMap.put(c, countMap.containsKey(c) ? countMap.get(c) + 1 : 1));
+    	
+    	return countMap
+    			.values().stream()
+    			.filter(val -> val > 1)
+    			.count();
     }
     
     private void constructRectangle(final int width, final int height) {
