@@ -347,6 +347,10 @@ public class StringFunctions {
     	return true;
     }
     
+    public String encodeDuplicates(final String word) {
+    	return SYMBOL_BLANK;
+    }
+    
     private void constructRectangle(final int width, final int height) {
     	for (int h = 1; h <= height; h ++) {
     		StringBuilder builder = new StringBuilder();
