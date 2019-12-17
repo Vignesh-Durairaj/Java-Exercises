@@ -428,4 +428,12 @@ public class StringFunctionsTest {
 		assertTrue(strFunctions.isPangram(" "));
 		fail("Not suppose to execute this.");
 	}
+	
+	@Test
+	public void testDuplicatesEncoder() {
+		assertEquals("(((", strFunctions.encodeDuplicates("din"));
+		assertEquals("()()()", strFunctions.encodeDuplicates("recede"));
+		assertEquals(")())())", strFunctions.encodeDuplicates("Success"));
+		assertEquals("))((", strFunctions.encodeDuplicates("(( @"));
+	}
 }
