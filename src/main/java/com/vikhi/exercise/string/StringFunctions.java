@@ -348,6 +348,10 @@ public class StringFunctions {
     }
     
     public String encodeDuplicates(final String word) {
+    	if (word == null || "".equals(word)) {
+    		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+    	}
+    	
     	return SYMBOL_BLANK;
     }
     

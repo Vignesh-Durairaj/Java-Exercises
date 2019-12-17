@@ -435,5 +435,19 @@ public class StringFunctionsTest {
 		assertEquals("()()()", strFunctions.encodeDuplicates("recede"));
 		assertEquals(")())())", strFunctions.encodeDuplicates("Success"));
 		assertEquals("))((", strFunctions.encodeDuplicates("(( @"));
+		assertEquals("(", strFunctions.encodeDuplicates(" "));
+		assertEquals("))", strFunctions.encodeDuplicates("  "));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testDuplicatesEncoderForNull() {
+		assertEquals("", strFunctions.encodeDuplicates(null));
+		fail("Not suppose to execute this.");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testDuplicatesEncoderForEmptyString() {
+		assertEquals("", strFunctions.encodeDuplicates(""));
+		fail("Not suppose to execute this.");
 	}
 }
