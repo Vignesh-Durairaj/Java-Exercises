@@ -280,6 +280,22 @@ public class ArrayMethods {
 				.toArray();
 	}
 	
+	public int findEvenIndex(final int[] arr) {
+		if (IntStream.range(1, arr.length).map(index -> arr[index]).sum() == 0) {
+			return 0;
+		}
+		
+		for (int i = 1; i < arr.length - 1; i ++) {
+			int leftSum = IntStream.range(0, i).map(index -> arr[index]).sum();
+			int rightSum = IntStream.range(i + 1, arr.length).map(index -> arr[index]).sum();
+			
+			if (leftSum == rightSum) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 	/**
 	 * Reverses the array passed as a parameter, without using another array as intermediate
 	 * 
