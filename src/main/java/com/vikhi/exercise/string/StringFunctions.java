@@ -10,6 +10,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.function.IntFunction;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -295,11 +296,7 @@ public class StringFunctions {
     		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
     	}
     	
-    	Map<String, Integer> countMap = new HashMap<>();
-    	Arrays.stream(text.toLowerCase().split(""))
-    		.forEach(c -> countMap.put(c, countMap.containsKey(c) ? countMap.get(c) + 1 : 1));
-    	
-    	return countMap
+    	return getCountMap(text.toLowerCase())
     			.values().stream()
     			.filter(val -> val > 1)
     			.count();
@@ -347,6 +344,25 @@ public class StringFunctions {
     	return true;
     }
     
+    public String encodeDuplicates(final String word) {
+    	if (word == null || "".equals(word)) {
+    		throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+    	}
+    	
+    	String caseInsensitiveWord = word.toLowerCase();
+    	List<String> repeatedCharacters = getCountMap(caseInsensitiveWord).entrySet().stream()
+    			.filter(entry -> entry.getValue() > 1)
+    			.map(Entry::getKey)
+    			.collect(Collectors.toList());
+    	
+    	StringBuilder builder = new StringBuilder();
+    	for (String s : caseInsensitiveWord.split("")) {
+    		builder.append(repeatedCharacters.contains(s) ? ")" : "(");
+    	}
+    	
+    	return builder.toString();
+    }
+    
     private void constructRectangle(final int width, final int height) {
     	for (int h = 1; h <= height; h ++) {
     		StringBuilder builder = new StringBuilder();
@@ -362,5 +378,13 @@ public class StringFunctions {
     private void addCharacterToBuilder(final StringBuilder builder, final int width, IntFunction<String> func) {
     	IntStream.rangeClosed(1, width)
     		.forEach(num -> builder.append(func.apply(num)));
+    }
+    
+    private Map<String, Integer> getCountMap(final String text) {
+    	Map<String, Integer> countMap = new HashMap<>();
+    	Arrays.stream(text.split(""))
+    		.forEach(c -> countMap.put(c, countMap.containsKey(c) ? countMap.get(c) + 1 : 1));
+    	
+    	return countMap;
     }
 }
