@@ -296,7 +296,7 @@ public class ArrayMethods {
 		return -1;
 	}
 	
-	public int[] deleteOccurrences(final int[] arr, final int n) {
+	public int[] deleteNth(final int[] elements, final int maxOccurrences) {
 		List<Integer> inputList = new ArrayList<>();
 		
 		int[] outList = new int[inputList.size()];

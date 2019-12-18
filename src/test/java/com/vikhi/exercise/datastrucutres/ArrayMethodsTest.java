@@ -1,5 +1,6 @@
 package com.vikhi.exercise.datastrucutres;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -326,6 +327,15 @@ public class ArrayMethodsTest {
 	        assertEquals(6, am.findEvenIndex(new int[] {4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4}));
 	        assertEquals(-1, am.findEvenIndex(new int[] {1,2,3,4,5,6}));
 	        assertEquals(-1, am.findEvenIndex(new int[] {-8505, -5130, 1926, -9026}));
+		}
+		
+		@Test
+		public void testDeleteNth() {
+			assertArrayEquals(new int[] {20, 37, 21}, am.deleteNth(new int[] {20, 37, 20, 21}, 1));
+			assertArrayEquals(new int[] {1, 1, 3, 3, 7, 2, 2, 2}, am.deleteNth(new int[] {1, 1, 3, 3, 7, 2, 2, 2, 2}, 3));
+			assertArrayEquals(new int[] {1, 2, 3, 1, 1, 2, 2, 3, 3, 4, 5}, am.deleteNth(new int[] {1, 2, 3, 1, 1, 2, 1, 2, 3, 3, 2, 4, 5, 3, 1}, 3));
+			assertArrayEquals(new int[] {1, 1, 1, 1, 1}, am.deleteNth(new int[] {1, 1, 1, 1, 1}, 5));
+			assertArrayEquals(new int[] {}, am.deleteNth(new int[] {}, 5));
 		}
 	}
 	
