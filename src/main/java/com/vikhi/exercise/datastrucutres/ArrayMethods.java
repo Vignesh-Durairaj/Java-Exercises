@@ -296,6 +296,16 @@ public class ArrayMethods {
 		return -1;
 	}
 	
+	public int[] deleteOccurrences(final int[] arr, final int n) {
+		List<Integer> inputList = new ArrayList<>();
+		
+		int[] outList = new int[inputList.size()];
+		for (int i = 0; i < inputList.size(); i ++) {
+			outList[i] = inputList.get(i);
+		}
+		return outList;
+	}
+	
 	/**
 	 * Reverses the array passed as a parameter, without using another array as intermediate
 	 * 
