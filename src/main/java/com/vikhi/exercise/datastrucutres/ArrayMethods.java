@@ -297,7 +297,14 @@ public class ArrayMethods {
 	}
 	
 	public int[] deleteNth(final int[] elements, final int maxOccurrences) {
-		List<Integer> inputList = new ArrayList<>();
+		List<Integer> inputList = Arrays.stream(elements).boxed().collect(Collectors.toList());
+		
+		for (int i = inputList.size() - 1; i >= 0; i --) {
+			int value = inputList.get(i);
+			if (Collections.frequency(inputList, value) > maxOccurrences) {
+				inputList.remove(i);
+			}
+		}
 		
 		int[] outList = new int[inputList.size()];
 		for (int i = 0; i < inputList.size(); i ++) {
