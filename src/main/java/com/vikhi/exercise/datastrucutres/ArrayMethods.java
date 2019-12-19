@@ -280,6 +280,39 @@ public class ArrayMethods {
 				.toArray();
 	}
 	
+	public int findEvenIndex(final int[] arr) {
+		if (IntStream.range(1, arr.length).map(index -> arr[index]).sum() == 0) {
+			return 0;
+		}
+		
+		for (int i = 1; i < arr.length - 1; i ++) {
+			int leftSum = IntStream.range(0, i).map(index -> arr[index]).sum();
+			int rightSum = IntStream.range(i + 1, arr.length).map(index -> arr[index]).sum();
+			
+			if (leftSum == rightSum) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public int[] deleteNth(final int[] elements, final int maxOccurrences) {
+		List<Integer> inputList = Arrays.stream(elements).boxed().collect(Collectors.toList());
+		
+		for (int i = inputList.size() - 1; i >= 0; i --) {
+			int value = inputList.get(i);
+			if (Collections.frequency(inputList, value) > maxOccurrences) {
+				inputList.remove(i);
+			}
+		}
+		
+		int[] outList = new int[inputList.size()];
+		for (int i = 0; i < inputList.size(); i ++) {
+			outList[i] = inputList.get(i);
+		}
+		return outList;
+	}
+	
 	/**
 	 * Reverses the array passed as a parameter, without using another array as intermediate
 	 * 
