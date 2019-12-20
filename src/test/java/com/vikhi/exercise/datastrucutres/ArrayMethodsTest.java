@@ -337,6 +337,19 @@ public class ArrayMethodsTest {
 			assertArrayEquals(new int[] {1, 1, 1, 1, 1}, am.deleteNth(new int[] {1, 1, 1, 1, 1}, 5));
 			assertArrayEquals(new int[] {}, am.deleteNth(new int[] {}, 5));
 		}
+		
+		@Test
+		public void testLongestConsec() {
+			assertEquals("abigailtheta", am.longestConsec(new String[] {"zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"}, 2));
+			assertEquals("oocccffuucccjjjkkkjyyyeehh", am.longestConsec(new String[] {"ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"}, 1));
+			assertEquals("", am.longestConsec(new String[] {}, 3));
+			assertEquals("wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck", am.longestConsec(new String[] {"itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"}, 2));
+			assertEquals("wlwsasphmxxowiaxujylentrklctozmymu", am.longestConsec(new String[] {"wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"}, 2));
+			assertEquals("", am.longestConsec(new String[] {"zone", "abigail", "theta", "form", "libe", "zas"}, -2));
+			assertEquals("ixoyx3452zzzzzzzzzzzz", am.longestConsec(new String[] {"it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"}, 3));
+			assertEquals("", am.longestConsec(new String[] {"it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"}, 15));
+			assertEquals("", am.longestConsec(new String[] {"it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"}, 0));
+		}
 	}
 	
 	@RunWith(Parameterized.class)
