@@ -1,5 +1,7 @@
 package com.vikhi.exercise.datastrucutres;
 
+import static com.vikhi.util.ConstantsHelper.SYMBOL_BLANK;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -311,6 +313,25 @@ public class ArrayMethods {
 			outList[i] = inputList.get(i);
 		}
 		return outList;
+	}
+	
+	public String longestConsec(String[] strarr, int k) {
+		
+		if (strarr.length == 0 || k > strarr.length || k <= 0) {
+			return SYMBOL_BLANK;
+		}
+		
+		String longestConsec = SYMBOL_BLANK;
+		List<String> strings = Arrays.stream(strarr).collect(Collectors.toList());
+		
+		for(int i = 0; i <= strarr.length - k; i ++) {
+			String currentString = String.join(SYMBOL_BLANK, strings.subList(i, i + k));
+			if (currentString.length() > longestConsec.length()) {
+				longestConsec = currentString;
+			}
+		}
+		
+		return longestConsec;
 	}
 	
 	/**
