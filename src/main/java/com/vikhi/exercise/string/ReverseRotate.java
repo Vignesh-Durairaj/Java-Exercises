@@ -1,5 +1,6 @@
 package com.vikhi.exercise.string;
 
+import static com.vikhi.util.ConstantsHelper.MSG_SPECIFY_VALID_STRING_INPUT;
 import static com.vikhi.util.ConstantsHelper.SYMBOL_BLANK;
 
 import java.util.Arrays;
@@ -17,6 +18,10 @@ import java.util.Arrays;
 public class ReverseRotate {
 
 	public String revRot(String string, int size) {
+		
+		if (string == null) {
+			throw new IllegalArgumentException(MSG_SPECIFY_VALID_STRING_INPUT);
+		}
 		
 		int stringLength = string.length();
 		if (size == 0 || stringLength < size) {
