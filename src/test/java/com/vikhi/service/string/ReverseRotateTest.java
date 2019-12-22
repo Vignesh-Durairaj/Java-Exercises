@@ -26,6 +26,6 @@ public class ReverseRotateTest {
 		assertEquals("23456771", reverseRotate.revRot("123456779", 8));
 		assertEquals("", reverseRotate.revRot("", 8));
 		assertEquals("", reverseRotate.revRot("123456779", 0));
-		assertEquals("0365065073456944", reverseRotate.revRot("563000655734469485", 6));
+		assertEquals("0365065073456944", reverseRotate.revRot("563000655734469485", 4));
 	}
 }
