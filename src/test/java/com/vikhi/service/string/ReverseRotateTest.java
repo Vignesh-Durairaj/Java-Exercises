@@ -1,6 +1,7 @@
 package com.vikhi.service.string;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,5 +28,11 @@ public class ReverseRotateTest {
 		assertEquals("", reverseRotate.revRot("", 8));
 		assertEquals("", reverseRotate.revRot("123456779", 0));
 		assertEquals("0365065073456944", reverseRotate.revRot("563000655734469485", 4));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testReverseRotateForNullInput() {
+		assertEquals("", reverseRotate.revRot(null, 6));
+		fail("An exception is suppose to be thrown here");
 	}
 }
