@@ -450,4 +450,11 @@ public class StringFunctionsTest {
 		assertEquals("", strFunctions.encodeDuplicates(""));
 		fail("Not suppose to execute this.");
 	}
+	
+	@Test
+	public void testPigLatin() {
+		assertEquals("igPay atinlay siay oolcay", strFunctions.getPigLatin("Pig latin is cool"));
+		assertEquals("hisTay siay ymay tringsay", strFunctions.getPigLatin("This is my string"));
+		assertEquals("elloHay orldway !", strFunctions.getPigLatin("Hello world !"));
+	}
 }

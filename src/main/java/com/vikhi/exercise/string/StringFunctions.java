@@ -2,6 +2,7 @@ package com.vikhi.exercise.string;
 
 import static com.vikhi.util.ConstantsHelper.MSG_SPECIFY_VALID_STRING_INPUT;
 import static com.vikhi.util.ConstantsHelper.SYMBOL_BLANK;
+import static com.vikhi.util.ConstantsHelper.SYMBOL_SPACE;
 import static java.util.Arrays.asList;
 
 import java.util.ArrayDeque;
@@ -361,6 +362,12 @@ public class StringFunctions {
     	}
     	
     	return builder.toString();
+    }
+    
+    public String getPigLatin(final String str) {
+    	return Arrays.stream(str.split(SYMBOL_SPACE))
+    		.map(word -> word.length() == 1 && ("!,.;:'?").indexOf(word.charAt(0)) >= 0? word : (word.substring(1, word.length()).concat(word.substring(0, 1).concat("ay"))))
+    		.collect(Collectors.joining(SYMBOL_SPACE));
     }
     
     private void constructRectangle(final int width, final int height) {
