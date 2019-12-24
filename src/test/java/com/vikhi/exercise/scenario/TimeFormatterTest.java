@@ -30,6 +30,7 @@ public class TimeFormatterTest {
 		@Parameters
 		public static Collection<Object[]> params() {
 			return Arrays.asList(new Object[][] {
+				{0, "now"}, 
 				{1, "1 second"}, 
 				{60, "1 minute"}, 
 				{62, "1 minute and 2 seconds"}, 
@@ -43,9 +44,5 @@ public class TimeFormatterTest {
 		public void testTimeFormatting() {
 			assertEquals(formattedTime, timeFormatter.formatDuration(seconds));
 		}
-	}
-	
-	public static class singleScenarioTest {
-		
 	}
 }

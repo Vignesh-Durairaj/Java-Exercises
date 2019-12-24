@@ -25,7 +25,7 @@ public class TimeFormatter {
 	public String formatDuration(final int seconds) {
 		
 		Map<String, Integer> decoderMap = new HashMap<>();
-		String decodedString;
+		String decodedString = "now";
 		
 		int remaining = seconds;
 		int second = 0;
@@ -88,7 +88,7 @@ public class TimeFormatter {
 		
 		if (decodedStrings.size() == 1) {
 			decodedString = decodedStrings.get(0);
-		} else {
+		} else if (decodedStrings.size() > 1) {
 			decodedString = decodedStrings.subList(0, decodedStrings.size() - 1).stream().collect(Collectors.joining(", ")).concat(" and ").concat(decodedStrings.get(decodedStrings.size() - 1));
 		}
 		
