@@ -24,9 +24,28 @@ public class TimeFormatter {
 	
 	public String formatDuration(final int seconds) {
 		
-		Map<TimeDecoder, Integer> decoderMap = new HashMap<>();
-		String decodedString = "now";
 		
+		String decodedString = "now";
+		Map<TimeDecoder, Integer> decoderMap = getDecoderMap(seconds);
+		
+		List<String> decodedStrings = decoderMap.entrySet().stream()
+			.filter(entry -> entry.getValue() > 0)
+			.map(this::getDecodedString)
+			.sorted(Map.Entry.comparingByKey())
+			.map(Entry::getValue)
+			.collect(Collectors.toList());
+		
+		if (decodedStrings.size() == 1) {
+			decodedString = decodedStrings.get(0);
+		} else if (decodedStrings.size() > 1) {
+			decodedString = decodedStrings.subList(0, decodedStrings.size() - 1).stream().collect(Collectors.joining(", ")).concat(" and ").concat(decodedStrings.get(decodedStrings.size() - 1));
+		}
+		
+		return decodedString;
+	}
+	
+	private Map<TimeDecoder, Integer> getDecoderMap(final int seconds) {
+		Map<TimeDecoder, Integer> decoderMap = new HashMap<>();
 		int remaining = seconds;
 		int second = 0;
 		int minute = 0;
@@ -81,20 +100,8 @@ public class TimeFormatter {
 		decoderMap.put(minutesDecoder, minute);
 		decoderMap.put(secondsDecoder, second);
 		
-		List<String> decodedStrings = decoderMap.entrySet().stream()
-			.filter(entry -> entry.getValue() > 0)
-			.map(this::getDecodedString)
-			.sorted(Map.Entry.comparingByKey())
-			.map(Entry::getValue)
-			.collect(Collectors.toList());
+		return decoderMap;
 		
-		if (decodedStrings.size() == 1) {
-			decodedString = decodedStrings.get(0);
-		} else if (decodedStrings.size() > 1) {
-			decodedString = decodedStrings.subList(0, decodedStrings.size() - 1).stream().collect(Collectors.joining(", ")).concat(" and ").concat(decodedStrings.get(decodedStrings.size() - 1));
-		}
-		
-		return decodedString;
 	}
 	
 	private Entry<Integer, String> getDecodedString (Entry<TimeDecoder, Integer> decodedEntry) {
