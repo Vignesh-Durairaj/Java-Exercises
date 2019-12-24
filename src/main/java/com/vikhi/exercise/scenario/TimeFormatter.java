@@ -16,11 +16,11 @@ public class TimeFormatter {
 	private static final int DAY = 86400;
 	private static final int YEAR = 31536000;
 	
-	private final TimeDecoder SECOND_STR = new TimeDecoder(5, "second");
-	private final TimeDecoder MINUTE_STR = new TimeDecoder(4, "minute");
-	private final TimeDecoder HOUR_STR = new TimeDecoder(3, "hour");
-	private final TimeDecoder DAY_STR = new TimeDecoder(2, "day");
-	private final TimeDecoder YEAR_STR = new TimeDecoder(1, "year");
+	private final TimeDecoder secondsDecoder = new TimeDecoder(5, "second");
+	private final TimeDecoder minutesDecoder = new TimeDecoder(4, "minute");
+	private final TimeDecoder hoursDecoder = new TimeDecoder(3, "hour");
+	private final TimeDecoder daysDecoder = new TimeDecoder(2, "day");
+	private final TimeDecoder yearsDecoder = new TimeDecoder(1, "year");
 	
 	public String formatDuration(final int seconds) {
 		
@@ -75,11 +75,11 @@ public class TimeFormatter {
 			second = 0;
 		}
 		
-		decoderMap.put(YEAR_STR, year);
-		decoderMap.put(DAY_STR, day);
-		decoderMap.put(HOUR_STR, hour);
-		decoderMap.put(MINUTE_STR, minute);
-		decoderMap.put(SECOND_STR, second);
+		decoderMap.put(yearsDecoder, year);
+		decoderMap.put(daysDecoder, day);
+		decoderMap.put(hoursDecoder, hour);
+		decoderMap.put(minutesDecoder, minute);
+		decoderMap.put(secondsDecoder, second);
 		
 		List<String> decodedStrings = decoderMap.entrySet().stream()
 			.filter(entry -> entry.getValue() > 0)
