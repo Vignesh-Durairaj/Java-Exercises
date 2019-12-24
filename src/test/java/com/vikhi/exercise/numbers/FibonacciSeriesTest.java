@@ -49,11 +49,19 @@ public class FibonacciSeriesTest {
 			assertNotNull(outputVal);
 			fail("Input Arguments should not be a negative a value");
 		}
+		
 		@Test(expected=IllegalArgumentException.class)
 		public void testNegativeInputForFastProcess() {
 			BigInteger outputVal = numericalMethods.getValueFromFastProcess(-1);
 			assertNotNull(outputVal);
 			fail("Input Arguments should not be a negative a value");
+		}
+		
+		@Test
+		public void testFibonacciPerimeters() {
+			assertEquals(BigInteger.valueOf(80), numericalMethods.getFibonacciPerimeters(BigInteger.valueOf(5)));
+			assertEquals(BigInteger.valueOf(216), numericalMethods.getFibonacciPerimeters(BigInteger.valueOf(7)));
+			assertEquals(BigInteger.valueOf(14098308), numericalMethods.getFibonacciPerimeters(BigInteger.valueOf(30)));
 		}
 	}
 	

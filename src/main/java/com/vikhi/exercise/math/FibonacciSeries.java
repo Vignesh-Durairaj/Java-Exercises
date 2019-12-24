@@ -3,6 +3,7 @@ package com.vikhi.exercise.math;
 import static com.vikhi.util.ConstantsHelper.MSG_SHOULD_BE_POSITIVE_INTEGER;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.IntSupplier;
@@ -134,5 +135,17 @@ public class FibonacciSeries {
 				.generate(fibbSupplier)
 				.limit(count)
 				.average().orElse(0D);
+	}
+	
+	public BigInteger getFibonacciPerimeters(final BigInteger n) {
+		BigInteger[] fibonacciNumbers = new BigInteger[n.intValue()];
+		
+		fibonacciNumbers[0] = BigInteger.ONE;
+		fibonacciNumbers[1] = BigInteger.valueOf(2);
+		for (int i = 2; i < n.intValue(); i++) {
+			fibonacciNumbers[i] = fibonacciNumbers[i - 1].add(fibonacciNumbers[i - 2]);
+		}
+		
+		return Arrays.stream(fibonacciNumbers).reduce(BigInteger.ONE, BigInteger::add).multiply(BigInteger.valueOf(4));
 	}
 }
