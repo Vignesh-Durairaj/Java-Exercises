@@ -34,12 +34,12 @@ public class TimeFormatter {
 		int day = 0;
 		int year = 0;
 		
-		if (seconds > 31536000) {
-			year = remaining / DAY;
+		if (seconds > YEAR) {
+			year = remaining / YEAR;
 			remaining = remaining % YEAR;
 		}
 		
-		if (seconds > 86400) {
+		if (seconds > DAY) {
 			day = remaining / DAY;
 			remaining = remaining % DAY;
 			
@@ -49,7 +49,7 @@ public class TimeFormatter {
 			}
 		}
 		
-		if (seconds > 3600) {
+		if (seconds > HOUR) {
 			hour = remaining / HOUR;
 			remaining = remaining % HOUR;
 			
@@ -59,7 +59,7 @@ public class TimeFormatter {
 			}
 		}
 		
-		if (seconds > 60) {
+		if (seconds > MINUTE) {
 			minute = remaining / MINUTE;
 			remaining = remaining % MINUTE;
 			
@@ -98,65 +98,5 @@ public class TimeFormatter {
 	private String getDecodedString (Entry<String, Integer> decodedEntry) {
 		Integer val = decodedEntry.getValue();
 		return val.toString().concat(SYMBOL_SPACE).concat(decodedEntry.getKey()).concat(val > 1 ? "s" : SYMBOL_BLANK);
-	}
-	
-	private void restructureMap (final Map<String, Integer> inputMap) {
-		for (Entry<String, Integer> entry : inputMap.entrySet()) {
-			if (entry.getKey().equals(SECOND_STR) && entry.getValue().equals(MINUTE)) {
-				inputMap.put(SECOND_STR, 0);
-				inputMap.put(MINUTE_STR, inputMap.get(MINUTE_STR) + 1);
-			}
-			
-			if (entry.getKey().equals(MINUTE_STR) && entry.getValue().equals(MINUTE)) {
-				inputMap.put(MINUTE_STR, 0);
-				inputMap.put(HOUR_STR, inputMap.get(HOUR_STR) + 1);
-			}
-			
-			if (entry.getKey().equals(HOUR_STR) && entry.getValue().equals(24)) {
-				inputMap.put(HOUR_STR, 0);
-				inputMap.put(DAY_STR, inputMap.get(DAY_STR) + 1);
-			}
-			
-			if (entry.getKey().equals(DAY_STR) && entry.getValue().equals(365)) {
-				inputMap.put(DAY_STR, 0);
-				inputMap.put(YEAR_STR, inputMap.get(YEAR_STR) + 1);
-			}
-		}
-	}
-	
-	private Map<String, DecodeObject> initDecoderMap() {
-		Map<String, DecodeObject> decoderMap = new HashMap<>();
-		decoderMap.put(SECOND_STR, new DecodeObject(SECOND_STR, 60, 60));
-		decoderMap.put(MINUTE_STR, new DecodeObject(MINUTE_STR, 60, 60));
-		decoderMap.put(HOUR_STR, new DecodeObject(HOUR_STR, 24, 3600));
-		decoderMap.put(DAY_STR, new DecodeObject(DAY_STR, 365, 86400));
-		decoderMap.put(YEAR_STR, new DecodeObject(YEAR_STR, 1, 31536000));
-		
-		return decoderMap;
-	}
-	
-	private class DecodeObject {
-		private String componentName;
-		private int maxValue;
-		private int maxSeconds;
-		
-		public DecodeObject(String componentName, int maxValue, int maxSeconds) {
-			super();
-			this.componentName = componentName;
-			this.maxValue = maxValue;
-			this.maxSeconds = maxSeconds;
-		}
-
-		public String getComponentName() {
-			return componentName;
-		}
-
-		public int getMaxValue() {
-			return maxValue;
-		}
-
-		public int getMaxSeconds() {
-			return maxSeconds;
-		}
 	}
 }
