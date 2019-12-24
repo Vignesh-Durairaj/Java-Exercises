@@ -36,7 +36,10 @@ public class TimeFormatterTest {
 				{62, "1 minute and 2 seconds"}, 
 				{120, "2 minutes"}, 
 				{3600, "1 hour"}, 
-				{3662, "1 hour, 1 minute and 2 seconds"}
+				{3662, "1 hour, 1 minute and 2 seconds"}, 
+				{0x7fffffff, "68 years, 35 days, 3 hours, 14 minutes and 7 seconds"}, 
+				{86400, "1 day"}, 
+				{31536000, "1 year"}
 			});
 		}
 		
