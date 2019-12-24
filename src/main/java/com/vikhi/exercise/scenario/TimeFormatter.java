@@ -108,6 +108,7 @@ public class TimeFormatter {
 
 			@Override
 			public String getValue() {
+				setValue(null);
 				return val.toString().concat(SYMBOL_SPACE).concat(decodedEntry.getKey().getDesc()).concat(val > 1 ? "s" : SYMBOL_BLANK);
 			}
 
