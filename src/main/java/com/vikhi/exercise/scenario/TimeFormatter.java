@@ -3,6 +3,7 @@ package com.vikhi.exercise.scenario;
 import static com.vikhi.util.ConstantsHelper.SYMBOL_BLANK;
 import static com.vikhi.util.ConstantsHelper.SYMBOL_SPACE;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,15 +17,15 @@ public class TimeFormatter {
 	private static final int DAY = 86400;
 	private static final int YEAR = 31536000;
 	
-	private static final String SECOND_STR = "second";
-	private static final String MINUTE_STR = "minute";
-	private static final String HOUR_STR = "hour";
-	private static final String DAY_STR = "day";
-	private static final String YEAR_STR = "year";
+	private final TimeDecoder SECOND_STR = new TimeDecoder(5, "second");
+	private final TimeDecoder MINUTE_STR = new TimeDecoder(4, "minute");
+	private final TimeDecoder HOUR_STR = new TimeDecoder(3, "hour");
+	private final TimeDecoder DAY_STR = new TimeDecoder(2, "day");
+	private final TimeDecoder YEAR_STR = new TimeDecoder(1, "year");
 	
 	public String formatDuration(final int seconds) {
 		
-		Map<String, Integer> decoderMap = new HashMap<>();
+		Map<TimeDecoder, Integer> decoderMap = new HashMap<>();
 		String decodedString = "now";
 		
 		int remaining = seconds;
@@ -84,6 +85,8 @@ public class TimeFormatter {
 		List<String> decodedStrings = decoderMap.entrySet().stream()
 			.filter(entry -> entry.getValue() > 0)
 			.map(this::getDecodedString)
+			.sorted(Map.Entry.comparingByKey())
+			.map(Entry::getValue)
 			.collect(Collectors.toList());
 		
 		if (decodedStrings.size() == 1) {
@@ -95,8 +98,46 @@ public class TimeFormatter {
 		return decodedString;
 	}
 	
-	private String getDecodedString (Entry<String, Integer> decodedEntry) {
+	private Entry<Integer, String> getDecodedString (Entry<TimeDecoder, Integer> decodedEntry) {
 		Integer val = decodedEntry.getValue();
-		return val.toString().concat(SYMBOL_SPACE).concat(decodedEntry.getKey()).concat(val > 1 ? "s" : SYMBOL_BLANK);
+		return new Entry<Integer, String>() {
+
+			@Override
+			public Integer getKey() {
+				return decodedEntry.getKey().getSortOrder();
+			}
+
+			@Override
+			public String getValue() {
+				return val.toString().concat(SYMBOL_SPACE).concat(decodedEntry.getKey().getDesc()).concat(val > 1 ? "s" : SYMBOL_BLANK);
+			}
+
+			@Override
+			public String setValue(String value) {
+				return null;
+			}
+			
+		};
+	}
+	
+	private class TimeDecoder {
+		
+		private int sortOrder;
+		private String desc;
+
+		public TimeDecoder(int sortOrder, String desc) {
+			super();
+			this.sortOrder = sortOrder;
+			this.desc = desc;
+		}
+
+		public int getSortOrder() {
+			return sortOrder;
+		}
+
+		public String getDesc() {
+			return desc;
+		}
+		
 	}
 }
