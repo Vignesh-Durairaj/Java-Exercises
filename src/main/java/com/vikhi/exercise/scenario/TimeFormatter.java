@@ -3,7 +3,6 @@ package com.vikhi.exercise.scenario;
 import static com.vikhi.util.ConstantsHelper.SYMBOL_BLANK;
 import static com.vikhi.util.ConstantsHelper.SYMBOL_SPACE;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -114,7 +113,7 @@ public class TimeFormatter {
 
 			@Override
 			public String setValue(String value) {
-				return null;
+				return value;
 			}
 			
 		};
