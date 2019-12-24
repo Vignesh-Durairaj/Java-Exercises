@@ -13,6 +13,7 @@ public class ConstantsHelper {
 	public static final String SYMBOL_BLANK = "";
 	public static final String SYMBOL_HYPHEN = "-";
 	public static final String SYMBOL_UNDER_SCORE = "_";
+	public static final String SYMBOL_SPACE = " ";
 	
 	private ConstantsHelper() {}
 }
