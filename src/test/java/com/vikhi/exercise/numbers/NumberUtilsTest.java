@@ -181,6 +181,16 @@ public class NumberUtilsTest {
 	}
 	
 	@Test
+	public void testLargeFactorials() {
+		Factorials factorial = new Factorials();
+		
+		assertEquals("1", factorial.getLargeFactorials(1));
+	    assertEquals("120", factorial.getLargeFactorials(5));
+	    assertEquals("362880", factorial.getLargeFactorials(9));
+	    assertEquals("1307674368000", factorial.getLargeFactorials(15));
+	}
+	
+	@Test
 	public void testLuckyNumberGenerator() {
 		LuckyNumberGenerator lng = new LuckyNumberGenerator();
 		
